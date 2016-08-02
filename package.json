@@ -15,7 +15,7 @@
     "webpack": "webpack --watch"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/webpack",
+    "postinstall": "./node_modules/.bin/webpack"},
   "keywords": [],
   "author": "",
   "license": "ISC",
