@@ -26,9 +26,19 @@ const App = React.createClass({
     hashHistory.push("/signup");
   },
 
+  _logout(e) {
+    e.preventDefault();
+    SessionActions.logOut();
+  },
+
   greeting() {
     if (SessionStore.isUserLoggedIn()) {
       // SIGN OUT BUTTON? ITS UNDER THE PROFILE TAB ON TOP RIGHT
+      return (
+        <nav className="logout-button">
+          <button onClick={this._logout}>Log out</button>
+        </nav>
+      );
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {
       return (
         <nav className="login-signup-buttons">
