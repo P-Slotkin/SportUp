@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   end
 
   def self.generate_session_token
-    SecureRandom.urlsafe_base64a(16)
+    SecureRandom.urlsafe_base64(16)
   end
 
   def reset_session_token!
@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   def is_password?(pw)
-    BCrypt::Password.new(self.password_digest).is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(pw)
   end
 
   def password=(pw)
