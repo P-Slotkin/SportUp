@@ -1,0 +1,71 @@
+.login-form {
+  border-radius: 3px;
+  background-color: #fff;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.26);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  width: 426px;
+  height: 558px;
+  padding: 32px 32px 16px;
+  text_align: center;
+  background-clip: padding-box;
+  padding: 16px 16px 0;
+}
+
+.login-form h3 {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.login-form h2 {
+  font-size: 42px;
+  color: #E51937;
+  font-weight: 500px;
+  line-height: 1.25;
+  padding: 0 0 8px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+
+}
+
+.login-labels {
+  color: black;
+  font-size: 13px;
+  line-height: 1.45;
+  font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+  font-weight: 500;
+}
+
+.login-input {
+  font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+  line-height: 1.45;
+  width: 418px;
+  display: block;
+  padding: 4px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: rgba(0,0,0,.87);
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 3px;
+  background-color: #fafafa;
+}
+
+.login-button {
+  background: #ED1C40;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  vertical-align: middle;
+  line-height: 1;
+  margin-bottom: 16px;
+  border-radius: 3px;
+}

@@ -1,0 +1,70 @@
+.greeting-box {
+  background: #ed1c40;
+  font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+}
+
+.member-greeting {
+  height: 169px;
+  margin-bottom: 16px;
+  min-width: 950px;
+  text-align: center;
+  color: #fff;
+}
+
+.member-greeting h1 {
+  font-weight: 500px;
+  font-size: 34px;
+  line-height: 1.25;
+  padding: 0 0 8px;
+  padding-top: 32px;
+}
+
+.member-greeting h3 {
+  color: rgba(255,255,255,.7);
+  font-size: 16px;
+  font-weight: 400px;
+  margin-bottom: 16px;
+  opacity: 50%;
+}
+
+.notmember-greeting {
+  height: 412px;
+  color: #fff;
+  font-weight: 500px;
+}
+
+.notmember-greeting h1{
+  padding-top: 32px;
+  z-index: 2;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.54);
+  width: 958px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 42px;
+}
+
+.notmember-greeting h3{
+  font-size: 20px;
+  padding-bottom: 16px;
+  margin-top: 4px;
+  width: 425px;
+  padding-right: 533px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.greeting-signup-button {
+  border: 1px solid rgba(255,255,255,.2);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 600 !important;
+  min-height: 36px;
+  text-shadow: none!important;
+  letter-spacing: normal!important;
+  line-height: 30px!important;
+  color: rgba(0,0,0,.87)!important;
+  background: #fff;
+}
