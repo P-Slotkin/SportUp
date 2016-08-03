@@ -42,8 +42,8 @@ const App = React.createClass({
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {
       return (
         <nav className="login-signup-buttons">
-          <button onClick={this._login}>Log in</button>
-          <button onClick={this._signup}>Sign up</button>
+          <Link to="/login">Log in</Link>
+          <button onClick={this._signup} className="login-button">Sign up</button>
         </nav>
       );
     }
