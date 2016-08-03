@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160802151721) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.integer  "author_id",  null: false
     t.string   "title",      null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160802151721) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["author_id"], name: "index_comments_on_author_id"
-  add_index "comments", ["event_id"], name: "index_comments_on_event_id"
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.integer  "creator_id",  null: false
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20160802151721) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "events", ["creator_id"], name: "index_events_on_creator_id"
-  add_index "events", ["location"], name: "index_events_on_location"
+  add_index "events", ["creator_id"], name: "index_events_on_creator_id", using: :btree
+  add_index "events", ["location"], name: "index_events_on_location", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "title",       null: false
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 20160802151721) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "groups", ["location"], name: "index_groups_on_location"
-  add_index "groups", ["title"], name: "index_groups_on_title"
+  add_index "groups", ["location"], name: "index_groups_on_location", using: :btree
+  add_index "groups", ["title"], name: "index_groups_on_title", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -57,8 +60,8 @@ ActiveRecord::Schema.define(version: 20160802151721) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "members", ["group_id"], name: "index_members_on_group_id"
-  add_index "members", ["user_id"], name: "index_members_on_user_id"
+  add_index "members", ["group_id"], name: "index_members_on_group_id", using: :btree
+  add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
 
   create_table "rsvps", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -67,8 +70,8 @@ ActiveRecord::Schema.define(version: 20160802151721) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "rsvps", ["event_id"], name: "index_rsvps_on_event_id"
-  add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id"
+  add_index "rsvps", ["event_id"], name: "index_rsvps_on_event_id", using: :btree
+  add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -78,7 +81,7 @@ ActiveRecord::Schema.define(version: 20160802151721) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["session_token"], name: "index_users_on_session_token"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
 
 end
