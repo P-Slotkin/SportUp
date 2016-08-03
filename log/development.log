@@ -16933,3 +16933,44 @@ Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bd
 
 
 Started GET "/assets/bundle.js.map" for ::1 at 2016-08-03 17:55:34 -0400
+
+
+Started GET "/" for ::1 at 2016-08-03 17:59:17 -0400
+Processing by StaticPagesController#root as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "aN3dC2oQiAnyFE9MSJXIKw"]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 783ms (Views: 781.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/greeting.self-5667dffb7d95fd47b15dccd39baaa5aa8594813bdc078d9baec43d14cacae3e9.css?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/login_form.self-b6b5c9d4a264d6659dd445f2bb7d55ce15347905baeaf96b9c42be00451d83f6.css?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/user_show.self-eeeed16bcd36c30eaee9d504828aef918383728b8a58d9eba9132a0012b5c4f1.css?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/profile_dropdown.self-67e8cd266068d6105d887ab9a3a2b8d56edae1a3600df64a9a98827030017bff.css?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/application.self-cc8973fc8566abd473d7cbe5f21d4fef41368550af0f764efe6772f25901257f.css?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/navbar.self-9cdf686a2e9232d242e43a922a91438185774b11b3f7afeab6466847bb86abdf.css?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/bundle.self-dc910778f990dc6feabefede5b24842515b18c6299d56a9340e829be2f7cd7ec.js?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-08-03 17:59:18 -0400
+
+
+Started GET "/assets/bundle.js.map" for ::1 at 2016-08-03 17:59:18 -0400
