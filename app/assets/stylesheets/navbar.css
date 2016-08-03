@@ -1,0 +1,26 @@
+.navbar {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  min-height: 64px;
+}
+
+
+
+.navbar div {
+  display: inline-block;
+  box-sizing: border-box;
+  background: #fff;
+  margin-bottom: 0;
+  padding: 4px 16px 0px 16px;
+}
+
+.navbar-right-list {
+  float: right;
+}
+
+.navbar-right-list-loggedin {
+  margin-top: 14px;
+}
+
+.navbar-left-list div{
+  margin-top: 14px;
+}

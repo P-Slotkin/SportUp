@@ -36,15 +36,15 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       // SIGN OUT BUTTON? ITS UNDER THE PROFILE TAB ON TOP RIGHT
       loggedInRightNavbar = (<div className="navbar-right-list">
-        <div> messages! </div>
-        <div> notifcations! </div>
+        <div className="navbar-right-list-loggedin"> messages! </div>
+        <div className="navbar-right-list-loggedin"> notifcations! </div>
         <button className="logout-button" onClick={this._logout}>Log out</button>
       </div>);
 
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {
-      loggedInRightNavbar = (<div className="login-signup-buttons">
-        <Link to="/login">Log in</Link>
-        <button onClick={this._signup} className="login-button">Sign up</button>
+      loggedInRightNavbar = (<div className="navbar-right-list">
+        <div className="login-signup-buttons"><Link to="/login">Log in</Link></div>
+        <div className="login-signup-buttons"><button onClick={this._signup} className="login-button">Sign up</button></div>
       </div>
       );
     }
@@ -60,10 +60,34 @@ const App = React.createClass({
     );
   },
 
+  homeDisplay() {
+    let greeting;
+    if (this.props.location.pathname === "/"){
+      if (SessionStore.isUserLoggedIn()) {
+        greeting = (<div className="member-greeting">
+          <h1> Find a Sportup </h1>
+          <h3> 5,000 Sportups nearby </h3>
+        </div>);
+      } else {
+        greeting = ( <div className="notmember-greeting">
+          <h1> Sportups are </h1>
+          <h3> neighbors getting together to do something, share something... </h3>
+          <h3><button className="greeting-signup-button" onClick={this._signup}>Sign me up!</button></h3>
+        </div>);
+      }
+    }
+    return (
+      <div className="greeting-box">
+        {greeting}
+      </div>
+    );
+  },
+
   render() {
    return (
      <div>
        {this.navbar()}
+       {this.homeDisplay()}
        {this.props.children}
      </div>
    );
