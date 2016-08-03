@@ -7,6 +7,7 @@ const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 const App = require('./components/app.jsx');
 const LoginForm = require('./components/login_form');
+const UserShow = require('./components/user_show');
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 
@@ -15,6 +16,7 @@ const appRouter = (
     <Route path="/" component={ App }>
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
+      <Route path="/users/:userId" component={ UserShow } />
     </Route>
   </Router>
 );

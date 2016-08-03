@@ -20,6 +20,11 @@ const ProfileItems = React.createClass({
     SessionActions.logOut();
   },
 
+  _profile(e) {
+    e.preventDefault();
+    hashHistory.push(`/users/${this.props.user.id}`);
+  },
+
   stopProp(e){
     e.stopPropagation();
   },
@@ -32,7 +37,7 @@ const ProfileItems = React.createClass({
           <h4> Find your sportup group! </h4>
         </div>
         <ul >
-          <li>Profile</li>
+          <li onClick={this._profile}>Profile</li>
           <li>Settings</li>
           <li onClick={this._logout}>Log out</li>
         </ul>

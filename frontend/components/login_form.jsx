@@ -12,7 +12,7 @@ const hashHistory = ReactRouter.hashHistory;
 const LoginForm = React.createClass({
 
   getInitialState() {
-    return { email: "", password: ""};
+    return {name: "", email: "", password: ""};
   },
 
   componentDidMount() {
@@ -63,44 +63,56 @@ const LoginForm = React.createClass({
     let optionText;
     let otherText;
     let pathOtherText;
+    let nameInput;
     if (this.formType() === "login") {
       text = "Log in";
       otherText = "Sign up";
       pathOtherText = "/signup";
       optionText = "Not registered with us yet?";
+      nameInput = null;
     } else {
       text = "Sign up";
       otherText = "Log in";
       pathOtherText= "/login";
       optionText= "Already a member?";
+      nameInput = ( <label className="login-labels">Full name (this is public):
+          <br/>
+          <input type="text" value={this.state.name}
+            onChange={this._handleChange("name")}
+            className="login-input"/>
+          <br/>
+        </label>);
     }
     return(
-      <div className="login-form">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          { this.errors() }
-          <div>
-            <h2>{text}</h2>
-            <br/>
-            <h3>{optionText}
-              <Link to={pathOtherText}>{otherText}</Link>
-            </h3>
-            <br/>
-            <label className="login-labels">Email address:
+      <div>
+        <div className="login-errors">{ this.errors() }</div>
+        <div className="login-form">
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            <div>
+              <h2>{text}</h2>
               <br/>
-              <input type="text" value={this.state.email}
-                onChange={this._handleChange("email")}
-                className="login-input"/>
-            </label>
-            <br/>
-            <label className="login-labels">Password:
+              <h3>{optionText}
+                <Link to={pathOtherText}>{otherText}</Link>
+              </h3>
               <br/>
-              <input type="password" value={this.state.password}
-                onChange={this._handleChange("password")}
-                className="login-input"/>
-            </label>
-            <input className="login-button" type="submit" value={text}/>
-          </div>
-        </form>
+              {nameInput}
+              <label className="login-labels">Email address:
+                <br/>
+                <input type="text" value={this.state.email}
+                  onChange={this._handleChange("email")}
+                  className="login-input"/>
+              </label>
+              <br/>
+              <label className="login-labels">Password:
+                <br/>
+                <input type="password" value={this.state.password}
+                  onChange={this._handleChange("password")}
+                  className="login-input"/>
+              </label>
+              <input className="login-button" type="submit" value={text}/>
+            </div>
+          </form>
+        </div>
       </div>
 
     );

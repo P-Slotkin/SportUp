@@ -1,12 +1,13 @@
 # SportUp
 
-(heroku link that doesn't exist yet)
+(heroku link!)
+http://sport-up.herokuapp.com/
 
 ###Minimal Viable Product
 
 Sportup is a clone of the popular webapp 'MeetUp'. It will be built using Ruby
 on Rails and React.js. Hopefully, by week 9, this app should have the following
-functionality: 
+functionality:
 
 - Hosting on Heroku
 - New account creation, login, and guest/demo login
@@ -63,7 +64,7 @@ Objective: Functioning rails project with front-end Authentication
 - seed users
 
 #### Phase 2: Group Model, API, and components (2 days, W1 F 6pm)
-Objective: Groups can be created, viewed, edited, joined, left, and destroyed 
+Objective: Groups can be created, viewed, edited, joined, left, and destroyed
 through the API
 - Group model
 - seed database with test data
@@ -94,7 +95,7 @@ Objective: events can be viewed on a calendar
 - correct CSS styling
 
 #### Phase 5: Search (1 day, W2 Th 6pm)
-Objective: functioning search bar 
+Objective: functioning search bar
 - search by group, group info, or location
 - quicksearch functionality
 - correct CSS styling

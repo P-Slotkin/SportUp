@@ -39,7 +39,7 @@ const App = React.createClass({
       loggedInRightNavbar = (<div className="navbar-right-list">
         <div className="navbar-right-list-loggedin"> messages! </div>
         <div className="navbar-right-list-loggedin"> notifcations! </div>
-        <ProfileDropdown/>
+        <ProfileDropdown user={SessionStore.currentUser()}/>
       </div>);
 
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {

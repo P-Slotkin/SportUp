@@ -10,12 +10,11 @@ const ProfileDropdown = React.createClass({
 
   handleClick(e){
     this.setState({showed: true});
-    // e.stopPropagation();
   },
 
   showItems(){
     if (this.state.showed === true) {
-      return <ProfileItems hide={this.disableChildren}/>;
+      return <ProfileItems user={this.props.user} hide={this.disableChildren}/>;
     }
   },
 
@@ -25,7 +24,7 @@ const ProfileDropdown = React.createClass({
 
   render() {
     return(
-      <div onClick={this.handleClick} className="profile-dropdown-container">Profile
+      <div onClick={this.handleClick} className="profile-dropdown-container">{this.props.user.name}
           {this.showItems()}
       </div>
     );

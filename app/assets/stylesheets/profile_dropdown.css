@@ -9,13 +9,12 @@
   display: block;
   position: absolute;
   -webkit-box-sizing: border-box;
-  background-color: #FFF;
+  background-color: #fff;
   list-style: none;
   z-index: 3000;
   line-height: 1.3em;
   font-size: 16px;
-  /*text-align: -webkit-match-parent;*/
-  color: rgba(0,0,0,0.54);
+  color: rgba(0,0,0,0.65);
   font-weight: 400;
   right: 16px;
   top: 48px;
