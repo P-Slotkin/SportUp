@@ -8637,3 +8637,60 @@ Processing by Api::SessionsController#create as JSON
   Rendered api/users/_user.json.jbuilder (0.4ms)
   Rendered api/users/show.json.jbuilder (31.7ms)
 Completed 200 OK in 370ms (Views: 45.9ms | ActiveRecord: 73.4ms)
+
+
+Started GET "/" for ::1 at 2016-08-03 10:47:50 -0400
+Processing by StaticPagesController#root as HTML
+  Rendered static_pages/root.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 151ms (Views: 150.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/greeting.self-5e13e1a4024345281b387855b45b863c8e6fdbabf03131e622353e0691ab032e.css?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/login_form.self-5cf558b354473e63c49acbf642c8a91c3404851cd9928fafbe9fb6c5d77b56de.css?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/navbar.self-f8cdead4e0e52fcaaf00cbcc084a3af118d3652a42e66ca3413d63100556a005.css?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/application.self-cc8973fc8566abd473d7cbe5f21d4fef41368550af0f764efe6772f25901257f.css?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/bundle.self-831236380a9700da3572963a527d4bc193176186d1967083f1e158c88b68eca1.js?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-08-03 10:47:50 -0400
+
+
+Started POST "/api/session" for ::1 at 2016-08-03 10:48:01 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test25", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "test25"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "test25"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'test25' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["session_token", "Ue8IRPIFdfUK4YxUmyAFRA"], ["updated_at", "2016-08-03 14:48:01.741758"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (2.2ms)
+Completed 200 OK in 217ms (Views: 59.5ms | ActiveRecord: 2.5ms)
+
+
+Started DELETE "/api/session" for ::1 at 2016-08-03 10:48:07 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "Ue8IRPIFdfUK4YxUmyAFRA"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'test25' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "NN2lxzktn2Rs5Q_R1x1yKQ"], ["updated_at", "2016-08-03 14:48:07.274555"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.6ms)
