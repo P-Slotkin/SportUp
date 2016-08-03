@@ -43,7 +43,6 @@ const LoginForm = React.createClass({
 
   formType() {
     let that = this;
-    // console.log(this.props);
     return that.props.location.pathname.slice(1);
   },
 
