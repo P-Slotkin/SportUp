@@ -55,6 +55,7 @@
 }
 
 .login-button {
+  cursor: pointer;
   background: #ED1C40;
   font-size: 16px;
   font-weight: 600;

@@ -5,6 +5,7 @@ const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
 const hashHistory = ReactRouter.hashHistory;
+const ProfileDropdown = require('./profile_dropdown.jsx');
 
 const App = React.createClass({
 
@@ -38,7 +39,7 @@ const App = React.createClass({
       loggedInRightNavbar = (<div className="navbar-right-list">
         <div className="navbar-right-list-loggedin"> messages! </div>
         <div className="navbar-right-list-loggedin"> notifcations! </div>
-        <button className="logout-button" onClick={this._logout}>Log out</button>
+        <ProfileDropdown/>
       </div>);
 
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {
