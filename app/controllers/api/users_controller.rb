@@ -1,8 +1,6 @@
 class Api::UsersController < ApplicationController
 
   def create
-    puts "!!!!!!!!!!!!!!!!!!!!!!"
-    puts user_params
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
