@@ -49,7 +49,7 @@ functionality:
 
 ### Implementation Timeline
 
-#### Phase 1: Backend steup and Front End User Authentication (2 days, W1 W 6pm)
+#### Phase 1: Backend steup and Front End User Authentication (2 days, W1 W 6pm)(complete)
 Objective: Functioning rails project with front-end Authentication
 - create new project
 - User model
