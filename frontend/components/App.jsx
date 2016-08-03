@@ -31,31 +31,39 @@ const App = React.createClass({
     SessionActions.logOut();
   },
 
-  greeting() {
+  navbar() {
+    let loggedInRightNavbar;
     if (SessionStore.isUserLoggedIn()) {
       // SIGN OUT BUTTON? ITS UNDER THE PROFILE TAB ON TOP RIGHT
-      return (
-        <nav className="logout-button">
-          <button onClick={this._logout}>Log out</button>
-        </nav>
-      );
+      loggedInRightNavbar = (<div className="navbar-right-list">
+        <div> messages! </div>
+        <div> notifcations! </div>
+        <button className="logout-button" onClick={this._logout}>Log out</button>
+      </div>);
+
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {
-      return (
-        <nav className="login-signup-buttons">
-          <Link to="/login">Log in</Link>
-          <button onClick={this._signup} className="login-button">Sign up</button>
-        </nav>
+      loggedInRightNavbar = (<div className="login-signup-buttons">
+        <Link to="/login">Log in</Link>
+        <button onClick={this._signup} className="login-button">Sign up</button>
+      </div>
       );
     }
+    return (
+      <nav className="navbar">
+        <div className="navbar-left-list">
+          <div> <Link to="/" className="header-link"><h1>SportUp</h1></Link> </div>
+          <div> Find! </div>
+          <div> start! </div>
+        </div>
+        {loggedInRightNavbar}
+      </nav>
+    );
   },
 
   render() {
    return (
      <div>
-       <header>
-         <Link to="/" className="header-link"><h1>SportUp</h1></Link>
-         {this.greeting()}
-       </header>
+       {this.navbar()}
        {this.props.children}
      </div>
    );
