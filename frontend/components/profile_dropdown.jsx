@@ -24,7 +24,7 @@ const ProfileDropdown = React.createClass({
 
   render() {
     return(
-      <div onClick={this.handleClick} className="profile-dropdown-container">{this.props.user.name}
+      <div onClick={this.handleClick} className="profile-dropdown-container">Profile
           {this.showItems()}
       </div>
     );

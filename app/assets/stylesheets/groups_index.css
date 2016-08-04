@@ -1,0 +1,25 @@
+.group-index {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 34px;
+  padding-top: 16px;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-bottom: 16.25px;
+}
+
+.group-index ul {
+}
+
+.group-index li {
+  width: 300px;
+  height: 183px;
+  display: inline-block;
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+.group-index li:hover{
+  cursor: pointer;
+  background-color: blue;
+}

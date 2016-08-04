@@ -32,16 +32,16 @@ class User < ActiveRecord::Base
   #
   # has_many(
   #   :memberships,
-  #   class_name: "Member",
+  #   class_name: "Membership",
   #   primary_key: :id,
   #   foreign_key: :user_id
   # )
   #
-  # has_many(
-  #   :groups,
-  #   through: :memberships,
-  #   source: :groups
-  # )
+  has_many(
+    :groups,
+    through: :memberships,
+    source: :group
+  )
   #
   # has_many(
   #   :rsvped_events,

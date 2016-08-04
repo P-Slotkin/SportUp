@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803182800) do
+ActiveRecord::Schema.define(version: 20160804155023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,26 +42,27 @@ ActiveRecord::Schema.define(version: 20160803182800) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "title",       null: false
-    t.string   "categor"
     t.string   "location",    null: false
     t.string   "description"
     t.integer  "creator_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "category"
+    t.string   "picture"
   end
 
   add_index "groups", ["location"], name: "index_groups_on_location", using: :btree
   add_index "groups", ["title"], name: "index_groups_on_title", using: :btree
 
-  create_table "members", force: :cascade do |t|
+  create_table "memberships", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "group_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "members", ["group_id"], name: "index_members_on_group_id", using: :btree
-  add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
+  add_index "memberships", ["group_id"], name: "index_memberships_on_group_id", using: :btree
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
 
   create_table "rsvps", force: :cascade do |t|
     t.integer  "user_id",    null: false

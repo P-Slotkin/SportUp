@@ -1,0 +1,105 @@
+.group-show-container {
+  width: 958px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 1000px;
+}
+
+
+.group-show-container h1{
+  min-height: 82px;
+  background-color: #F99232;
+  color: #fff;
+  padding: 50px 84px 44px;
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.25;
+  border-bottom: 8px solid rgba(255,255,255,.25);
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.group-show-navbar {
+  height: 36px;
+  padding: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  line-height: 1.45;
+  font-weight: 400;
+  border: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.26);
+  border-radius: 3px;
+}
+
+.group-show-navbar div {
+  cursor: pointer;
+  display: inline-block;
+  color: rgba(0,0,0,.54);
+}
+
+.group-show-left-navbar {
+  float: left;
+}
+
+
+
+.group-show-left-navbar div{
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 3px;
+}
+
+.group-show-left-navbar div:hover {
+  background-color: #F99232;
+  color: #fff;
+}
+
+.group-show-right-navbar {
+  float: right;
+}
+
+.side-info-filler {
+  float: left;
+  width: 198px;
+  min-height: 600px;
+  margin-top: 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 3px;
+}
+
+.group-show-description {
+  float: right;
+  margin-top: 7px;
+  width: 714px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 3px;
+  border-bottom: 1px solid rgba(0,0,0,.26);
+  padding-bottom: 0px;
+}
+
+.bottom-description div {
+  display: inline-block;
+  padding-top: 32px;
+  padding: 10px 20px 0;
+  text-align: center;
+  line-height: 1.35em;
+}
+
+.bottom-description-left {
+  width: 270px;
+  border-right: 1px solid rgba(0,0,0,.15);
+}
+
+.bottom-description-right {
+  width: 270px;
+}

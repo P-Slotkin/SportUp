@@ -16,12 +16,30 @@
 
 .navbar-right-list {
   float: right;
+  margin-top: 4px;
 }
+
 
 .navbar-right-list-loggedin {
   margin-top: 14px;
 }
 
 .navbar-left-list div{
-  margin-top: 14px;
+  margin-top: 4px;
+}
+
+.navbar-left-list div:hover {
+  cursor: pointer;
+}
+
+.navbar-left-list p {
+  margin: 0px;
+  color: rgba(0,0,0,0.54);
+  font-size: 14px;
+}
+
+.navbar-left-list h1 {
+  color: #ed1c40;
+  font-size: 20px;
+  font-weight: bold;
 }

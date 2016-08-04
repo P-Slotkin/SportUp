@@ -1,0 +1,94 @@
+.group-form-greeting {
+  width: 776px;
+  height: 242px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 24px;
+  padding-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F99232;
+  text-align: center;
+  color: #fff;
+  font-weight: 300;
+}
+
+.group-form-greeting h2{
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.group-form-greeting h1{
+  font-size: 42px;
+  letter-spacing: -.02em;
+  line-height: 1.1em;
+}
+
+.group-form-greeting h5{
+  max-width: 544px;
+  padding-bottom: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.group-form-page-container h4 {
+  max-width: 840px;
+  padding: 24px 16px 8px;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #0fd9a3;
+  margin-top: 0px;
+}
+
+.new-group-form-container {
+  min-width: 600px;
+  max-width: 700px;
+  padding-left: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-group-form-container h6 {
+  color: #ff911a;
+  font-weight: 400;
+}
+
+.new-group-form-container p {
+  padding-top: 48px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(0,0,0,.3);
+}
+
+.group-form-labels {
+  font-weight: 500;
+  line-height: 1.45;
+  font-size: 28px;
+}
+
+.textarea-input {
+  min-height: 85.6px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,.15);
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 0 0 4px;
+  max-width: 100%;
+  padding: 8px;
+  width: 100%;
+  resize: auto;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  flex-direction: column;
+  -webkit-writing-mode: horizontal-tb;
+  display: block;
+  line-height: 1.45;
+  -webkit-rtl-ordering: logical;
+  -webkit-user-select: text;
+}

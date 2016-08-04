@@ -6,6 +6,7 @@ const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
 const hashHistory = ReactRouter.hashHistory;
 const ProfileDropdown = require('./profile_dropdown.jsx');
+const GroupIndex = require('./group_index.jsx');
 
 const App = React.createClass({
 
@@ -32,6 +33,11 @@ const App = React.createClass({
     SessionActions.logOut();
   },
 
+  _newGroup(e) {
+    e.preventDefault();
+    hashHistory.push("/groupform");
+  },
+
   navbar() {
     let loggedInRightNavbar;
     if (SessionStore.isUserLoggedIn()) {
@@ -53,8 +59,8 @@ const App = React.createClass({
       <nav className="navbar">
         <div className="navbar-left-list">
           <div> <Link to="/" className="header-link"><h1>SportUp</h1></Link> </div>
-          <div> Find! </div>
-          <div> start! </div>
+          <div> <h1>Find</h1> <p>a SportUp group</p> </div>
+          <div onClick={this._newGroup}> <h1>Start</h1> <p>a SportUp group</p></div>
         </div>
         {loggedInRightNavbar}
       </nav>
@@ -63,7 +69,9 @@ const App = React.createClass({
 
   homeDisplay() {
     let greeting;
+    let groupIndex;
     if (this.props.location.pathname === "/"){
+      groupIndex = <GroupIndex />;
       if (SessionStore.isUserLoggedIn()) {
         greeting = (<div className="member-greeting">
           <h1> Find a Sportup </h1>
@@ -78,8 +86,11 @@ const App = React.createClass({
       }
     }
     return (
-      <div className="greeting-box">
-        {greeting}
+      <div>
+        <div className="greeting-box">
+          {greeting}
+        </div>
+        {groupIndex}
       </div>
     );
   },
