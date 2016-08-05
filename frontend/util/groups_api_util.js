@@ -11,13 +11,15 @@ const GroupApiUtil = {
     });
   },
 
-  createGroup(data, success){
+  createGroup(data, cb, redirectCb){
     $.ajax({
       url: `/api/groups`,
       type: `POST`,
       dataType: `json`,
       data: { data },
-      success
+      success: function(data) {
+        cb(data, redirectCb);
+      }
     });
   },
 

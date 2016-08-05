@@ -1,11 +1,25 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 const GroupActions = require('../actions/group_actions.js');
+const GroupStore = require('../stores/group_store.js');
 
 const GroupForm = React.createClass({
 
   getInitialState() {
     return ({ title: "", location: "", category: "", description: "" });
+  },
+
+  componentDidMount() {
+    // this.groupListenerToken = GroupStore.addListener(this.redirectIfGroupMade);
+  },
+
+  componentWillUnmount() {
+    // this.groupListenerToken.remove();
+  },
+
+  redirectIfGroupMade() {
+    let group = GroupStore.all()[GroupStore.all().length - 1];
+    hashHistory.push(`/groups/${group.id}`);
   },
 
   titleChange(e) {
@@ -31,7 +45,10 @@ const GroupForm = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     const groupData = this.state;
-    GroupActions.createGroup(groupData);
+    GroupActions.createGroup(groupData, (group) => {
+      debugger;
+      hashHistory.push(`/groups/${group.id}`);
+    });
     this.setState({ title: "", location: "", category: "", description: "" });
   },
 

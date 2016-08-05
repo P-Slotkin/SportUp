@@ -26,7 +26,7 @@ const SessionApi = {
 
   signUp(user, success, error) {
     $.ajax({
-      url: `/api/user`,
+      url: `/api/users`,
       type: `POST`,
       dataType: `json`,
       data: { user },

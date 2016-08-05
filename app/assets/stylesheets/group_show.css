@@ -103,3 +103,9 @@
 .bottom-description-right {
   width: 270px;
 }
+
+.bottom-description-rightest {
+  width: 100px;
+  float: right;
+
+}

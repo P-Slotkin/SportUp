@@ -8,13 +8,14 @@ class Api::GroupsController < ApplicationController
 
 
   def show
-    @groups = Group.find(params[:id])
+    @group = Group.find(params[:id])
   end
 
   def create
     @group = Group.new(group_params)
     @group.creator_id = current_user.id
     if @group.save
+      Membership.create({user_id: @group.creator_id, group_id: @group.id})
       render :show
     else
       render json: @group.errors.full_messages, status: 422

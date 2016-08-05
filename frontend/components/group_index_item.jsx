@@ -10,8 +10,9 @@ const GroupIndexItem = React.createClass({
     const group = this.props.group;
     return (
       <li>
-        <Link to={`/groups/${this.props.group.id}`}>
-          {group.title}
+        <Link className="group-index-item-link" to={`/groups/${this.props.group.id}`} >
+          <img src={group.image_url}/>
+          <p>{group.title}</p>
         </Link>&nbsp;
       </li>
     );

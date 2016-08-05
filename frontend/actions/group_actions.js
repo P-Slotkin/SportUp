@@ -11,8 +11,8 @@ module.exports = {
     ApiUtil.getGroup(id, this.receiveGroup);
   },
 
-  createGroup (data) {
-    ApiUtil.createGroup(data, this.receiveGroup);
+  createGroup (data, cb) {
+    ApiUtil.createGroup(data, this.receiveGroup, cb);
   },
 
   editGroup (data) {
@@ -30,11 +30,15 @@ module.exports = {
     });
   },
 
-  receiveGroup (group) {
+  receiveGroup (group, redirectCb) {
     AppDispatcher.dispatch({
       actionType: GroupConstants.GROUP_RECEIVED,
       group: group
     });
+
+    if (typeof redirectCb === 'function') {
+      redirectCb(group);
+    }
   },
 
   removeGroup (group) {

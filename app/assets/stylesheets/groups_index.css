@@ -9,9 +9,6 @@
   padding-bottom: 16.25px;
 }
 
-.group-index ul {
-}
-
 .group-index li {
   width: 300px;
   height: 183px;
@@ -22,4 +19,28 @@
 .group-index li:hover{
   cursor: pointer;
   background-color: blue;
+}
+
+.group-index-item-link {
+  position: relative;
+}
+
+.group-index-item-link p {
+  position: absolute;
+  margin-top: -100px;
+  margin-left: 32px;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  zoom: 1;
+  font-weight: bold;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.group-index img {
+  width: 300px;
+  height: 183px;
+  top: 0;
+  right: 0;
 }

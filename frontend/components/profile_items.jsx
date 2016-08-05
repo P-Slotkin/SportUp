@@ -29,16 +29,21 @@ const ProfileItems = React.createClass({
     e.stopPropagation();
   },
 
+  _home(e){
+    e.preventDefault();
+    hashHistory.push("/");
+  },
+
   render(){
     return(
       <div className="dropdown-items" onClick={this.stopProp}>
         <div className="dropdown-left">
-          <h3> You are not a member of any Sportup Groups yet. </h3>
-          <h4> Find your sportup group! </h4>
+          <h3> You can view your SportUp groups on your profile page </h3>
+          <h4 className="dropdown-home-button" onClick={this._home}> Search for SportUp groups > </h4>
         </div>
         <ul >
           <li onClick={this._profile}>Profile</li>
-          <li>Settings</li>
+          <li>Edit</li>
           <li onClick={this._logout}>Log out</li>
         </ul>
       </div>

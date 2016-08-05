@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :session_token, presence: true
   validates :email, presence: true, uniqueness: true
+  has_attached_file :image, default_url: "default-profile.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   # has_many :rsvps
   # has_many(
