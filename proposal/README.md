@@ -63,20 +63,20 @@ Objective: Functioning rails project with front-end Authentication
 - CSS styling
 - seed users
 
-#### Phase 2: Group Model, API, and components (2 days, W1 F 6pm)
+#### Phase 2: Group Model, API, and components (2 days, W1 F 6pm)(mostly complete)
 Objective: Groups can be created, viewed, edited, joined, left, and destroyed
 through the API
-- Group model
-- seed database with test data
-- CRUD API for Groups ( GroupsController)
-- jbuilder views for groups
-- test out API interaction in console
-- implement each Group component, building out the flux loop as needed
+- Group model(done)
+- seed database with test data(done)
+- CRUD API for Groups ( GroupsController)(done)
+- jbuilder views for groups(done)
+- test out API interaction in console(done)
+- implement each Group component, building out the flux loop as needed(working on member display)
   - GroupIndex
   - GroupIndexItem
   - GroupForm
-- style Groups components
-- seed groups
+- style Groups components(done)
+- seed groups(done)
 
 #### Phase 3: Events (2 days, W2 Tu 6pm)
 Objective: Events belong to Groups, can be viewed by group
