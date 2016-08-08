@@ -7,6 +7,7 @@
   margin-right: auto;
   border: 1px solid rgba(0,0,0,.15);
   display: block;
+
 }
 
 .user-show-box p {
@@ -39,6 +40,11 @@
   float:left;
   margin-right: 0px;;
   width: 670px;
+  min-height: 700px;
+}
+
+.user-show-box-left-upper {
+  min-height: 700px;
 }
 
 .user-show-box-left-upper-section {
