@@ -34,7 +34,7 @@ const GroupApiUtil = {
     $.ajax({
       url: `api/groups/${data.id}`,
       type: "PATCH",
-      data: { group: { title: data.title, body: data.body } },
+      data: { group: { title: data.title, location: data.location, description: data.description, category: data.category } },
       success
     });
   },

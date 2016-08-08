@@ -41,7 +41,6 @@ const App = React.createClass({
   navbar() {
     let loggedInRightNavbar;
     if (SessionStore.isUserLoggedIn()) {
-      // SIGN OUT BUTTON? ITS UNDER THE PROFILE TAB ON TOP RIGHT
       loggedInRightNavbar = (<div className="navbar-right-list">
         <div className="navbar-right-list-loggedin"> messages! </div>
         <div className="navbar-right-list-loggedin"> notifcations! </div>

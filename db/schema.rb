@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807213507) do
+ActiveRecord::Schema.define(version: 20160808225630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,17 @@ ActiveRecord::Schema.define(version: 20160807213507) do
   add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.integer  "creator_id",  null: false
-    t.string   "title",       null: false
+    t.integer  "creator_id",         null: false
+    t.string   "title",              null: false
     t.string   "description"
-    t.string   "location",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "location",           null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "group_id",           null: false
   end
 
   add_index "events", ["creator_id"], name: "index_events_on_creator_id", using: :btree
@@ -89,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160807213507) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "location"
+    t.string   "interests"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

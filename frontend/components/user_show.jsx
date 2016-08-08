@@ -45,7 +45,6 @@ const UserShow = React.createClass({
         newGroups.push(group);
       }
     });
-    console.log(newGroups);
     this.setState({ groups: newGroups});
   },
 
@@ -78,10 +77,17 @@ const UserShow = React.createClass({
       month = "";
       day = "";
     }
+
+    let interests;
+    if (this.state.user.interests) {
+      interests = this.state.user.interests;
+    } else {
+      interests = "No indicated interests yet!";
+    }
     return(
-      <div className="user-show-box">
+      <div className="user-show-box group">
         <div className="user-show-box-left">
-          <div className="user-show-box-left-upper">
+          <div className="user-show-box-left-upper group">
             <h1> {this.state.user.name} </h1>
             <div className="user-show-box-left-upper-section">
               <h4> City: </h4>
@@ -104,7 +110,7 @@ const UserShow = React.createClass({
             <p> Change your profile picture </p>
           </div>
           <div className="user-show-box-right-interests"> <h3> Sport Interests </h3>
-            <p> Interests filler </p>
+            <p> {interests} </p>
           </div>
         </div>
       </div>

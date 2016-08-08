@@ -27,10 +27,7 @@ const removeMembership = function (membership) {
 };
 
 MembershipStore.all = function () {
-  console.log("ALL BEING CALLED");
-  console.log(_memberships);
   return Object.keys(_memberships).map(function (membershipId) {
-    console.log("inside!");
     return _memberships[membershipId];
   });
 };

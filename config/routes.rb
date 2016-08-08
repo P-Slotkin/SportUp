@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :groups, except: [:new]
     resources :memberships, only: [:index, :create, :destroy]
-    # resources :events, only: [:index, :create]
+    resources :rsvps, only: [:index, :create, :destroy]
+    resources :events, except: [:new]
   end
 
   root "static_pages#root"

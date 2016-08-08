@@ -12,7 +12,7 @@ var UserEdit = React.createClass({
 
   getInitialState() {
     let user = SessionStore.currentUser();
-    return {id: user.id, name: user.name, email: user.email, location: user.location};
+    return {id: user.id, name: user.name, email: user.email, location: user.location, interests: user.interests};
   },
 
   componentDidMount() {
@@ -83,6 +83,13 @@ var UserEdit = React.createClass({
                 <br/>
                 <input type="text" value={this.state.location}
                   onChange={this._handleChange("location")}
+                  className="login-input"/>
+              </label>
+              <br/>
+              <label className="login-labels">Interests: (ie. basketball, soccer, football)
+                <br/>
+                <input type="text" value={this.state.interests}
+                  onChange={this._handleChange("interests")}
                   className="login-input"/>
               </label>
               <input className="login-button" type="submit" value="Update Profile"/>

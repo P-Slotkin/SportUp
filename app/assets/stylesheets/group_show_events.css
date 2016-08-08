@@ -1,0 +1,78 @@
+.group-show-event-index {
+  width: 528px;
+  display: block;
+  border: 1px solid rgba(0,0,0,.15);
+  float:left;
+  margin: 10px;
+  margin-top: 16px;
+  border-radius: 3px;
+  border-bottom: 1px solid rgba(0,0,0,.26);
+}
+
+.group-show-event-index li {
+  list-style: none;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  padding-bottom: 0px;
+  position: relative;
+  word-wrap: break-word;
+  display: list-item;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.group-show-event-index-item-link img {
+  width: 150px;
+  height: auto;
+  padding-bottom: 16px;
+}
+.group-show-event-index-item-link {
+  text-decoration: none !important;
+  text-align: center;
+  border: 0!important;
+  color: black;
+  line-height: 1.25;
+  border-top: 1px solid rgba(0,0,0,.15)!important;
+}
+
+.group-show-event-index-item-link h3 {
+  text-align: center !important;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.group-show-event-index-item-link h5 {
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+.group-show-event-index-item-link h6 {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.group-show-event-index-item-link p {
+  float: right;
+  width: 308px;
+  text-align: left;
+}
+
+.event-buttons {
+  float:right;
+  height: 36px;
+  margin-top: -48px;
+  margin-bottom: 16px;
+  width: 200px
+}
+
+.destroy {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+
+.destroy button {
+  margin-left: 16px;
+}

@@ -26,6 +26,12 @@
   background: transparent;
 }
 
+group:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
 body {
   font-size: 16px;
   line-height: 1.45;

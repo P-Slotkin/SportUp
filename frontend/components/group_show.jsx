@@ -10,49 +10,32 @@ const MembershipIndexItem = require('./membership_index_item');
 const UserStore = require('../stores/user_store.js');
 const UserActions = require('../actions/user_actions');
 const GroupMemberItem = require('./group_member_item');
+const GroupShowEventIndex = require('./group_show_event_index');
 
 
 const GroupShow = React.createClass({
 
   getInitialState() {
-    MembershipActions.fetchMemberships();
-    UserActions.fetchUsers();
     const members = [];
-    const memberships = MembershipStore.findAllGroupMembers(this.props.params.groupId);
+    const memberships = [];
     const group = GroupStore.find(this.props.params.groupId) || {} ;
-    return { group: group, memberships: memberships, members: members, showMembers: false };
+    return { group: group, members: members, memberships: memberships, showMembers: false };
   },
 
   componentDidMount() {
-    this.membershipListener = MembershipStore.addListener(this._membershipChanged);
     this.groupListener = GroupStore.addListener(this._groupChanged);
-    this.userListener = UserStore.addListener(this._membersChanged);
+    // this.userListener = UserStore.addListener(this._membersChanged);
     GroupActions.getGroup(this.props.params.groupId);
-    MembershipActions.fetchMemberships();
-    UserActions.fetchUsers();
   },
 
   componentWillUnmount() {
     this.groupListener.remove();
-    this.membershipListener.remove();
-    this.userListener.remove();
-  },
-
-  _membersChanged(){
-    const members = this.state.memberships.map((membership) => {
-      return UserStore.find(membership.user_id);
-    });
-    this.setState({ members: members });
   },
 
   _groupChanged() {
     const group = GroupStore.find(this.props.params.groupId);
-    this.setState({ group: group });
-  },
-
-  _membershipChanged() {
-    const memberships = MembershipStore.findAllGroupMembers(this.props.params.groupId);
-    this.setState({ memberships: memberships });
+    this.setState({ group: group, members: group.members, memberships: group.memberships});
+    console.log(group);
   },
 
   makeDestroyButton() {
@@ -72,8 +55,8 @@ const GroupShow = React.createClass({
 
   memberOfGroup() {
     let memberOfGroup;
-    this.state.memberships.forEach((membership) => {
-      if (membership.user_id === SessionStore.currentUser().id) {
+    Array.from(this.state.members).forEach((member) => {
+      if (member.id === SessionStore.currentUser().id) {
         memberOfGroup = true;
       }
     });
@@ -82,6 +65,20 @@ const GroupShow = React.createClass({
     } else {
       return false;
     }
+  },
+
+  makeCreateEventButton(){
+    if (this.memberOfGroup()) {
+      return (<div className="login-signup-buttons">
+        <button onClick={this._createEvent} className="login-button new-event-button">New Event
+        </button>
+      </div>);
+    }
+  },
+
+  _createEvent(e){
+    e.preventDefault();
+    hashHistory.push(`/eventform/${this.state.group.id}`);
   },
 
   _checkAlreadyJoinedText() {
@@ -98,21 +95,28 @@ const GroupShow = React.createClass({
       return;
     }
     let left;
-    this.state.memberships.forEach((membership) => {
-      if (membership.user_id === SessionStore.currentUser().id) {
+    this.state.members.forEach((member) => {
+      if (member.id === SessionStore.currentUser().id) {
         left = true;
-        MembershipActions.deleteMembership(membership.id);
-        MembershipActions.fetchMemberships();
+        this.state.memberships.forEach((membership) => {
+          if (membership.user_id === SessionStore.currentUser().id && membership.group_id === this.state.group.id) {
+            MembershipActions.deleteMembership(membership.id);
+          }
+        });
+        this.setState( { members: this.state.members.filter((member) => {
+          return member.id !== SessionStore.currentUser().id; } )
+        });
       }
     });
     if (left !== true) {
       MembershipActions.createMembership( { user_id: SessionStore.currentUser().id, group_id: this.props.params.groupId });
-      MembershipActions.fetchMemberships();
+      this.state.members.push( SessionStore.currentUser());
+      this.setState( {members: this.state.members});
     }
-    UserActions.fetchUsers();
   },
 
-  _home() {
+  _home(e) {
+    e.preventDefault();
     hashHistory.push("/");
   },
 
@@ -121,7 +125,7 @@ const GroupShow = React.createClass({
       return (<div className="member-index-container">
         <ul>
           {
-            this.state.members.map(function (member) {
+            Array.from(this.state.members).map(function (member) {
               return (<GroupMemberItem key={member.id} member={member} />);
             })
           }
@@ -150,7 +154,7 @@ const GroupShow = React.createClass({
       </div>
     );
     return (
-      <div className="group-show-navbar">
+      <div className="group-show-navbar group">
         {leftNavbar}
         {rightNavbar}
       </div>
@@ -158,8 +162,8 @@ const GroupShow = React.createClass({
   },
 
   groupMembers() {
-    this.state.memberships.map( (membership) => {
-      return <MembershipIndexItem key={membership.id} membership={membership} />;
+    this.state.members.map( (member) => {
+      return <MembershipIndexItem key={member.id} membership={member} />;
     });
   },
 
@@ -171,7 +175,7 @@ const GroupShow = React.createClass({
       memberText = "Join us and be the first to know when new Sportups are scheduled";
     }
     return (
-      <div className="group-show-description">
+      <div className="group-show-description group">
         <h3>{this.state.group.description}</h3>
         <div className="bottom-description">
           <div className="bottom-description-left">
@@ -183,6 +187,8 @@ const GroupShow = React.createClass({
             <p> Look to see a list of this Sportups fantastic members</p>
           </div>
           <div className="bottom-description-rightest">
+            {this.makeCreateEventButton()}
+          <br />
             {this.makeDestroyButton()}
           </div>
         </div>
@@ -191,18 +197,24 @@ const GroupShow = React.createClass({
     );
   },
 
+  groupEvents() {
+    if (this.state.group.events && this.state.group.events.length > 0) {
+      return (<GroupShowEventIndex events={this.state.group.events} />);
+    }
+  },
+
   render: function() {
 
 
     return (
-      <div className="group-show-container">
+      <div className="group-show-container group">
         <h1>{this.state.group.title}</h1>
           {this.groupNavbar()}
-          <div className="side-info-filler">
+          <div className="side-info-filler group">
             <div className="side-info-group-pic">
               <img src={this.state.group.image_url}/>
             </div>
-            <div className="side-info-attributes">
+            <div className="side-info-attributes group">
               <h3> {this.state.group.location} </h3>
               <ul>
                 <li>
@@ -232,6 +244,7 @@ const GroupShow = React.createClass({
           </div>
           {this.groupDescription()}
           {this.showMembers()}
+          {this.groupEvents()}
       </div>
     );
   }

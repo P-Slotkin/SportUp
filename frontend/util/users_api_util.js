@@ -32,7 +32,7 @@ const UserApiUtil = {
     $.ajax({
       url: `api/users/${data.id}`,
       type: "PATCH",
-      data: { user: {id: data.id, name: data.name, email: data.email, location: data.location } },
+      data: { user: {id: data.id, name: data.name, email: data.email, location: data.location, interests: data.interests } },
       success
     });
   },

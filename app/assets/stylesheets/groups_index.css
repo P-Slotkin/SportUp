@@ -18,7 +18,6 @@
 }
 .group-index li:hover{
   cursor: pointer;
-  background-color: blue;
 }
 
 .group-index-item-link {

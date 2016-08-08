@@ -7,8 +7,14 @@
   margin-right: auto;
   border: 1px solid rgba(0,0,0,.15);
   display: block;
-
 }
+
+.group:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
 
 .user-show-box p {
   padding-top: 20px;

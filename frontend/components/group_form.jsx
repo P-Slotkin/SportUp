@@ -10,11 +10,11 @@ const GroupForm = React.createClass({
   },
 
   componentDidMount() {
-    // this.groupListenerToken = GroupStore.addListener(this.redirectIfGroupMade);
+    this.groupListenerToken = GroupStore.addListener(this.redirectIfGroupMade);
   },
 
   componentWillUnmount() {
-    // this.groupListenerToken.remove();
+    this.groupListenerToken.remove();
   },
 
   redirectIfGroupMade() {
