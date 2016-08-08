@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
   validates :title, :location, :creator_id, presence: true
-  has_attached_file :image, default_url: "soccer-ball.jpg"
+  has_attached_file :image, default_url: "stadium.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   belongs_to(
     :creator,
