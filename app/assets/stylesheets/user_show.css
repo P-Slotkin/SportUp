@@ -1,7 +1,8 @@
 .user-show-box {
+  display: inline-block;
   margin-top: 20px;
   width: 960px;
-  min-height: 375px;
+  min-height: 700px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid rgba(0,0,0,.15);
@@ -35,12 +36,13 @@
 }
 
 .user-show-box-left {
+  float:left;
   margin-right: 0px;;
   width: 670px;
 }
 
 .user-show-box-left-upper-section {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   padding: 16px 16px 0;
   width: 190px;
   float: left;
@@ -48,5 +50,69 @@
 }
 
 .user-show-box-right {
+  text-align: center;
   float: right;
+  width: 255px;
+  padding: 16px;
+  white-space: nowrap;
+}
+
+.user-show-box-right img{
+  width: 75px;
+  height: auto;
+  max-height: 100px;
+}
+
+.user-show-box-right-interests {
+  text-align: left;
+}
+
+.user-show-box-right-interests h3 {
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: bold;
+  letter-spacing: -.02em;
+}
+
+.user-show-group-index {
+  display: block;
+}
+
+.user-show-box-left-groupsection {
+  margin-top: 192px;
+}
+.user-show-group-index div {
+  height: 183px;
+}
+
+.user-show-group-index li {
+  width: 670px;
+  height: 183px;
+  list-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.user-show-group-index img {
+  width: 300px;
+  height: 183px;
+  float: left;
+
+}
+
+.user-show-group-index p {
+
+  padding-top: 79px;
+  padding-bottom: 79px;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  zoom: 1;
+  font-weight: bold;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  width: 300px;
+  float: left;
+  border-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

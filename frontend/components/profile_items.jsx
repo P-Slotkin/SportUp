@@ -34,6 +34,11 @@ const ProfileItems = React.createClass({
     hashHistory.push("/");
   },
 
+  _edit(e) {
+    e.preventDefault();
+    hashHistory.push(`/users/${this.props.user.id}/edit`);
+  },
+
   render(){
     return(
       <div className="dropdown-items" onClick={this.stopProp}>
@@ -43,7 +48,7 @@ const ProfileItems = React.createClass({
         </div>
         <ul >
           <li onClick={this._profile}>Profile</li>
-          <li>Edit</li>
+          <li onClick={this._edit}>Edit</li>
           <li onClick={this._logout}>Log out</li>
         </ul>
       </div>

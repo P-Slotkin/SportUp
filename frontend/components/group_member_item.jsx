@@ -1,4 +1,5 @@
 var React = require('react');
+const Link = require('react-router').Link;
 
 var GroupMemberItem = React.createClass({
 
@@ -6,9 +7,9 @@ var GroupMemberItem = React.createClass({
     const member = this.props.member;
     return (
       <li>
-        <Link className="member-item-link" to={`/members/${this.props.member.id}`} >
+        <Link className="member-item-link" to={`/users/${this.props.member.id}`} >
           <img src={member.image_url}/>
-          <p>{member.title}</p>
+          <p>{member.name}</p>
         </Link>&nbsp;
       </li>
     );

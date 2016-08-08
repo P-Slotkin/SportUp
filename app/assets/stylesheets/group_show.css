@@ -56,6 +56,7 @@
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 3px;
+  text-align: center;
 }
 
 .group-show-left-navbar div:hover {
@@ -65,6 +66,31 @@
 
 .group-show-right-navbar {
   float: right;
+}
+
+.member-index-container {
+  float: right;
+  width: 198px;
+  min-height: 600px;
+  margin-top: 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 3px;
+}
+
+.member-index-container img {
+  width: 100px;
+  height: auto;
+}
+
+.member-index-container li {
+  list-style: none;
+  display: inline-block;
+  width: 198px;
+  text-align: center;
+}
+
+.member-index-container p {
+  margin-top: 0px;
 }
 
 .side-info-filler {
@@ -107,5 +133,33 @@
 .bottom-description-rightest {
   width: 100px;
   float: right;
+}
 
+.side-info-filler img {
+  width: 198px;
+  height: auto;
+}
+
+.side-info-filler li {
+  display: block;
+  list-style: none;
+  width: 166px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+}
+
+.side-info-left {
+  float: left;
+  padding-top: 16px
+}
+
+.side-info-right {
+  float: right;
+  padding-top: 16px;
+}
+
+.side-info-attributes h3 {
+  text-align: center;
+  color: #F99232;
 }

@@ -93,6 +93,10 @@ const GroupShow = React.createClass({
   },
 
   _join() {
+    if (SessionStore.currentUser() === undefined) {
+      hashHistory.push("/login");
+      return;
+    }
     let left;
     this.state.memberships.forEach((membership) => {
       if (membership.user_id === SessionStore.currentUser().id) {
@@ -105,7 +109,7 @@ const GroupShow = React.createClass({
       MembershipActions.createMembership( { user_id: SessionStore.currentUser().id, group_id: this.props.params.groupId });
       MembershipActions.fetchMemberships();
     }
-    this.setState({ memberships: this.state.memberships});
+    UserActions.fetchUsers();
   },
 
   _home() {
@@ -114,7 +118,7 @@ const GroupShow = React.createClass({
 
   showMembers() {
     if (this.state.showMembers) {
-      return (<div className="member-index">
+      return (<div className="member-index-container">
         <ul>
           {
             this.state.members.map(function (member) {
@@ -175,7 +179,7 @@ const GroupShow = React.createClass({
             <p> {memberText}</p>
           </div>
           <div className="bottom-description-right">
-            <div className="login-signup-buttons"><button onClick={this._members} className="login-button">Members!</button></div>
+            <div className="login-signup-buttons"><button onClick={this._toggleMembers} className="login-button">Members!</button></div>
             <p> Look to see a list of this Sportups fantastic members</p>
           </div>
           <div className="bottom-description-rightest">
@@ -194,7 +198,38 @@ const GroupShow = React.createClass({
       <div className="group-show-container">
         <h1>{this.state.group.title}</h1>
           {this.groupNavbar()}
-          <div className="side-info-filler" />
+          <div className="side-info-filler">
+            <div className="side-info-group-pic">
+              <img src={this.state.group.image_url}/>
+            </div>
+            <div className="side-info-attributes">
+              <h3> {this.state.group.location} </h3>
+              <ul>
+                <li>
+                  <div className="side-info-left">Athletes:
+                  </div>
+                  <div className="side-info-right">{this.state.members.length}
+                  </div>
+                </li>
+                <li>
+                  <div className="side-info-left">Upcoming SportUps:
+                  </div>
+                </li>
+                <li>
+                  <div className="side-info-left">Past SportUps:
+                  </div>
+                  <div className="side-info-right">filler
+                  </div>
+                </li>
+                <li>
+                  <div className="side-info-left">Our calendar:
+                  </div>
+                  <div className="side-info-right">insert icon
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
           {this.groupDescription()}
           {this.showMembers()}
       </div>

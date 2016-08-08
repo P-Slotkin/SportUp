@@ -28,11 +28,11 @@ const UserApiUtil = {
     });
   },
 
-  updateUser (data, cb) {
+  updateUser (data, success) {
     $.ajax({
       url: `api/users/${data.id}`,
       type: "PATCH",
-      data: { user: { title: data.title, body: data.body } },
+      data: { user: {id: data.id, name: data.name, email: data.email, location: data.location } },
       success
     });
   },

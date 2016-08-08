@@ -12,6 +12,7 @@ const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 const GroupForm = require('./components/group_form');
 const GroupShow = require('./components/group_show');
+const UserEdit = require('./components/user_edit');
 
 const appRouter = (
   <Router history={ hashHistory }>
@@ -19,6 +20,7 @@ const appRouter = (
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
       <Route path="/users/:userId" component={ UserShow } />
+      <Route path="/users/:userId/edit" component={ UserEdit } />
       <Route path="/groups/:groupId" component={ GroupShow} />
       <Route path="/groupform" component={ GroupForm } onEnter={ _ensureLoggedIn }/>
     </Route>
