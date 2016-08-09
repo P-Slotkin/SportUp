@@ -52,6 +52,7 @@
   margin-top: 206px;
   border-bottom: 1px solid rgba(0,0,0,.15);
   padding-bottom: 4px;
+  margin-bottom: 0px;
 }
 
 .user-show-box-left {
@@ -101,8 +102,8 @@
 }
 
 .user-show-box-left-groupsection {
-  margin-top: 192px;
 }
+
 .user-show-group-index div {
   height: 183px;
 }

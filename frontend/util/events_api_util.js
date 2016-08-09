@@ -32,8 +32,8 @@ const EventApiUtil = {
     $.ajax({
       url: `api/events/${data.id}`,
       type: "PATCH",
-      data: { event: { title: data.title, location: data.location, description: data.description } },
-      success
+      data: { data: { title: data.title, location: data.location, description: data.description } },
+      cb
     });
   },
 

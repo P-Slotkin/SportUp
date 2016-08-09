@@ -3,6 +3,7 @@ const hashHistory = require('react-router').hashHistory;
 const EventActions = require('../actions/event_actions.js');
 const EventStore = require('../stores/event_store.js');
 const SessionStore = require('../stores/session_store.js');
+const GroupActions = require('../actions/group_actions.js');
 
 const EventForm = React.createClass({
 
@@ -20,7 +21,8 @@ const EventForm = React.createClass({
 
   redirectIfEventMade() {
     let event = EventStore.all()[EventStore.all().length - 1];
-    hashHistory.push(`/events/${event.id}`);
+    hashHistory.push(`/groups/${event.group_id}`);
+    GroupActions.getGroup(this.props.params.groupId);
   },
 
   titleChange(e) {
@@ -30,7 +32,7 @@ const EventForm = React.createClass({
 
   descriptionChange(e) {
     const newDescription = e.target.value;
-    this.setState({ description: newDescription });
+    this.setState({ description: newDescription.slice(0, 56) });
   },
 
   locationChange(e) {
@@ -41,7 +43,7 @@ const EventForm = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     const eventData = this.state;
-    EventActions.createEvent(eventData, (event) => {
+    EventActions.createEvent({ title: this.state.title, location: this.state.location, description: this.state.description.slice(0,51), creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId}, (event) => {
       hashHistory.push(`/groups/${this.state.group_id}`);
     });
     this.setState({ title: "", location: "", description: "" });
@@ -50,6 +52,10 @@ const EventForm = React.createClass({
   handleCancel(e) {
     e.preventDefault();
     this.navigateToSearch();
+  },
+
+  descriptionLength(){
+    return `${this.state.description.length}/`;
   },
 
   render: function() {
@@ -91,7 +97,7 @@ const EventForm = React.createClass({
                   className="textarea-input"
                   placeholder="Please describe your event (who should join/what the event will be/etc)"/>
               </label>
-              <h6>We recommend at least 50 characters in your description</h6>
+              <h6>Try to be concise, limit {this.descriptionLength()}56 characters</h6>
               <input className="login-button" type="submit" value="Create Event"/>
           </form>
         </div>

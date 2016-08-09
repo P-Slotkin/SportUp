@@ -39,6 +39,11 @@ const App = React.createClass({
     hashHistory.push("/groupform");
   },
 
+  _home(e) {
+    e.preventDefault();
+    hashHistory.push("/");
+  },
+
   navbar() {
     let loggedInRightNavbar;
     if (SessionStore.isUserLoggedIn()) {
@@ -59,7 +64,7 @@ const App = React.createClass({
       <nav className="navbar">
         <div className="navbar-left-list">
           <div> <Link to="/" className="header-link"><h1>SportUp</h1></Link> </div>
-          <div> <h1>Find</h1> <p>a SportUp group</p> </div>
+          <div> <h1 onClick={this._home}>Find</h1> <p>a SportUp group</p> </div>
           <div onClick={this._newGroup}> <h1>Start</h1> <p>a SportUp group</p></div>
         </div>
         {loggedInRightNavbar}
@@ -74,12 +79,12 @@ const App = React.createClass({
       groupIndex = <GroupIndex />;
       if (SessionStore.isUserLoggedIn()) {
         greeting = (<div className="member-greeting">
-          <h1> Find a Sportup </h1>
-          <h3> 5,000 Sportups nearby </h3>
+          <h1> Find a SportUp </h1>
+          <h3> 5,000 SportUps nearby </h3>
         </div>);
       } else {
         greeting = ( <div className="notmember-greeting">
-          <h1> Sportups are </h1>
+          <h1> SportUps are </h1>
           <h3> neighbors getting together to do something, share something... </h3>
           <h3><button className="greeting-signup-button" onClick={this._signup}>Sign me up!</button></h3>
         </div>);
@@ -95,13 +100,13 @@ const App = React.createClass({
     );
   },
 
-  footerDisplay() {
-    let footer;
-    if (this.props.location.pathname !=="/") {
-      footer = <Footer />;
-    }
-    return footer;
-  },
+  // footerDisplay() {
+  //   let footer;
+  //   if (this.props.location.pathname !=="/") {
+  //     footer = <Footer />;
+  //   }
+  //   return footer;
+  // },
 
   render() {
    return (
@@ -110,7 +115,7 @@ const App = React.createClass({
        {this.homeDisplay()}
        {this.props.children}
        <div className="largest-footer-container">
-         {this.footerDisplay()}
+         {<Footer/>}
        </div>
      </div>
    );

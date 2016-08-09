@@ -46,7 +46,6 @@ const GroupForm = React.createClass({
     e.preventDefault();
     const groupData = this.state;
     GroupActions.createGroup(groupData, (group) => {
-      debugger;
       hashHistory.push(`/groups/${group.id}`);
     });
     this.setState({ title: "", location: "", category: "", description: "" });
@@ -55,6 +54,10 @@ const GroupForm = React.createClass({
   handleCancel(e) {
     e.preventDefault();
     this.navigateToSearch();
+  },
+
+  descriptionLength() {
+    return `${this.state.description.length} characters.`;
   },
 
   render: function() {
@@ -104,7 +107,7 @@ const GroupForm = React.createClass({
                   className="textarea-input"
                   placeholder="Please describe your group (who should join/what the group will do/etc)"/>
               </label>
-              <h6>We recommend at least 50 characters in your description</h6>
+              <h6>{this.descriptionLength()} We recommend at least 50 characters in your description</h6>
               <input className="login-button" type="submit" value="next"/>
           </form>
         </div>

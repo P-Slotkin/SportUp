@@ -1,16 +1,18 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 const GroupActions = require('../actions/group_actions');
-const GroupStore = require('../stores/group_store.js');
-const MembershipStore = require('../stores/membership_store.js');
+const GroupStore = require('../stores/group_store');
+const MembershipStore = require('../stores/membership_store');
 const Link = require('react-router').Link;
 const MembershipActions = require('../actions/membership_actions');
 const SessionStore = require('../stores/session_store');
 const MembershipIndexItem = require('./membership_index_item');
-const UserStore = require('../stores/user_store.js');
+const UserStore = require('../stores/user_store');
 const UserActions = require('../actions/user_actions');
 const GroupMemberItem = require('./group_member_item');
 const GroupShowEventIndex = require('./group_show_event_index');
+const EventStore = require('../stores/event_store');
+const EventActions = require('../actions/event_actions');
 
 
 const GroupShow = React.createClass({
@@ -24,7 +26,6 @@ const GroupShow = React.createClass({
 
   componentDidMount() {
     this.groupListener = GroupStore.addListener(this._groupChanged);
-    // this.userListener = UserStore.addListener(this._membersChanged);
     GroupActions.getGroup(this.props.params.groupId);
   },
 
@@ -35,7 +36,6 @@ const GroupShow = React.createClass({
   _groupChanged() {
     const group = GroupStore.find(this.props.params.groupId);
     this.setState({ group: group, members: group.members, memberships: group.memberships});
-    console.log(group);
   },
 
   makeDestroyButton() {
@@ -120,6 +120,11 @@ const GroupShow = React.createClass({
     hashHistory.push("/");
   },
 
+  _edit(e) {
+    e.preventDefault();
+    hashHistory.push(`/groups/${this.state.group.id}/edit`);
+  },
+
   showMembers() {
     if (this.state.showMembers) {
       return (<div className="member-index-container">
@@ -143,10 +148,18 @@ const GroupShow = React.createClass({
   },
 
   groupNavbar(){
+    let editButton;
+    if (SessionStore.currentUser().id === this.state.group.creator_id) {
+      editButton = (
+        <div className="group-show-right-navbar">
+          <div className="login-signup-buttons"><button onClick={this._edit} className="login-button join-button">Edit Group</button></div>
+        </div>);
+    }
     let rightNavbar = (
       <div className="group-show-right-navbar">
         <div className="login-signup-buttons"><button onClick={this._join} className="login-button join-button">{this._checkAlreadyJoinedText()}</button></div>
-      </div>);
+        {editButton}
+    </div>);
     let leftNavbar = (
       <div className="group-show-left-navbar">
         <div onClick={this._home}>Home</div>
@@ -184,7 +197,7 @@ const GroupShow = React.createClass({
           </div>
           <div className="bottom-description-right">
             <div className="login-signup-buttons"><button onClick={this._toggleMembers} className="login-button">Members!</button></div>
-            <p> Look to see a list of this Sportups fantastic members</p>
+            <p> Click to see a list of this Sportups fantastic members</p>
           </div>
           <div className="bottom-description-rightest">
             {this.makeCreateEventButton()}
@@ -205,7 +218,6 @@ const GroupShow = React.createClass({
 
   render: function() {
 
-
     return (
       <div className="group-show-container group">
         <h1>{this.state.group.title}</h1>
@@ -224,11 +236,11 @@ const GroupShow = React.createClass({
                   </div>
                 </li>
                 <li>
-                  <div className="side-info-left">Upcoming SportUps:
+                  <div className="side-info-left">Upcoming Events:
                   </div>
                 </li>
                 <li>
-                  <div className="side-info-left">Past SportUps:
+                  <div className="side-info-left">Past Events:
                   </div>
                   <div className="side-info-right">filler
                   </div>

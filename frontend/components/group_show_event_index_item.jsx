@@ -1,10 +1,12 @@
 const React = require('react');
 const Link = require('react-router').Link;
-const EventActions = require('../actions/event_actions.js');
+const EventActions = require('../actions/event_actions');
 const hashHistory = require('react-router').hashHistory;
-const SessionStore = require('../stores/session_store.js');
-const RsvpActions = require('../actions/rsvp_actions.js');
-const GroupActions = require('../actions/group_actions.js');
+const SessionStore = require('../stores/session_store');
+const RsvpActions = require('../actions/rsvp_actions');
+const GroupActions = require('../actions/group_actions');
+const EventStore = require('../stores/event_store');
+const GroupStore = require('../stores/group_store');
 
 const GroupShowEventIndexItem = React.createClass({
 
@@ -12,16 +14,30 @@ const GroupShowEventIndexItem = React.createClass({
     let rsvps = this.props.event.members.map((member) => {
       return member.id;
     });
-    return ({event: this.props.event, rsvps: rsvps});
+    return ({event: this.props.event, rsvps: rsvps, destroyed: false});
+  },
+
+  componentDidMount() {
+    this.groupListener = GroupStore.addListener(this._groupChanged);
+  },
+
+  componentWillUnmount() {
+    this.groupListener.remove();
+  },
+
+  _groupChanged() {
+    this.setState({event: this.props.event});
   },
 
   edit(e){
     e.preventDefault();
+    hashHistory.push(`/events/${this.state.event.id}/edit`);
   },
 
   destroy(e){
     e.preventDefault();
     EventActions.deleteEvent(this.props.event.id);
+    this.setState({destroyed: true});
     // GroupActions.getGroup(this.state.event.group_id);
   },
 
@@ -52,6 +68,7 @@ const GroupShowEventIndexItem = React.createClass({
       newRsvps.push(SessionStore.currentUser().id);
       this.setState({rsvps: newRsvps});
     }
+    GroupActions.getGroup(this.state.event.group_id);
   },
 
   render () {
@@ -86,19 +103,25 @@ const GroupShowEventIndexItem = React.createClass({
         </div>
       </div>);
     }
-
-    return (
-      <li className="group-show-event-index-item-link" >
-        <h3> {event.title}</h3>
-        <h5> {event.location}</h5>
-        <h6>Hosted by: {event.creator.name}</h6>
-        <Link to={``} >
-          <img src={event.image_url}/>
-        </Link>&nbsp;
-        <p>{event.description}</p>
-        {buttons}
-      </li>
-    );
+    if (this.state.destroyed){
+      return (
+        <li className="group-show-event-index-item-link" >
+          <h3>Event Deleted </h3>
+        </li>);
+    } else {
+      return (
+        <li className="group-show-event-index-item-link" >
+          <h3> {event.title}</h3>
+          <h5> {event.location}</h5>
+          <h6>Hosted by: {event.creator.name}</h6>
+          <Link to={``} >
+            <img src={event.image_url}/>
+          </Link>&nbsp;
+          <p>{event.description}</p>
+          {buttons}
+        </li>
+      );
+    }
   }
 });
 
