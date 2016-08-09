@@ -99,6 +99,7 @@ const UserShow = React.createClass({
               </div>
             <div className="user-show-box-left-upper-section">
             </div>
+            <h2> Groups: </h2>
             <div className="user-show-box-left-groupsection">
               {this.groupItems()}
             </div>

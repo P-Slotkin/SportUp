@@ -2,7 +2,7 @@
   display: inline-block;
   margin-top: 20px;
   width: 960px;
-  min-height: 700px;
+  min-height: 300px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid rgba(0,0,0,.15);
@@ -43,15 +43,24 @@
   border-bottom: 1px solid rgba(0,0,0,.15);
 }
 
+.user-show-box h2 {
+  font-weight: 600;
+  letter-spacing: -.02em;
+  font-size: 22px;
+  line-height: 1.25;
+  padding-left: 16px;
+  margin-top: 206px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  padding-bottom: 4px;
+}
+
 .user-show-box-left {
   float:left;
   margin-right: 0px;;
   width: 670px;
-  min-height: 700px;
 }
 
 .user-show-box-left-upper {
-  min-height: 700px;
 }
 
 .user-show-box-left-upper-section {
