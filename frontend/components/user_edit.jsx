@@ -35,6 +35,7 @@ var UserEdit = React.createClass({
     e.preventDefault();
 
     UserActions.editUser(this.state);
+    this.setState({ id: "", name: "", email: "", location: "", interests: ""});
     hashHistory.push(`/users/${this.state.id}`);
   },
 

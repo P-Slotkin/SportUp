@@ -43,3 +43,11 @@ label{
   display: block;
   font-weight: 500px;
 }
+
+.group-show-container {
+  background-color: #fafafa;
+}
+
+.large-container {
+  background-color: #fafafa;
+}

@@ -96,7 +96,7 @@ const App = React.createClass({
 
   render() {
    return (
-     <div>
+     <div className="large-container">
        {this.navbar()}
        {this.homeDisplay()}
        {this.props.children}

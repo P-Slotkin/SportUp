@@ -40,6 +40,10 @@
   font-weight: 500;
 }
 
+.textarea-input {
+  background-color: #fafafa;
+}
+
 .login-input {
   font-family: "Graphik Meetup",helvetica,arial,sans-serif;
   line-height: 1.45;

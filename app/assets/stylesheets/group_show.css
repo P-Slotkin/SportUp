@@ -9,6 +9,10 @@
   min-height: 1000px;
 }
 
+.group-show-container div {
+  background-color: #fff
+}
+
 
 .group-show-container h1{
   min-height: 82px;

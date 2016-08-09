@@ -1,6 +1,7 @@
 .navbar {
   border-bottom: 1px solid rgba(0,0,0,0.15);
   min-height: 64px;
+  background-color: #fff;
   color: rgba(0,0,0,0.65);
 }
 
