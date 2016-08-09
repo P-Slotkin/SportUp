@@ -16,6 +16,7 @@ const UserEdit = require('./components/user_edit');
 const EventForm = require('./components/event_form');
 const GroupEdit = require('./components/group_edit');
 const EventEdit = require('./components/event_edit');
+const EventShow = require('./components/event_show');
 
 const appRouter = (
   <Router history={ hashHistory }>
@@ -27,6 +28,7 @@ const appRouter = (
       <Route path="/groups/:groupId" component={ GroupShow} />
       <Route path="/groups/:groupId/edit" component={ GroupEdit } />
       <Route path="/events/:eventId/edit" component={ EventEdit } />
+      <Route path="/events/:eventId" component={ EventShow } />
       <Route path="/groupform" component={ GroupForm } onEnter={ _ensureLoggedIn }/>
       <Route path="/eventform/:groupId" component={ EventForm } onEnter={ _ensureLoggedIn }/>
     </Route>

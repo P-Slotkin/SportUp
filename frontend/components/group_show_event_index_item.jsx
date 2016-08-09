@@ -71,58 +71,104 @@ const GroupShowEventIndexItem = React.createClass({
     GroupActions.getGroup(this.state.event.group_id);
   },
 
+  goToUser(id, e) {
+    hashHistory.push(`/users/${id}`);
+  },
+
+  goToEvent(id, e) {
+    hashHistory.push(`/events/${id}`);
+  },
+
   render () {
-    const event = this.props.event;
-    let buttons;
+
     let alreadyJoined = false;
-    this.state.rsvps.forEach((member) => {
-      if (member === SessionStore.currentUser().id) {
-        alreadyJoined = true;
+      this.state.rsvps.forEach((member) => {
+        if (member === SessionStore.currentUser().id) {
+          alreadyJoined = true;
+        }
+      });
+      let joinedText;
+      if (alreadyJoined) {
+        joinedText = "Leave Event";
+      } else {
+        joinedText = "RSVP";
       }
+
+    let attenders = this.state.event.members.map((member)=>{
+      return (<div key={member.id} onClick={this.goToUser.bind(this, member.id)}><img key={member} src={member.image_url}/></div>);
     });
-    let joinedText;
-    if (alreadyJoined) {
-      joinedText = "Leave Event";
-    } else {
-      joinedText = "RSVP";
-    }
-    if (SessionStore.currentUser().id === event.creator_id) {
-      buttons = (<div className="event-buttons event-creator-buttons">
-        <div className="login-signup-buttons destroy">
-          <button onClick={this.edit} className="login-button">Edit
-          </button>
-          <button onClick={this.destroy} className="login-button">Destroy
-          </button>
+    return(
+      <div className="group-show-event-item-container">
+        <h2> {this.state.event.title} </h2>
+        <div className="group-show-event-item-left-container">
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link"> {this.state.event.location} </p>
+          <div className="group-show-event-item-attenders">{attenders}</div>
+          <p>{this.state.event.description.slice(0, 100)}</p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link"> Learn more </p>
+          <h5>Hosted by {this.state.event.creator.name}</h5>
         </div>
-      </div>);
-    } else {
-      buttons = (<div className="event-buttons">
-        <div className="login-signup-buttons">
-          <button onClick={this.join} className="login-button">{joinedText}
-          </button>
+        <div className="group-show-event-item-right-container">
+          <p> Time </p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{joinedText}</p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{this.state.event.members.length} going </p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link"># comments</p>
         </div>
-      </div>);
-    }
-    if (this.state.destroyed){
-      return (
-        <li className="group-show-event-index-item-link" >
-          <h3>Event Deleted </h3>
-        </li>);
-    } else {
-      return (
-        <li className="group-show-event-index-item-link" >
-          <h3> {event.title}</h3>
-          <h5> {event.location}</h5>
-          <h6>Hosted by: {event.creator.name}</h6>
-          <Link to={``} >
-            <img src={event.image_url}/>
-          </Link>&nbsp;
-          <p>{event.description}</p>
-          {buttons}
-        </li>
-      );
-    }
+      </div>
+    );
   }
+
+  // render () {
+  //   const event = this.props.event;
+  //   let buttons;
+  //   let alreadyJoined = false;
+  //   this.state.rsvps.forEach((member) => {
+  //     if (member === SessionStore.currentUser().id) {
+  //       alreadyJoined = true;
+  //     }
+  //   });
+  //   let joinedText;
+  //   if (alreadyJoined) {
+  //     joinedText = "Leave Event";
+  //   } else {
+  //     joinedText = "RSVP";
+  //   }
+  //   if (SessionStore.currentUser().id === event.creator_id) {
+  //     buttons = (<div className="event-buttons event-creator-buttons">
+  //       <div className="login-signup-buttons destroy">
+  //         <button onClick={this.edit} className="login-button">Edit
+  //         </button>
+  //         <button onClick={this.destroy} className="login-button">Destroy
+  //         </button>
+  //       </div>
+  //     </div>);
+  //   } else {
+  //     buttons = (<div className="event-buttons">
+  //       <div className="login-signup-buttons">
+  //         <button onClick={this.join} className="login-button">{joinedText}
+  //         </button>
+  //       </div>
+  //     </div>);
+  //   }
+  //   if (this.state.destroyed){
+  //     return (
+  //       <li className="group-show-event-index-item-link" >
+  //         <h3>Event Deleted </h3>
+  //       </li>);
+  //   } else {
+  //     return (
+  //       <li className="group-show-event-index-item-link" >
+  //         <h3> {event.title}</h3>
+  //         <h5> {event.location}</h5>
+  //         <h6>Hosted by: {event.creator.name}</h6>
+  //         <Link to={``} >
+  //           <img src={event.image_url}/>
+  //         </Link>&nbsp;
+  //         <p>{event.description}</p>
+  //         {buttons}
+  //       </li>
+  //     );
+  //   }
+  // }
 });
 
 module.exports =GroupShowEventIndexItem;

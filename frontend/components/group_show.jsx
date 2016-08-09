@@ -174,12 +174,6 @@ const GroupShow = React.createClass({
     );
   },
 
-  groupMembers() {
-    this.state.members.map( (member) => {
-      return <MembershipIndexItem key={member.id} membership={member} />;
-    });
-  },
-
   groupDescription() {
     let memberText;
     if (this.memberOfGroup()) {

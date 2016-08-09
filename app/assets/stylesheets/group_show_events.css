@@ -9,6 +9,12 @@
   border-bottom: 1px solid rgba(0,0,0,.26);
 }
 
+.group-show-event-index h2 {
+  padding-left: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
 .group-show-event-index li {
   list-style: none;
   padding: 16px;
@@ -22,58 +28,62 @@
   font-weight: 400;
 }
 
-.group-show-event-index-item-link img {
-  width: 150px;
-  height: auto;
-  padding-bottom: 16px;
+.group-show-event-item-container {
+  height: 312px;
+  width: 496px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
 }
-.group-show-event-index-item-link {
-  text-decoration: none !important;
-  text-align: center;
-  border: 0!important;
-  color: black;
+
+.group-show-event-item-container h2{
+  background-color: #fff;
+  color: rgba(0,0,0,.87);
+  font-size: 20px;
   line-height: 1.25;
-  border-top: 1px solid rgba(0,0,0,.15)!important;
-}
-
-.group-show-event-index-item-link h3 {
-  text-align: center !important;
   font-weight: bold;
-  font-size: 24px;
+  letter-spacing: -.02em;
+  margin-bottom: 0!important;
+  padding-bottom: 0!important;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
 }
 
-.group-show-event-index-item-link h5 {
-  font-size: 18px;
-  margin-top: 0px;
-  margin-bottom: 8px;
+.group-show-event-item-location-link {
+  color: #2A9BC7;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
 }
 
-.group-show-event-index-item-link h6 {
-  margin-top: 8px;
-  font-size: 14px;
-  margin-bottom: 16px;
+.group-show-event-item-location-link:hover {
+  cursor: pointer;
 }
 
-.group-show-event-index-item-link p {
-  float: right;
-  width: 308px;
-  text-align: left;
+.group-show-event-item-attenders {
+  width: 360px;
+  display: inline-block;
 }
 
-.event-buttons {
+.group-show-event-item-left-container {
+  width: 360px;
+}
+
+.group-show-event-item-left-container img {
+  float: left;
+  height: 30px;
+  width: 30px;
+  padding-right: 4px;
+}
+
+.group-show-event-item-left-container img:hover {
+  cursor: pointer;
+}
+
+.group-show-event-item-right-container {
   float:right;
-  height: 36px;
-  margin-top: -48px;
-  margin-bottom: 16px;
-  width: 200px
-}
-
-.destroy {
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-}
-
-.destroy button {
-  margin-left: 16px;
+  margin-top: -232px;
 }

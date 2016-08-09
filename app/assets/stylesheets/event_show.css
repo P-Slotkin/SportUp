@@ -1,0 +1,102 @@
+.event-show-description {
+  float: left;
+  margin-top: 16px;
+  margin-left: 12px;
+  width: 513px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom: 1px solid rgba(0,0,0,.26);
+  padding-bottom: 0px;
+  border-right: 0px;
+  min-height: 400px;
+}
+
+.event-show-decription h2 {
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: bold;
+  letter-spacing: -.02em;
+  padding: 0 0 8px;
+}
+
+.event-show-description h3 {
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  margin-bottom: 0!important;
+  padding-bottom: 0!important;
+  padding: 0 0 16px !important;;
+}
+
+.event-member-index-container {
+  float: right;
+  width: 198px;
+  min-height: 600px;
+  margin-top: 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.event-member-index-container img {
+  margin-top: 16px;
+  width: 100px;
+  height: auto;
+}
+
+.event-member-index-container li {
+  list-style: none;
+  display: inline-block;
+  width: 198px;
+  text-align: center;
+}
+
+.event-member-index-container p {
+  margin-top: 0px;
+}
+
+.event-member-index-container h3 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.25;
+  padding-bottom: 16px;
+  padding-left: 30px;
+  padding-top: 16px;
+}
+.rsvp-members-index-window {
+  height: 111px;
+  padding: 16px;
+  padding-bottom: 0px;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.rsvp-members-index-window h3 {
+  font-weight: bold;
+  font-size: 28px;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  padding-left: 0px;
+}
+
+.login-button-extended {
+  cursor: pointer;
+  background: #ED1C40;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 16px;
+  border: 1px solid rgba(0,0,0,.15);
+  vertical-align: middle;
+  line-height: 1;
+  margin-bottom: 16px;
+  border-radius: 3px;
+  width: 166px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

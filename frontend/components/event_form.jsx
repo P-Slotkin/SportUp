@@ -97,7 +97,7 @@ const EventForm = React.createClass({
                   className="textarea-input"
                   placeholder="Please describe your event (who should join/what the event will be/etc)"/>
               </label>
-              <h6>Try to be concise, limit {this.descriptionLength()}56 characters</h6>
+              <h6>{this.descriptionLength()} We recommend at least 50 characters in your description</h6>
               <input className="login-button" type="submit" value="Create Event"/>
           </form>
         </div>

@@ -12,4 +12,18 @@
 #
 
 class Comment < ActiveRecord::Base
+
+  belongs_to(
+    :user,
+    class_name: "User",
+    primary_key: :id,
+    foreign_key: :author_id
+  )
+
+  belongs_to(
+    :event,
+    class_name: "Event",
+    primary_key: :id,
+    foreign_key: :event_id
+  )
 end

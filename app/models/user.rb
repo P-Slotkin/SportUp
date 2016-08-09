@@ -29,12 +29,12 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   # has_many :rsvps
-  # has_many(
-  #   :comments,
-  #   class_name: "Comment",
-  #   primary_key: :id,
-  #   foreign_key: :author_id
-  # )
+  has_many(
+    :comments,
+    class_name: "Comment",
+    primary_key: :id,
+    foreign_key: :author_id
+  )
   #
   # has_many(
   #   :created_events,

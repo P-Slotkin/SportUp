@@ -48,6 +48,13 @@ class Event < ActiveRecord::Base
     foreign_key: :group_id
   )
 
+  has_many(
+    :comments,
+    class_name: "Comment",
+    primary_key: :id,
+    foreign_key: :event_id
+  )
+
   def number_rsvps
     rsvps.count
   end

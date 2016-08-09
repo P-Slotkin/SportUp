@@ -26,6 +26,7 @@ module.exports = React.createClass({
   render () {
     return (
       <div className="group-show-event-index">
+        <h2>Events</h2>
         <ul>
           {
             this.state.events.map(function (Event) {

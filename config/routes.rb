@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :memberships, only: [:index, :create, :destroy]
     resources :rsvps, only: [:index, :create, :destroy]
     resources :events, except: [:new]
+    resources :comments, except: [:new]
   end
 
   root "static_pages#root"
