@@ -1,0 +1,58 @@
+.largest-footer-container {
+  background-color: #0f1721;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.footer-container {
+  display: block;
+  width: 928px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-top: 24px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  height: 175px;
+}
+
+.footer-container-topbar {
+  font-size: 16px;
+  line-height: 1.45;
+  font-family: "Graphik Meetup",helvetica,arial,sans-serif;
+  font-weight: 400;
+  width: 928px;
+  padding-bottom: 54px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.footer-container-topbar p {
+  width: 200px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.footer-container-topbar p:hover {
+  cursor: pointer;
+}
+
+.footer-container-topbar-right {
+  float: right;
+  text-align: right;
+  color: #fff;
+}
+
+.footer-container-topbar-left {
+  float: left;
+}
+
+.footer-container-bottom {
+  margin-top: 100px;
+}
+
+.footer-container-bottom {
+  color: rgba(255,255,255,0.7);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 48px;
+}

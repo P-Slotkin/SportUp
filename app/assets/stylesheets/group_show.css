@@ -72,6 +72,10 @@
   float: right;
 }
 
+.join-button {
+  margin-bottom: 0px !important;
+}
+
 .member-index-container {
   float: right;
   width: 198px;

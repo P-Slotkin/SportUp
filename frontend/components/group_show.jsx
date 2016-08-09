@@ -145,7 +145,7 @@ const GroupShow = React.createClass({
   groupNavbar(){
     let rightNavbar = (
       <div className="group-show-right-navbar">
-        <div className="login-signup-buttons"><button onClick={this._join} className="login-button">{this._checkAlreadyJoinedText()}</button></div>
+        <div className="login-signup-buttons"><button onClick={this._join} className="login-button join-button">{this._checkAlreadyJoinedText()}</button></div>
       </div>);
     let leftNavbar = (
       <div className="group-show-left-navbar">

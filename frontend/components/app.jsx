@@ -7,6 +7,7 @@ const SessionActions = require('../actions/session_actions');
 const hashHistory = ReactRouter.hashHistory;
 const ProfileDropdown = require('./profile_dropdown.jsx');
 const GroupIndex = require('./group_index.jsx');
+const Footer = require('./footer.jsx');
 
 const App = React.createClass({
 
@@ -94,12 +95,23 @@ const App = React.createClass({
     );
   },
 
+  footerDisplay() {
+    let footer;
+    if (this.props.location.pathname !=="/") {
+      footer = <Footer />;
+    }
+    return footer;
+  },
+
   render() {
    return (
      <div className="large-container">
        {this.navbar()}
        {this.homeDisplay()}
        {this.props.children}
+       <div className="largest-footer-container">
+         {this.footerDisplay()}
+       </div>
      </div>
    );
   }
