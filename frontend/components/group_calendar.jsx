@@ -11,7 +11,16 @@ const GroupCalendar = React.createClass({
   getInitialState(){
     let year = parseInt(this.props.currentDate.slice(0, 4));
     let month = parseInt(this.props.currentDate.slice(5, 7));
-    return ({ year: year, month: month, events: this.props.events, group: this.props.group });
+    let eventsHash = {};
+    this.props.events.forEach((event) => {
+      let date = event.date.slice(0, 10);
+      if (eventsHash[date]) {
+        eventsHash[date].push(event);
+      } else {
+        eventsHash[date] = [event];
+      }
+    });
+    return ({ year: year, month: month, events: eventsHash, group: this.props.group });
   },
 
   nextMonth(e) {
@@ -39,12 +48,12 @@ const GroupCalendar = React.createClass({
     let yearLastTwoDigits = this.state.year.toString().slice(2);
     let leapYears = Math.floor(parseInt(yearLastTwoDigits) / 4);
     let monthLeap;
-    if (parseInt(this.state.year) % 4 === 0) {
+    if (this.state.year % 4 === 0) {
       monthLeap = MonthLeapConstants[parseInt(month)];
     } else {
       monthLeap = MonthConstants[parseInt(month)];
     }
-    let dayNumber = (1 + leapYears + yearLastTwoDigits + MonthConstants[parseInt(month)]) % 7;
+    let dayNumber = (leapYears + parseInt(yearLastTwoDigits) + monthLeap) % 7;
     return dayNumber;
   },
 
@@ -65,6 +74,7 @@ const GroupCalendar = React.createClass({
   },
 
   _group(e) {
+    GroupActions.fetchGroups();
     e.preventDefault();
     hashHistory.push(`/groups/${this.state.group.id}`);
   },
@@ -87,10 +97,17 @@ const GroupCalendar = React.createClass({
     );
   },
 
+  renderEventsForDate(day) {
+    let dayTwoDigits = day;
+    if (dayTwoDigits.length < 2) {
+      dayTwoDigits = "0" + dayTwoDigits;
+    }
+    this.state.events[this.state.year.toString() + '-' + this.state.month.toString + '-' + day]
+  },
+
   formatCalendarComponent() {
     let days = [];
     let extraBeginningDays = this.getDayFirstMonth();
-    console.log(extraBeginningDays);
     for (let i = 1; i <= extraBeginningDays; i++) {
       days.push("_");
     }
@@ -120,7 +137,7 @@ const GroupCalendar = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.month);
+    console.log(this.state.events);
     let stringMonth = this.state.month.toString();
     let wordMonth = DateConstants[stringMonth];
     return (

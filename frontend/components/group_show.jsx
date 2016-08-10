@@ -35,6 +35,7 @@ const GroupShow = React.createClass({
   },
 
   _groupChanged() {
+    this.setState({ showCalendar: false });
     const group = GroupStore.find(this.props.params.groupId);
     this.setState({ group: group, members: group.members, memberships: group.memberships});
   },
