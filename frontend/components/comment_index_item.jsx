@@ -11,6 +11,7 @@ const CommentIndexItem = React.createClass({
   },
 
   componentDidMount() {
+    CommentActions.fetchComments();
     this.eventListener = EventStore.addListener(this._eventChanged);
   },
 
@@ -40,7 +41,7 @@ const CommentIndexItem = React.createClass({
     e.preventDefault();
     CommentActions.deleteComment(this.props.comment.id);
     this.setState({destroyed: true});
-    hashHistory.push(`/events/${this.props.event.id}`);
+    hashHistory.push(`/events/${this.props.eventId}`);
   },
 
   render: function() {
@@ -48,12 +49,12 @@ const CommentIndexItem = React.createClass({
       return (<div className="comment-index-item-container"> <h5 className="deleted"> Deleted </h5> </div>);
     } else {
       return (
-        <div className="comment-index-item-container group">
-          <div className="comment-index-item-left">
-            <img onClick={this.goToUser.bind(this, this.state.comment.author_id)} src={this.state.comment.image_url} />
-            <h4 onClick={this.goToUser.bind(this, this.state.comment.author_id)} > {this.state.comment.name} </h4>
+        <div className="comment-index-item-container group" key="comment-index-item-container group">
+          <div className="comment-index-item-left" key="comment-index-item-left">
+            <img onClick={this.goToUser.bind(this, this.state.comment.author_id)} src={this.state.comment.creator.image_url} />
+            <h4 onClick={this.goToUser.bind(this, this.state.comment.author_id)} > {this.state.comment.creator.name} </h4>
           </div>
-          <div className="comment-index-item-right">
+          <div className="comment-index-item-right" key="comment-index-item-right">
             <p> {this.state.comment.body} </p>
             {this.makeDestroyButton()}
           </div>

@@ -15,6 +15,10 @@
   border-bottom: 1px solid rgba(0,0,0,.15);
 }
 
+.time-event-index-item {
+  margin-top: -8px;
+}
+
 .group-show-event-index li {
   list-style: none;
   padding: 16px;

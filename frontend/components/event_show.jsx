@@ -29,7 +29,7 @@ var EventShow = React.createClass({
   componentDidMount() {
     this.groupListener = GroupStore.addListener(this._groupChanged);
     this.eventListener = EventStore.addListener(this._eventChanged);
-    EventActions.fetchEvents();
+    EventActions.getEvent(this.props.params.eventId);
     GroupActions.fetchGroups();
     CommentActions.fetchComments();
   },
@@ -41,7 +41,7 @@ var EventShow = React.createClass({
 
   _eventChanged() {
     const event = EventStore.find(this.props.params.eventId);
-    this.setState({ event: event, rsvps: event.members, rsvpInstances: event.rsvps, group: GroupStore.find(this.state.event.group_id)});
+    this.setState({ event: event, rsvps: event.members, rsvpInstances: event.rsvps, group: event.group});
   },
 
   _groupChanged() {
@@ -60,9 +60,9 @@ var EventShow = React.createClass({
 
   _destroy(e){
     e.preventDefault();
-    GroupActions.deleteGroup(this.state.event.id);
+    EventActions.deleteEvent(this.props.params.eventId);
     hashHistory.push(`/groups/${this.state.event.group_id}`);
-    GroupStore.getGroup(this.state.event.group_id);
+    GroupActions.getGroup(this.state.event.group_id);
   },
 
   memberOfEvent() {
@@ -184,6 +184,14 @@ var EventShow = React.createClass({
     } else {
       memberText = "Join us and be the first to know when new Sportups are scheduled";
     }
+    let comments;
+    if (this.state.event.comments) {
+      comments = this.state.event.comments.sort(function(x,y) {
+        let a = new Date(x.created_at);
+        let b = new Date(y.created_at);
+        return a-b;
+      });
+    }
     return (
       <div className="event-show-main-body">
         <div className="event-show-description group">
@@ -197,7 +205,7 @@ var EventShow = React.createClass({
             </div>
           </div>
         </div>
-        <CommentIndex event={this.state.event} comments={this.state.event.comments}/>
+        <CommentIndex eventId={this.props.params.eventId} event={this.state.event} comments={comments}/>
       </div>
 
     );
@@ -210,7 +218,7 @@ var EventShow = React.createClass({
   // },
 
   render: function() {
-    if (this.state.event && this.state.group.members) {
+    if (this.state.event && this.state.group) {
       return (
         <div className="group-show-container group">
           <h1>{this.state.group.title}</h1>
@@ -225,7 +233,7 @@ var EventShow = React.createClass({
                   <li>
                     <div className="side-info-left">Athletes:
                     </div>
-                    <div className="side-info-right">{this.state.group.members.length}
+                    <div className="side-info-right">{this.props.population}
                     </div>
                   </li>
                   <li>
@@ -255,7 +263,6 @@ var EventShow = React.createClass({
       return( <div /> );
     }
   }
-  // {this.eventComments()}
 
 });
 

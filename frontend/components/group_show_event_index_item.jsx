@@ -7,6 +7,7 @@ const RsvpActions = require('../actions/rsvp_actions');
 const GroupActions = require('../actions/group_actions');
 const EventStore = require('../stores/event_store');
 const GroupStore = require('../stores/group_store');
+const DateConstants = require('../constants/date_constants');
 
 const GroupShowEventIndexItem = React.createClass({
 
@@ -97,18 +98,35 @@ const GroupShowEventIndexItem = React.createClass({
     let attenders = this.state.event.members.map((member)=>{
       return (<div key={member.id} onClick={this.goToUser.bind(this, member.id)}><img key={member} src={member.image_url}/></div>);
     });
+
+    let date = new Date(this.state.event.date);
+    let outputDate = DateConstants[(date.getMonth() + 1)] + ", " + date.getDate();
+    let minutes;
+    if (date.getMinutes().length < 2) {
+      minutes = "0" + date.getMinutes();
+    } else {
+      minutes = date.getMinutes();
+    }
+    let am;
+    if (parseInt(date.getHours()) < 13 && parseInt(date.getHours()) > 0) {
+      am = "am";
+    } else {
+      am = "pm";
+    }
+    let outputTime = date.getHours() + ":" + minutes + " " + am;
     return(
-      <div className="group-show-event-item-container">
+      <div className="group-show-event-item-container" key="group-show-event-item-container">
         <h2> {this.state.event.title} </h2>
-        <div className="group-show-event-item-left-container">
+        <div className="group-show-event-item-left-container" key="group-show-event-item-left-container">
           <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link"> {this.state.event.location} </p>
-          <div className="group-show-event-item-attenders">{attenders}</div>
+          <div className="group-show-event-item-attenders" key="group-show-event-item-attenders">{attenders}</div>
           <p>{this.state.event.description.slice(0, 100)}</p>
           <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link"> Learn more </p>
           <h5>Hosted by {this.state.event.creator.name}</h5>
         </div>
-        <div className="group-show-event-item-right-container">
-          <p> Time </p>
+        <div className="group-show-event-item-right-container" key="group-show-event-item-right-container">
+          <p> {outputDate} </p>
+          <p className="time-event-index-item"> {outputTime} </p>
           <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{joinedText}</p>
           <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{this.state.event.members.length} going </p>
           <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{this.state.event.comments.length} comments</p>

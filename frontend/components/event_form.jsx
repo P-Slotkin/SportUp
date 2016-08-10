@@ -8,7 +8,10 @@ const GroupActions = require('../actions/group_actions.js');
 const EventForm = React.createClass({
 
   getInitialState() {
-    return ({ title: "", location: "", description: "", creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId});
+    let currentDate = new Date();
+    let date = currentDate.toJSON().slice(0,10);
+    let time = currentDate.toJSON().slice(11, 17) + "00";
+    return ({ title: "", location: "", description: "", date: date, time: time, creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId});
   },
 
   componentDidMount() {
@@ -40,13 +43,27 @@ const EventForm = React.createClass({
     this.setState({ location: newLocation });
   },
 
+  dateChange(e) {
+    const newDate = e.target.value;
+    this.setState({ date: newDate });
+  },
+
+  timeChange(e) {
+    const newTime = e.target.value;
+    this.setState({ time: newTime});
+  },
+
   handleSubmit(e) {
+    console.log(this.state);
     e.preventDefault();
     const eventData = this.state;
-    EventActions.createEvent({ title: this.state.title, location: this.state.location, description: this.state.description, creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId}, (event) => {
+    EventActions.createEvent({ title: this.state.title, date: this.state.date.concat(" ").concat(this.state.time), location: this.state.location, description: this.state.description, creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId}, (event) => {
       hashHistory.push(`/groups/${this.state.group_id}`);
     });
-    this.setState({ title: "", location: "", description: "" });
+    let currentDate = new Date();
+    let date = currentDate.toJSON().slice(0,10);
+    let time = currentDate.toJSON().slice(11, 17) + "00";
+    this.setState({ title: "", location: "", description: "", date: date, time: time });
   },
 
   handleCancel(e) {
@@ -73,15 +90,7 @@ const EventForm = React.createClass({
         <h4> Try to be as descriptive as possible! </h4>
         <div className="new-group-form-container">
           <form onSubmit={this.handleSubmit}>
-            <p> STEP 1 OF 3 </p>
-            <label className="group-form-labels">{whats} your new SportUp {events} hometown?
-              <br/>
-              <input type="text" value={this.state.location}
-                onChange={this.locationChange}
-                className="login-input"
-                placeholder="Please input a city"/>
-            </label>
-            <p> STEP 2 OF 3 </p>
+            <p> STEP 1 OF 4 </p>
               <label className="group-form-labels">What will your {events} name be?
                 <br/>
                 <input type="text" value={this.state.title}
@@ -89,7 +98,26 @@ const EventForm = React.createClass({
                   className="login-input"
                   placeholder="Please choose your SportUp event name"/>
               </label>
-            <p> STEP 3 OF 3 </p>
+            <p> STEP 2 OF 4 </p>
+            <label className="group-form-labels">WHEN is your event?
+              <br/>
+              <input type="date" value={this.state.date}
+                onChange={this.dateChange}
+                className="login-input"/>
+              <br/>
+              <input type="time" value={this.state.time}
+                onChange={this.timeChange}
+                className="login-input"/>
+            </label>
+            <p> STEP 3 OF 4 </p>
+              <label className="group-form-labels">WHERE is your event?
+                <br/>
+                <input type="text" value={this.state.location}
+                  onChange={this.locationChange}
+                  className="login-input"
+                  placeholder="Please input a city"/>
+              </label>
+            <p> STEP 4 OF 4 </p>
               <label className="group-form-labels">Describe who should rsvp, and what your event is.
                 <br/>
                 <input type="textarea" value={this.state.description}

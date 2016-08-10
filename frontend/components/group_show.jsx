@@ -76,6 +76,58 @@ const GroupShow = React.createClass({
     }
   },
 
+  upcomingEventsCount(){
+    let counter = 0;
+    if (this.state.group.events) {
+      let todaysYearMonthDate = [];
+      todaysYearMonthDate.push(new Date().getUTCFullYear());
+      todaysYearMonthDate.push(new Date().getUTCMonth());
+      todaysYearMonthDate.push(new Date().getUTCDate());
+      this.state.group.events.forEach((event) => {
+        if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) === todaysYearMonthDate[1] + 1 &&
+          parseInt(event.date.slice(8, 10)) - 14 <= todaysYearMonthDate[2] &&
+          parseInt(event.date.slice(8, 10)) >= todaysYearMonthDate[2]) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 2 === todaysYearMonthDate[1] &&
+          parseInt(event.date.slice(8, 10)) <= 14 - (30 - todaysYearMonthDate[2])) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) - 1 === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 12 === todaysYearMonthDate[1] &&
+          parseInt(event.date.slice(8, 10)) <= 14 - (31 - todaysYearMonthDate[2])) {
+            counter++;
+        } else {
+        }
+      });
+    }
+    return counter;
+  },
+
+  pastEventsCount(){
+    let counter = 0;
+    if (this.state.group.events) {
+      let todaysYearMonthDate = [];
+      todaysYearMonthDate.push(new Date().getUTCFullYear());
+      todaysYearMonthDate.push(new Date().getUTCMonth());
+      todaysYearMonthDate.push(new Date().getUTCDate());
+      this.state.group.events.forEach((event) => {
+        if (parseInt(event.date.slice(0, 4)) < todaysYearMonthDate[0]) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 1 < todaysYearMonthDate[1]) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 1 === todaysYearMonthDate[1] &&
+          parseInt(event.date.slice(8, 10)) < todaysYearMonthDate[2]) {
+            counter++;
+        } else {
+        }
+      });
+    }
+    return counter;
+  },
+
   _createEvent(e){
     e.preventDefault();
     hashHistory.push(`/eventform/${this.state.group.id}`);
@@ -206,12 +258,12 @@ const GroupShow = React.createClass({
 
   groupEvents() {
     if (this.state.group.events && this.state.group.events.length > 0) {
-      return (<GroupShowEventIndex events={this.state.group.events} />);
+      return (<GroupShowEventIndex population={this.state.members.length}  events={this.state.group.events} />);
     }
   },
 
   render: function() {
-
+    console.log(this.state.group);
     return (
       <div className="group-show-container group">
         <h1>{this.state.group.title}</h1>
@@ -232,11 +284,13 @@ const GroupShow = React.createClass({
                 <li>
                   <div className="side-info-left">Upcoming Events:
                   </div>
+                  <div className="side-info-right">{this.upcomingEventsCount()}
+                  </div>
                 </li>
                 <li>
                   <div className="side-info-left">Past Events:
                   </div>
-                  <div className="side-info-right">filler
+                  <div className="side-info-right">{this.pastEventsCount()}
                   </div>
                 </li>
                 <li>

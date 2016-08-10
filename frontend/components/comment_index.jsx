@@ -23,7 +23,9 @@ const CommentIndex = React.createClass({
   },
 
   _eventChanged() {
-    this.setState({comments: this.props.comments});
+    let that = this;
+    const event = EventStore.find(that.props.eventId);
+    this.setState({comments: event.comments});
   },
 
   render () {
@@ -40,7 +42,7 @@ const CommentIndex = React.createClass({
             }
           </ul>
 
-          <CommentForm event={that.props.event} />
+          <CommentForm eventId={that.props.eventId} event={that.props.event} />
         </div>);
       } else {
       return (<div />);

@@ -24,13 +24,14 @@ module.exports = React.createClass({
   },
 
   render () {
+    let that = this;
     return (
       <div className="group-show-event-index">
         <h2>Events</h2>
         <ul>
           {
             this.state.events.map(function (Event) {
-              return (<GroupShowEventIndexItem key={Event.id} event={Event} />);
+              return (<GroupShowEventIndexItem population={that.props.population} key={Event.id} event={Event} />);
             })
           }
         </ul>

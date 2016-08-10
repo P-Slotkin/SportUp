@@ -7,7 +7,7 @@ const EventActions = require('../actions/event_actions');
 const CommentForm = React.createClass({
 
   getInitialState() {
-    return ({ body: "", author_id: SessionStore.currentUser().id, event_id: this.props.event.id });
+    return ({ body: "", author_id: SessionStore.currentUser().id, event_id: this.props.eventId });
   },
 
   bodyChange(e) {
@@ -18,9 +18,8 @@ const CommentForm = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     const commentData = this.state;
-    CommentActions.createComment( commentData, (event) => {
-      EventActions.getEvent(this.props.event.id);
-    });
+    CommentActions.createComment( commentData );
+    EventActions.fetchEvents();
     this.setState({ body: "" });
   },
 
