@@ -13,6 +13,7 @@ const GroupMemberItem = require('./group_member_item');
 const GroupShowEventIndex = require('./group_show_event_index');
 const EventStore = require('../stores/event_store');
 const EventActions = require('../actions/event_actions');
+const GroupCalendar = require('./group_calendar');
 
 
 const GroupShow = React.createClass({
@@ -21,7 +22,7 @@ const GroupShow = React.createClass({
     const members = [];
     const memberships = [];
     const group = GroupStore.find(this.props.params.groupId) || {} ;
-    return { group: group, members: members, memberships: memberships, showMembers: false };
+    return { group: group, members: members, memberships: memberships, showMembers: false, showCalendar: false };
   },
 
   componentDidMount() {
@@ -199,6 +200,15 @@ const GroupShow = React.createClass({
     }
   },
 
+  _showCalendar() {
+    console.log("HERER");
+    if (this.state.showCalendar) {
+      this.setState({ showCalendar: false });
+    } else {
+      this.setState({ showCalendar: true });
+    }
+  },
+
   groupNavbar(){
     let editButton;
     if (SessionStore.currentUser().id === this.state.group.creator_id) {
@@ -263,50 +273,55 @@ const GroupShow = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.group);
-    return (
-      <div className="group-show-container group">
-        <h1>{this.state.group.title}</h1>
-          {this.groupNavbar()}
-          <div className="side-info-filler group">
-            <div className="side-info-group-pic">
-              <img src={this.state.group.image_url}/>
+    if (this.state.showCalendar) {
+      return (
+        <GroupCalendar currentDate={new Date().toJSON()} group={this.state.group} events={this.state.group.events} />
+      );
+    } else {
+      return (
+        <div className="group-show-container group">
+          <h1>{this.state.group.title}</h1>
+            {this.groupNavbar()}
+            <div className="side-info-filler group">
+              <div className="side-info-group-pic">
+                <img src={this.state.group.image_url}/>
+              </div>
+              <div className="side-info-attributes group">
+                <h3> {this.state.group.location} </h3>
+                <ul>
+                  <li>
+                    <div className="side-info-left">Athletes:
+                    </div>
+                    <div className="side-info-right">{this.state.members.length}
+                    </div>
+                  </li>
+                  <li>
+                    <div className="side-info-left">Upcoming Events:
+                    </div>
+                    <div className="side-info-right">{this.upcomingEventsCount()}
+                    </div>
+                  </li>
+                  <li>
+                    <div className="side-info-left">Past Events:
+                    </div>
+                    <div className="side-info-right">{this.pastEventsCount()}
+                    </div>
+                  </li>
+                  <li>
+                    <div className="side-info-left">Our calendar:
+                    </div>
+                    <div className="side-info-right pointer" onClick={this._showCalendar}>insert icon
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="side-info-attributes group">
-              <h3> {this.state.group.location} </h3>
-              <ul>
-                <li>
-                  <div className="side-info-left">Athletes:
-                  </div>
-                  <div className="side-info-right">{this.state.members.length}
-                  </div>
-                </li>
-                <li>
-                  <div className="side-info-left">Upcoming Events:
-                  </div>
-                  <div className="side-info-right">{this.upcomingEventsCount()}
-                  </div>
-                </li>
-                <li>
-                  <div className="side-info-left">Past Events:
-                  </div>
-                  <div className="side-info-right">{this.pastEventsCount()}
-                  </div>
-                </li>
-                <li>
-                  <div className="side-info-left">Our calendar:
-                  </div>
-                  <div className="side-info-right">insert icon
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          {this.groupDescription()}
-          {this.showMembers()}
-          {this.groupEvents()}
-      </div>
-    );
+            {this.groupDescription()}
+            {this.showMembers()}
+            {this.groupEvents()}
+        </div>
+      );
+    }
   }
 
 });

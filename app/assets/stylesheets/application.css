@@ -32,6 +32,10 @@ group:after {
   display: block;
 }
 
+.pointer:hover {
+  cursor: pointer;
+}
+
 body {
   font-size: 16px;
   line-height: 1.45;

@@ -1,0 +1,59 @@
+.whole-calendar-container {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+}
+
+.whole-calendar-container h2 {
+  font-size: 42px;
+  margin-bottom: 32px;
+}
+
+.next-previous-month{
+  display: inline-block;
+  height: 60px;
+  width: 500px;
+}
+
+.next-previous-month h4 {
+  width: 200px;
+  padding-left: 32px;
+  margin-top: 6px;
+  font-size: 24px;
+  padding-right: 16px;
+}
+
+.left {
+  float:left;
+}
+
+.calendar-day-labels p{
+  margin: 0px;
+  float: left;
+  padding: 16px;
+  width: 99.5px;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.calendar-component-container {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  width: 100%;
+}
+
+.calendar-component-container div {
+  width: 98.9px;
+  height: 100px;
+  float: left;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.calendar-day-container h4 {
+  width: 100%;
+  margin-top: 0px;
+}
