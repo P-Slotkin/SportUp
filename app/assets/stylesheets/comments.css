@@ -39,9 +39,11 @@
 .comment-index-item-right {
   float: right;
   width: 330px;
-  margin-top: -180px;
+  margin-bottom: -100px;
 }
 
 .comment-index-item-right p {
   padding-right: 15px;
+  margin-top: 32px;
+  height: 120px;
 }
