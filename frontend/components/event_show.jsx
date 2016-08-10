@@ -14,6 +14,8 @@ const GroupShowEventIndex = require('./group_show_event_index');
 const EventStore = require('../stores/event_store');
 const EventActions = require('../actions/event_actions');
 const RsvpActions = require('../actions/rsvp_actions');
+const CommentIndex = require('./comment_index');
+const CommentActions = require('../actions/comment_actions');
 
 var EventShow = React.createClass({
 
@@ -29,6 +31,7 @@ var EventShow = React.createClass({
     this.eventListener = EventStore.addListener(this._eventChanged);
     EventActions.fetchEvents();
     GroupActions.fetchGroups();
+    CommentActions.fetchComments();
   },
 
   componentWillUnmount() {
@@ -182,16 +185,19 @@ var EventShow = React.createClass({
       memberText = "Join us and be the first to know when new Sportups are scheduled";
     }
     return (
-      <div className="event-show-description group">
-        <h2>{this.state.event.title}</h2>
-        <h3>when filler </h3>
-        <h3> location filler </h3>
-        <p>{this.state.event.description}</p>
-        <div className="bottom-description">
-          <div className="bottom-description-rightest">
-            {this.makeDestroyButton()}
+      <div className="event-show-main-body">
+        <div className="event-show-description group">
+          <h2>{this.state.event.title}</h2>
+          <h3>when filler </h3>
+          <h3> location filler </h3>
+          <p>{this.state.event.description}</p>
+          <div className="bottom-description">
+            <div className="bottom-description-rightest">
+              {this.makeDestroyButton()}
+            </div>
           </div>
         </div>
+        <CommentIndex event={this.state.event} comments={this.state.event.comments}/>
       </div>
 
     );
@@ -204,7 +210,6 @@ var EventShow = React.createClass({
   // },
 
   render: function() {
-    console.log(this.state.rsvpInstances);
     if (this.state.event && this.state.group.members) {
       return (
         <div className="group-show-container group">

@@ -111,7 +111,7 @@ const GroupShowEventIndexItem = React.createClass({
           <p> Time </p>
           <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{joinedText}</p>
           <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{this.state.event.members.length} going </p>
-          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link"># comments</p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{this.state.event.comments.length} comments</p>
         </div>
       </div>
     );

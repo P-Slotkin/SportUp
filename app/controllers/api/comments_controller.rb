@@ -15,7 +15,6 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
     if @comment.save
-      Rsvp.create({user_id: @comment.creator_id, comment_id: @comment.id})
       render :show
     else
       render json: @comment.errors.full_messages, status: 422
@@ -26,7 +25,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.destroy
-      render :show
+      render {}
     else
       render json: @comment.errors.full_messages, status: 422
     end
@@ -35,7 +34,7 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:data).permit(:body, :title, :author_id, :event_id)
+    params.require(:data).permit(:id, :body, :author_id, :event_id)
   end
 
 end

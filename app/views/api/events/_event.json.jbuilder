@@ -4,6 +4,11 @@ json.members do
     json.partial! 'api/users/user', user: attender
   end
 end
+json.comments do
+  json.array! event.comments do |comment|
+    json.partial! 'api/comments/comment', comment: comment
+  end
+end
 json.rsvps event.rsvps
 json.creator event.user
 json.image_url asset_path(event.image.url)

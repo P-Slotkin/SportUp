@@ -9,6 +9,9 @@
 Membership.delete_all
 User.delete_all
 Group.delete_all
+Event.delete_all
+Comment.delete_all
+Rsvp.delete_all
 
 
 user1 = User.create({name: 'Russell Carmen', email: 'russell@email.com', password:'starwars'})
@@ -63,3 +66,11 @@ r1 = Rsvp.create({user_id: group3.creator_id, event_id: e3.id })
 r1 = Rsvp.create({user_id: group4.creator_id, event_id: e4.id })
 r1 = Rsvp.create({user_id: group5.creator_id, event_id: e5.id })
 r1 = Rsvp.create({user_id: group6.creator_id, event_id: e6.id })
+
+c1 = Comment.create({author_id: user1.id, body:"sick comment", event_id: e1.id})
+c2 = Comment.create({author_id: user2.id, body:"sick comment", event_id: e1.id})
+c3 = Comment.create({author_id: user3.id, body:"sick comment", event_id: e1.id})
+c4 = Comment.create({author_id: user4.id, body:"sick comment", event_id: e1.id})
+c5 = Comment.create({author_id: user5.id, body:"sick comment", event_id: e1.id})
+c6 = Comment.create({author_id: user6.id, body:"sick comment", event_id: e1.id})
+c7 = Comment.create({author_id: user7.id, body:"sick comment", event_id: e1.id})

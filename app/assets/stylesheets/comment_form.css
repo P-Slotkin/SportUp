@@ -1,0 +1,28 @@
+.taller {
+  height: 100px;
+  margin: 0px;
+  margin-left: 48px;
+  padding-left: 32px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.comment-button {
+  margin-left: 390px;
+}
+
+.comment-form-container p {
+  margin-left: 32px;
+  color: #ff911a;
+  font-size: 16px;
+  margin-top: -10px;
+}
+
+.comment-form-container h5 {
+  padding-left: 48px;
+  font-size: 24px;
+}
+
+.deleted {
+  text-align: center;
+}

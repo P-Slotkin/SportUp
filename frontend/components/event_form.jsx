@@ -43,7 +43,7 @@ const EventForm = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     const eventData = this.state;
-    EventActions.createEvent({ title: this.state.title, location: this.state.location, description: this.state.description.slice(0,51), creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId}, (event) => {
+    EventActions.createEvent({ title: this.state.title, location: this.state.location, description: this.state.description, creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId}, (event) => {
       hashHistory.push(`/groups/${this.state.group_id}`);
     });
     this.setState({ title: "", location: "", description: "" });

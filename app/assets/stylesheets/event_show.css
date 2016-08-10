@@ -1,16 +1,19 @@
 .event-show-description {
+  width: 513px;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0,0,0,.26);
+  padding-bottom: 0px;
+  min-height: 400px;
+}
+
+.event-show-main-body {
   float: left;
   margin-top: 16px;
   margin-left: 12px;
-  width: 513px;
-  padding: 16px;
+  width: 545px;
   border: 1px solid rgba(0,0,0,.15);
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
-  border-bottom: 1px solid rgba(0,0,0,.26);
-  padding-bottom: 0px;
-  border-right: 0px;
-  min-height: 400px;
 }
 
 .event-show-decription h2 {
@@ -37,6 +40,8 @@
   min-height: 600px;
   margin-top: 16px;
   border: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+  border-left: 0px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
