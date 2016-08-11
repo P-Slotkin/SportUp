@@ -43,6 +43,7 @@ var EventShow = React.createClass({
   _eventChanged() {
     this.setState({ showCalendar: false });
     const event = EventStore.find(this.props.params.eventId);
+    GroupActions.getGroup(event.group_id);
     this.setState({ event: event, rsvps: event.members, rsvpInstances: event.rsvps, group: event.group});
   },
 
@@ -271,6 +272,7 @@ var EventShow = React.createClass({
   },
 
   render: function() {
+    let that = this;
     if (this.state.event && this.state.group) {
       let count;
       if (this.state.group.members){
@@ -278,7 +280,7 @@ var EventShow = React.createClass({
       }
       if (this.state.showCalendar) {
         return (
-          <GroupCalendar currentDate={new Date().toJSON()} group={this.state.group} events={this.state.group.events} />
+          <GroupCalendar currentDate={new Date().toJSON()} group={that.state.event.group} events={that.state.group.events} />
         );
       } else {
         return (
@@ -313,8 +315,8 @@ var EventShow = React.createClass({
                     <li>
                       <div className="side-info-left">Our calendar:
                       </div>
-                      <div className="side-info-right" onClick={this._showCalendar}>
-                        <img src="/assets/calendar.jpg"/>
+                      <div className="side-info-right" onClick={that._showCalendar}>
+                        <img src={window.imageAssets.calendarImage}/>
                       </div>
                     </li>
                   </ul>

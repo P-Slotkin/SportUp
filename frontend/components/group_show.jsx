@@ -275,6 +275,7 @@ const GroupShow = React.createClass({
   },
 
   render: function() {
+    let that = this;
     if (this.state.showCalendar) {
       return (
         <GroupCalendar currentDate={new Date().toJSON()} group={this.state.group} events={this.state.group.events} />
@@ -312,8 +313,8 @@ const GroupShow = React.createClass({
                   <li>
                     <div className="side-info-left">Our calendar:
                     </div>
-                    <div className="side-info-right pointer" onClick={this._showCalendar}>
-                      <img src="/assets/calendar.jpg"/>
+                    <div className="side-info-right pointer" onClick={that._showCalendar}>
+                      <img src={window.imageAssets.calendarImage}/>
                     </div>
                   </li>
                 </ul>
