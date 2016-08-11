@@ -55,6 +55,7 @@
   padding-left: 100px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 1000px;
 }
 
 .new-group-form-container h6 {
@@ -102,4 +103,31 @@
   line-height: 1.45;
   -webkit-rtl-ordering: logical;
   -webkit-user-select: text;
+}
+
+.group-edit-image {
+  background-color: #fff !important;
+}
+
+.group-edit-image img {
+  margin-top: -400px !important;
+  margin-left: -50px !important;
+}
+
+.edit-whole-form-container {
+  min-height: 900px;
+
+}
+.edit-event-group{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin-left: -200px !important;
+  margin-top: -700px !important;
+}
+
+.edit-event-group img{
+  width: 200px !important;
+  height: 200px !important;
+  margin-left: !important;
 }

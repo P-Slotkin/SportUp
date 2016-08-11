@@ -81,7 +81,7 @@
 }
 
 .user-show-box-right img{
-  width: 75px;
+  width: 100px;
   height: auto;
   max-height: 100px;
 }
@@ -143,4 +143,22 @@
   margin-top: 0px;
   margin-bottom: 0px;
   padding-right: 38px;
+}
+
+.update-image-container img {
+  height: 200px;
+  width: 200px;
+  margin-top: -100px;
+}
+
+.update-image-container {
+  background-color: #fafafa;
+  height: 100px;
+  width: 100px;
+  margin-top: -500px;
+  margin-left: -300px;
+}
+
+.edit {
+  height: 610px;
 }

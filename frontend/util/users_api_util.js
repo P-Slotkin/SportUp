@@ -29,10 +29,13 @@ const UserApiUtil = {
   },
 
   updateUser (data, success) {
+    console.log( data);
     $.ajax({
       url: `api/users/${data.id}`,
       type: "PATCH",
-      data: { user: {id: data.id, name: data.name, email: data.email, location: data.location, interests: data.interests } },
+      contentType: false,
+      processData: false,
+      data: data,
       success
     });
   },

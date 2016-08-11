@@ -31,10 +31,13 @@ const GroupApiUtil = {
   },
 
   updateGroup (data, cb) {
+    console.log( data);
     $.ajax({
       url: `api/groups/${data.id}`,
       type: "PATCH",
-      data: { data: { title: data.title, location: data.location, description: data.description, category: data.category } },
+      contentType: false,
+      processData: false,
+      data: data,
       cb
     });
   },

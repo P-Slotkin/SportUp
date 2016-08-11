@@ -18,6 +18,7 @@ const UserShow = React.createClass({
 
   componentDidMount() {
     this.userListener = UserStore.addListener(this._usersChanged);
+    this.groupListener = GroupStore.addListener(this._groupsChanged);
     UserActions.getUser(this.props.params.userId);
   },
 
@@ -26,11 +27,15 @@ const UserShow = React.createClass({
     this.userListener.remove();
   },
 
+  _edit(e) {
+    e.preventDefault();
+    hashHistory.push(`/users/${this.props.params.userId}/edit`);
+  },
+
   _usersChanged() {
     const user = UserStore.find(this.props.params.userId);
-    this.setState({ user: user });
-    this.groupListener = GroupStore.addListener(this._groupsChanged);
     GroupActions.fetchGroups();
+    this.setState({ user: user });
   },
 
   _groupsChanged() {
@@ -108,7 +113,7 @@ const UserShow = React.createClass({
         <div className="user-show-box-right">
           <div className="user-show-box-right-profile-pic" >
             <img src={this.state.user.image_url}/>
-            <p> Change your profile picture </p>
+            <p className="pointer" onClick={this._edit}> Change your profile picture </p>
           </div>
           <div className="user-show-box-right-interests"> <h3> Sport Interests </h3>
             <p> {interests} </p>

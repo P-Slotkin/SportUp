@@ -56,4 +56,6 @@ label{
   background-color: #fafafa;
 }
 
-button:focus {outline:0;}
+button:focus {
+  outline:0;
+}

@@ -23,7 +23,8 @@ class Api::GroupsController < ApplicationController
   end
 
   def update
-    @group = Group.find(params[:id])
+    debugger
+    @group = Group.find(params[:group][:id])
     if @group.update(group_params)
       render :show
     else
@@ -44,7 +45,7 @@ class Api::GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:data).permit(:title, :category, :location, :description, :creator_id, :image_url, :members, :memberships, :events)
+    params.require(:group).permit(:title, :category, :location, :description, :creator_id, :image, :members, :memberships, :events)
   end
 
 end

@@ -7,15 +7,19 @@ const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const hashHistory = ReactRouter.hashHistory;
 const UserActions = require('../actions/user_actions');
+const UserStore = require('../stores/user_store');
 
 var UserEdit = React.createClass({
 
   getInitialState() {
-    let user = SessionStore.currentUser();
-    return {id: user.id, name: user.name, email: user.email, location: user.location, interests: user.interests};
+    let user = UserStore.find(this.props.params.userId) || {};
+
+    return {id: user.id, name: user.name, email: user.email, location: user.location, interests: user.interests, imageFile: null, image_url: user.image_url};
   },
 
   componentDidMount() {
+    this.userListener = UserStore.addListener(this._userChange);
+    UserActions.getUser(this.props.params.userId);
     this.errorListenerToken = ErrorStore.addListener(this.forceUpdate.bind(this));
     if (SessionStore.isUserLoggedIn()){
       if (SessionStore.currentUser().id !== parseInt(this.props.params.userId)) {
@@ -27,16 +31,42 @@ var UserEdit = React.createClass({
     }
   },
 
+
+
   componentWillUnmount() {
     this.errorListenerToken.remove();
+    this.userListener.remove();
+  },
+
+  _userChange() {
+    const user = UserStore.find(this.props.params.userId);
+    this.setState({ id: user.id, name: user.name, email: user.email, location: user.location, interests: user.interests, image_url: user.image_url });
   },
 
   handleSubmit(e) {
     e.preventDefault();
+    var formData = new FormData();
+    formData.append("user[id]", this.state.id);
+    formData.append("user[name]", this.state.name);
+    formData.append("user[email]", this.state.email);
+    formData.append("user[location]", this.state.location);
+    formData.append("user[interests]", this.state.interests);
+    formData.append("user[image]", this.state.imageFile);
+    UserActions.editUser(formData);
+    this.setState({ id: "", name: "", email: "", location: "", interests: "", imageFile: null, image_url: null});
+    hashHistory.push(`/users/${this.props.params.groupId}`);
+  },
 
-    UserActions.editUser(this.state);
-    this.setState({ id: "", name: "", email: "", location: "", interests: ""});
-    hashHistory.push(`/users/${this.state.id}`);
+  updateFile(e) {
+    var file = e.currentTarget.files[0];
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      this.setState({ imageFile: file, image_url: fileReader.result });
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   },
 
   errors() {
@@ -57,7 +87,7 @@ var UserEdit = React.createClass({
     return (
       <div>
         <div className="login-errors">{ this.errors() }</div>
-        <div className="login-form">
+        <div className="login-form edit">
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <div>
               <h2>Edit Your Profile</h2>
@@ -93,9 +123,19 @@ var UserEdit = React.createClass({
                   onChange={this._handleChange("interests")}
                   className="login-input"/>
               </label>
+              <br/>
+                <label className="login-labels update-image">Change Profile Picture
+                  <br/>
+                    <input type="file"
+                      onChange={this.updateFile}
+                      className="login-input"/>
+                </label>
               <input className="login-button" type="submit" value="Update Profile"/>
             </div>
           </form>
+          <div className="update-image-container">
+            <img src={this.state.image_url}/>
+          </div>
         </div>
       </div>
     );

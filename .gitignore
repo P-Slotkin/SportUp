@@ -42,3 +42,6 @@ bundle.js
 bundle.js.map
 sprockets
 DS_Store
+
+# Ignore application configuration
+/config/application.yml
