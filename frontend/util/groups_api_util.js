@@ -16,7 +16,7 @@ const GroupApiUtil = {
       url: `/api/groups`,
       type: `POST`,
       dataType: `json`,
-      data: { data },
+      data:  {group: data},
       success: function(data) {
         cb(data, redirectCb);
       }
