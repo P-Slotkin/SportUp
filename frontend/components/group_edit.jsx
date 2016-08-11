@@ -45,7 +45,9 @@ var GroupEdit = React.createClass({
     formData.append("group[location]", this.state.location);
     formData.append("group[category]", this.state.category);
     formData.append("group[description]", this.state.description);
-    formData.append("group[image]", this.state.imageFile);
+    if (this.state.imageFile !== null) {
+      formData.append("group[image]", this.state.imageFile);
+    }
     GroupActions.editGroup(formData);
     this.setState({ id: "", title: "", location: "", category: "", description: "", imageFile: null, image_url: null});
     hashHistory.push(`/groups/${this.props.params.groupId}`);

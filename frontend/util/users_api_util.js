@@ -29,7 +29,6 @@ const UserApiUtil = {
   },
 
   updateUser (data, success) {
-    console.log( data);
     $.ajax({
       url: `api/users/${data.id}`,
       type: "PATCH",

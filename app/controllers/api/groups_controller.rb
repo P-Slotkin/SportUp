@@ -23,7 +23,6 @@ class Api::GroupsController < ApplicationController
   end
 
   def update
-    debugger
     @group = Group.find(params[:group][:id])
     if @group.update(group_params)
       render :show

@@ -51,10 +51,12 @@ var UserEdit = React.createClass({
     formData.append("user[email]", this.state.email);
     formData.append("user[location]", this.state.location);
     formData.append("user[interests]", this.state.interests);
-    formData.append("user[image]", this.state.imageFile);
+    if (this.state.imageFile !== null) {
+      formData.append("user[image]", this.state.imageFile);
+    }
     UserActions.editUser(formData);
     this.setState({ id: "", name: "", email: "", location: "", interests: "", imageFile: null, image_url: null});
-    hashHistory.push(`/users/${this.props.params.groupId}`);
+    hashHistory.push(`/users/${this.props.params.userId}`);
   },
 
   updateFile(e) {
