@@ -108,12 +108,15 @@ const GroupShowEventIndexItem = React.createClass({
       minutes = date.getMinutes();
     }
     let am;
+    let time;
     if (parseInt(date.getHours()) < 13 && parseInt(date.getHours()) > 0) {
+      time = date.getHours();
       am = "am";
     } else {
+      time = (parseInt(date.getHours()) - 12).toString();
       am = "pm";
     }
-    let outputTime = date.getHours() + ":" + minutes + " " + am;
+    let outputTime = time + ":" + minutes + " " + am;
     return(
       <div className="group-show-event-item-container" key="group-show-event-item-container">
         <h2> {this.state.event.title} </h2>
@@ -127,9 +130,9 @@ const GroupShowEventIndexItem = React.createClass({
         <div className="group-show-event-item-right-container" key="group-show-event-item-right-container">
           <p> {outputDate} </p>
           <p className="time-event-index-item"> {outputTime} </p>
-          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{joinedText}</p>
-          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{this.state.event.members.length} going </p>
-          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link">{this.state.event.comments.length} comments</p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link cursor">{joinedText}</p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link cursor">{this.state.event.members.length} going </p>
+          <p onClick={this.goToEvent.bind(this, this.state.event.id)} className="group-show-event-item-location-link cursor">{this.state.event.comments.length} comments</p>
         </div>
       </div>
     );

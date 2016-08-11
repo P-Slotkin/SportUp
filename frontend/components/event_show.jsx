@@ -16,6 +16,7 @@ const EventActions = require('../actions/event_actions');
 const RsvpActions = require('../actions/rsvp_actions');
 const CommentIndex = require('./comment_index');
 const CommentActions = require('../actions/comment_actions');
+const GroupCalendar = require('./group_calendar');
 
 var EventShow = React.createClass({
 
@@ -23,7 +24,7 @@ var EventShow = React.createClass({
     const event = EventStore.find(this.props.params.eventId) || {} ;
     let rsvps = [];
     let group = {};
-    return ({event: event, rsvps: rsvps, rsvpInstances: [], group: group});
+    return ({event: event, rsvps: rsvps, rsvpInstances: [], group: group, showCalendar: false});
   },
 
   componentDidMount() {
@@ -40,6 +41,7 @@ var EventShow = React.createClass({
   },
 
   _eventChanged() {
+    this.setState({ showCalendar: false });
     const event = EventStore.find(this.props.params.eventId);
     this.setState({ event: event, rsvps: event.members, rsvpInstances: event.rsvps, group: event.group});
   },
@@ -77,6 +79,58 @@ var EventShow = React.createClass({
     } else {
       return false;
     }
+  },
+
+  upcomingEventsCount(){
+    let counter = 0;
+    if (this.state.group.events) {
+      let todaysYearMonthDate = [];
+      todaysYearMonthDate.push(new Date().getUTCFullYear());
+      todaysYearMonthDate.push(new Date().getUTCMonth());
+      todaysYearMonthDate.push(new Date().getUTCDate());
+      this.state.group.events.forEach((event) => {
+        if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) === todaysYearMonthDate[1] + 1 &&
+          parseInt(event.date.slice(8, 10)) - 14 <= todaysYearMonthDate[2] &&
+          parseInt(event.date.slice(8, 10)) >= todaysYearMonthDate[2]) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 2 === todaysYearMonthDate[1] &&
+          parseInt(event.date.slice(8, 10)) <= 14 - (30 - todaysYearMonthDate[2])) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) - 1 === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 12 === todaysYearMonthDate[1] &&
+          parseInt(event.date.slice(8, 10)) <= 14 - (31 - todaysYearMonthDate[2])) {
+            counter++;
+        } else {
+        }
+      });
+    }
+    return counter;
+  },
+
+  pastEventsCount(){
+    let counter = 0;
+    if (this.state.group.events) {
+      let todaysYearMonthDate = [];
+      todaysYearMonthDate.push(new Date().getUTCFullYear());
+      todaysYearMonthDate.push(new Date().getUTCMonth());
+      todaysYearMonthDate.push(new Date().getUTCDate());
+      this.state.group.events.forEach((event) => {
+        if (parseInt(event.date.slice(0, 4)) < todaysYearMonthDate[0]) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 1 < todaysYearMonthDate[1]) {
+            counter++;
+        } else if (parseInt(event.date.slice(0, 4)) === todaysYearMonthDate[0] &&
+          parseInt(event.date.slice(5, 7)) - 1 === todaysYearMonthDate[1] &&
+          parseInt(event.date.slice(8, 10)) < todaysYearMonthDate[2]) {
+            counter++;
+        } else {
+        }
+      });
+    }
+    return counter;
   },
 
   _checkAlreadyJoinedText() {
@@ -127,6 +181,10 @@ var EventShow = React.createClass({
     hashHistory.push(`/groups/${this.state.group.id}`);
   },
 
+  _showCalendar(e){
+    this.setState({ showCalendar: true });
+  },
+
   _edit(e) {
     e.preventDefault();
     hashHistory.push(`/events/${this.state.event.id}/edit`);
@@ -167,6 +225,7 @@ var EventShow = React.createClass({
     let leftNavbar = (
       <div className="group-show-left-navbar">
         <div onClick={this._home}>Home</div>
+        <div onClick={this._showCalendar}>Calendar</div>
       </div>
     );
     return (
@@ -211,54 +270,61 @@ var EventShow = React.createClass({
     );
   },
 
-  // eventComments() {
-  //   if (this.state.event.comments && this.state.event.comments.length > 0) {
-  //     return (<EventShowCommentIndex comments={this.state.event.comments} />);
-  //   }
-  // },
-
   render: function() {
     if (this.state.event && this.state.group) {
-      return (
-        <div className="group-show-container group">
-          <h1>{this.state.group.title}</h1>
-            {this.groupNavbar()}
-            <div className="side-info-filler group">
-              <div className="side-info-group-pic">
-                <img src={this.state.group.image_url}/>
+      let count;
+      if (this.state.group.members){
+        count = this.state.group.members.length;
+      }
+      if (this.state.showCalendar) {
+        return (
+          <GroupCalendar currentDate={new Date().toJSON()} group={this.state.group} events={this.state.group.events} />
+        );
+      } else {
+        return (
+          <div className="group-show-container group">
+            <h1>{this.state.group.title}</h1>
+              {this.groupNavbar()}
+              <div className="side-info-filler group">
+                <div className="side-info-group-pic">
+                  <img src={this.state.group.image_url}/>
+                </div>
+                <div className="side-info-attributes group">
+                  <h3> {this.state.group.location} </h3>
+                  <ul>
+                    <li>
+                      <div className="side-info-left">Athletes:
+                      </div>
+                      <div className="side-info-right">{count}
+                      </div>
+                    </li>
+                    <li>
+                      <div className="side-info-left">Upcoming Events:
+                      </div>
+                      <div className="side-info-right">{this.upcomingEventsCount()}
+                      </div>
+                    </li>
+                    <li>
+                      <div className="side-info-left">Past Events:
+                      </div>
+                      <div className="side-info-right">{this.pastEventsCount()}
+                      </div>
+                    </li>
+                    <li>
+                      <div className="side-info-left">Our calendar:
+                      </div>
+                      <div className="side-info-right" onClick={this._showCalendar}>
+                        <img src="/assets/calendar.jpg"/>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div className="side-info-attributes group">
-                <h3> {this.state.group.location} </h3>
-                <ul>
-                  <li>
-                    <div className="side-info-left">Athletes:
-                    </div>
-                    <div className="side-info-right">{this.props.population}
-                    </div>
-                  </li>
-                  <li>
-                    <div className="side-info-left">Upcoming Events:
-                    </div>
-                  </li>
-                  <li>
-                    <div className="side-info-left">Past Events:
-                    </div>
-                    <div className="side-info-right">filler
-                    </div>
-                  </li>
-                  <li>
-                    <div className="side-info-left">Our calendar:
-                    </div>
-                    <div className="side-info-right">insert icon
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            {this.eventDescription()}
-            {this.showMembers()}
-        </div>
-      );
+              {this.eventDescription()}
+              {this.showMembers()}
+          </div>
+        );
+      }
     } else {
       return( <div /> );
     }

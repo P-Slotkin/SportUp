@@ -5,6 +5,7 @@ const MonthLeapConstants = require('../constants/month_leap_constants');
 const MonthDaysConstants = require('../constants/monthdays_constants');
 const hashHistory = require('react-router').hashHistory;
 const GroupActions = require('../actions/group_actions');
+const EventActions = require('../actions/event_actions');
 
 const GroupCalendar = React.createClass({
 
@@ -30,7 +31,7 @@ const GroupCalendar = React.createClass({
     } else {
       this.setState({ month: this.state.month + 1 });
     }
-    GroupActions.getGroup(this.props.group.id);
+    // GroupActions.getGroup(this.props.group.id);
   },
 
   previousMonth(e) {
@@ -40,7 +41,7 @@ const GroupCalendar = React.createClass({
     } else {
       this.setState({ month: this.state.month - 1 });
     }
-    GroupActions.getGroup(this.props.group.id);
+    // GroupActions.getGroup(this.props.group.id);
   },
 
   getDayFirstMonth() {
@@ -66,6 +67,11 @@ const GroupCalendar = React.createClass({
     } else {
       return 6;
     }
+  },
+
+  goToEvent(id, e) {
+    EventActions.getEvent(id);
+    hashHistory.push(`/events/${id}`);
   },
 
   _home(e) {
@@ -102,7 +108,46 @@ const GroupCalendar = React.createClass({
     if (dayTwoDigits.length < 2) {
       dayTwoDigits = "0" + dayTwoDigits;
     }
-    this.state.events[this.state.year.toString() + '-' + this.state.month.toString + '-' + day]
+    let monthTwoDigits = this.state.month.toString();
+    if (monthTwoDigits.length < 2) {
+      monthTwoDigits = "0" + monthTwoDigits;
+    }
+    let counter = 0;
+    let output;
+    if (this.state.events[this.state.year.toString() + '-' + monthTwoDigits + '-' + dayTwoDigits]) {
+      output = this.state.events[this.state.year.toString() + '-' + monthTwoDigits + '-' + dayTwoDigits].map((event)=>{
+        if (counter <= 0) {
+          let date = new Date(event.date);
+          let outputDate = DateConstants[(date.getMonth() + 1)] + ", " + date.getDate();
+          let minutes;
+          if (date.getMinutes().length < 2) {
+            minutes = "0" + date.getMinutes();
+          } else {
+            minutes = date.getMinutes();
+          }
+          let am;
+          let time;
+          if (parseInt(date.getHours()) < 13 && parseInt(date.getHours()) > 0) {
+            time = date.getHours();
+            am = "am";
+          } else {
+            time = (parseInt(date.getHours()) - 12).toString();
+            am = "pm";
+          }
+          let outputTime = time + ":" + minutes + " " + am;
+          if (counter < 1){
+            counter++;
+            return (
+              <div className="event-calendar-item">
+                <h5 onClick={this.goToEvent.bind(this, event.id)}>{event.title}</h5>
+                <p onClick={this.goToEvent.bind(this, event.id)}>{outputDate}</p>
+                <p onClick={this.goToEvent.bind(this, event.id)}>{outputTime}</p>
+              </div>);
+          }
+        }
+      });
+    }
+    return output;
   },
 
   formatCalendarComponent() {
@@ -130,6 +175,7 @@ const GroupCalendar = React.createClass({
           counter++;
           return (<div key={counter} className="calendar-day-container">
             <h4> {day} </h4>
+            {this.renderEventsForDate(day)}
           </div>);
         })}
       </div>
@@ -137,7 +183,6 @@ const GroupCalendar = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.events);
     let stringMonth = this.state.month.toString();
     let wordMonth = DateConstants[stringMonth];
     return (

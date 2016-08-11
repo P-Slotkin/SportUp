@@ -227,6 +227,7 @@ const GroupShow = React.createClass({
       <div className="group-show-left-navbar">
         <div onClick={this._home}>Home</div>
         <div onClick={this._toggleMembers}>Members</div>
+        <div onClick={this._showCalendar}>Calendar</div>
       </div>
     );
     return (
@@ -311,7 +312,8 @@ const GroupShow = React.createClass({
                   <li>
                     <div className="side-info-left">Our calendar:
                     </div>
-                    <div className="side-info-right pointer" onClick={this._showCalendar}>insert icon
+                    <div className="side-info-right pointer" onClick={this._showCalendar}>
+                      <img src="/assets/calendar.jpg"/>
                     </div>
                   </li>
                 </ul>
