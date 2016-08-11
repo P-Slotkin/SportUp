@@ -55,3 +55,5 @@ label{
 .large-container {
   background-color: #fafafa;
 }
+
+button:focus {outline:0;}

@@ -115,6 +115,10 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+.user-show-group-index li:hover {
+  background-color: #ED1C40;
+}
+
 .user-show-group-index img {
   width: 300px;
   height: 183px;
@@ -123,7 +127,7 @@
 }
 
 .user-show-group-index p {
-
+  background-color: #fff;
   padding-top: 79px;
   padding-bottom: 79px;
   text-align: center;
@@ -138,4 +142,5 @@
   border-bottom: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+  padding-right: 38px;
 }

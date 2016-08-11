@@ -63,8 +63,8 @@ module.exports = React.createClass({
     if (this.state.showGroups) {
       return (
         <div className="search-buttons">
-          <button className="search-button-grayed" onClick={this._toggleGroups}>Groups</button>
-          <button className="search-button" onClick={this._toggleCalendar}>Calendar</button>
+          <button className="search-button-grayed pointer" onClick={this._toggleGroups}>Groups</button>
+          <button className="search-button pointer" onClick={this._toggleCalendar}>Calendar</button>
         </div>
       );
     } else {

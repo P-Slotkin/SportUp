@@ -75,6 +75,18 @@
   border-radius: 3px;
 }
 
+.login-button:hover {
+  box-shadow: 0 1px 8px black;
+}
+
+.greeting-signup-button:hover {
+  box-shadow: 0 1px 8px black;
+}
+
+.login-button-extended:hover {
+  box-shadow: 0 1px 8px black;
+}
+
 .login-errors li {
   margin-top: 32px;
   border: 1px solid rgba(0,0,0,.15);
