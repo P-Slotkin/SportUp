@@ -57,7 +57,9 @@ const EventForm = React.createClass({
     console.log(this.state);
     e.preventDefault();
     const eventData = this.state;
-    EventActions.createEvent({ title: this.state.title, date: this.state.date.concat(" ").concat(this.state.time), location: this.state.location, description: this.state.description, creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId}, (event) => {
+    let hours = (parseInt(this.state.time.slice(0, 2)) + 4) % 24;
+    let submitTime = hours.toString() + this.state.time.slice(2);
+    EventActions.createEvent({ title: this.state.title, date: this.state.date.concat(" ").concat(submitTime), location: this.state.location, description: this.state.description, creator_id: SessionStore.currentUser().id, group_id: this.props.params.groupId}, (event) => {
       hashHistory.push(`/groups/${this.state.group_id}`);
     });
     let currentDate = new Date();
@@ -91,6 +93,7 @@ const EventForm = React.createClass({
         <div className="new-group-form-container">
           <form onSubmit={this.handleSubmit}>
             <p> STEP 1 OF 4 </p>
+            <img src={window.imageAssets.nametagIcon} />
               <label className="group-form-labels">What will your {events} name be?
                 <br/>
                 <input type="text" value={this.state.title}
@@ -99,6 +102,7 @@ const EventForm = React.createClass({
                   placeholder="Please choose your SportUp event name"/>
               </label>
             <p> STEP 2 OF 4 </p>
+            <img src={window.imageAssets.timecalendarIcon} />
             <label className="group-form-labels">WHEN is your event?
               <br/>
               <input type="date" value={this.state.date}
@@ -110,6 +114,7 @@ const EventForm = React.createClass({
                 className="login-input"/>
             </label>
             <p> STEP 3 OF 4 </p>
+            <img src={window.imageAssets.worldIcon} />
               <label className="group-form-labels">WHERE is your event?
                 <br/>
                 <input type="text" value={this.state.location}

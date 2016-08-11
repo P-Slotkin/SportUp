@@ -118,7 +118,7 @@ const GroupCalendar = React.createClass({
           let date = new Date(event.date);
           let outputDate = DateConstants[(date.getMonth() + 1)] + ", " + date.getDate();
           let minutes;
-          if (date.getMinutes().length < 2) {
+          if (date.getMinutes().toString().length < 2) {
             minutes = "0" + date.getMinutes();
           } else {
             minutes = date.getMinutes();
@@ -133,11 +133,17 @@ const GroupCalendar = React.createClass({
             am = "pm";
           }
           let outputTime = time + ":" + minutes + " " + am;
+          let eventTitle;
+          if (event.title.length > 15) {
+            eventTitle = event.title.slice(0, 13) + "...";
+          } else {
+            eventTitle = event.title;
+          }
           if (counter < 1){
             counter++;
             return (
               <div className="event-calendar-item">
-                <h5 onClick={this.goToEvent.bind(this, event.id)}>{event.title}</h5>
+                <h5 onClick={this.goToEvent.bind(this, event.id)}>{eventTitle}</h5>
                 <p onClick={this.goToEvent.bind(this, event.id)}>{outputDate}</p>
                 <p onClick={this.goToEvent.bind(this, event.id)}>{outputTime}</p>
               </div>);

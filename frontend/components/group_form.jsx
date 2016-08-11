@@ -76,6 +76,7 @@ const GroupForm = React.createClass({
         <div className="new-group-form-container">
           <form onSubmit={this.handleSubmit}>
             <p> STEP 1 OF 4 </p>
+            <img src={window.imageAssets.worldIcon} />
             <label className="group-form-labels">{whats} your new SportUp {groups} hometown?
               <br/>
               <input type="text" value={this.state.location}
@@ -84,6 +85,7 @@ const GroupForm = React.createClass({
                 placeholder="Please input a city"/>
             </label>
             <p> STEP 2 OF 4 </p>
+            <img src={window.imageAssets.sportsIcons} />
               <label className="group-form-labels">What will your SportUp be about?
                 <br/>
                 <input type="text" value={this.state.category}
@@ -92,6 +94,7 @@ const GroupForm = React.createClass({
                   placeholder="Please input a category (casual/competitive/mixed)"/>
               </label>
             <p> STEP 3 OF 4 </p>
+            <img src={window.imageAssets.nametagIcon} />
               <label className="group-form-labels">What will your {sportups} name be?
                 <br/>
                 <input type="text" value={this.state.title}

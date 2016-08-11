@@ -39,9 +39,8 @@
 }
 
 .group-form-page-container h4 {
-  max-width: 840px;
   padding: 24px 16px 16px;
-  width: 500px;
+  width: 808px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -68,6 +67,13 @@
   font-size: 13px;
   line-height: 1.6;
   color: rgba(0,0,0,.3);
+}
+
+.new-group-form-container img {
+  width: 80px;
+  height: auto;
+  position: absolute;
+  margin-left: -112px;
 }
 
 .group-form-labels {

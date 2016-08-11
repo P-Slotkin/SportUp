@@ -102,7 +102,7 @@ const GroupShowEventIndexItem = React.createClass({
     let date = new Date(this.state.event.date);
     let outputDate = DateConstants[(date.getMonth() + 1)] + ", " + date.getDate();
     let minutes;
-    if (date.getMinutes().length < 2) {
+    if (date.getMinutes().toString().length < 2) {
       minutes = "0" + date.getMinutes();
     } else {
       minutes = date.getMinutes();
