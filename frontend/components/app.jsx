@@ -100,14 +100,6 @@ const App = React.createClass({
     );
   },
 
-  // footerDisplay() {
-  //   let footer;
-  //   if (this.props.location.pathname !=="/") {
-  //     footer = <Footer />;
-  //   }
-  //   return footer;
-  // },
-
   render() {
    return (
      <div className="large-container">

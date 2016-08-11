@@ -9,6 +9,10 @@
   padding-bottom: 16.25px;
 }
 
+.group-index ul{
+  margin-top: 62px;
+}
+
 .group-index li {
   width: 300px;
   height: 183px;

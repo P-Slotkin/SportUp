@@ -31,7 +31,6 @@ const GroupCalendar = React.createClass({
     } else {
       this.setState({ month: this.state.month + 1 });
     }
-    // GroupActions.getGroup(this.props.group.id);
   },
 
   previousMonth(e) {
@@ -41,7 +40,6 @@ const GroupCalendar = React.createClass({
     } else {
       this.setState({ month: this.state.month - 1 });
     }
-    // GroupActions.getGroup(this.props.group.id);
   },
 
   getDayFirstMonth() {
