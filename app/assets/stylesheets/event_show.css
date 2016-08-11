@@ -31,7 +31,18 @@
   letter-spacing: -.02em;
   margin-bottom: 0px!important;
   padding-bottom: 0px!important;
-  padding: 0 0 16px !important;;
+  padding: 0 0 16px !important;
+}
+
+.event-show-description h4 {
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  margin-bottom: 0px!important;
+  padding-bottom: 0px!important;
+  padding: 0 0 16px !important;
+  color: #2A9BC7;
 }
 
 .event-member-index-container {

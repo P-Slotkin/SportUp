@@ -17,6 +17,7 @@ const RsvpActions = require('../actions/rsvp_actions');
 const CommentIndex = require('./comment_index');
 const CommentActions = require('../actions/comment_actions');
 const GroupCalendar = require('./group_calendar');
+const DateConstants = require('../constants/date_constants');
 
 var EventShow = React.createClass({
 
@@ -76,6 +77,20 @@ var EventShow = React.createClass({
       }
     });
     if (memberOfEvent === true) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  memberOfGroup() {
+    let memberOfGroup;
+    Array.from(this.state.group.members).forEach((member) => {
+      if (member.id === SessionStore.currentUser().id) {
+        memberOfGroup = true;
+      }
+    });
+    if (memberOfGroup === true) {
       return true;
     } else {
       return false;
@@ -144,6 +159,9 @@ var EventShow = React.createClass({
 
   _join(e){
     e.preventDefault();
+    if (!this.memberOfGroup()) {
+      return;
+    }
     if (SessionStore.currentUser() === undefined) {
       hashHistory.push("/login");
       return;
@@ -238,6 +256,24 @@ var EventShow = React.createClass({
   },
 
   eventDescription() {
+    let date = new Date(this.state.event.date);
+    let outputDate = DateConstants[(date.getMonth() + 1)] + ", " + date.getDate();
+    let minutes;
+    if (date.getMinutes().length < 2) {
+      minutes = "0" + date.getMinutes();
+    } else {
+      minutes = date.getMinutes();
+    }
+    let am;
+    let time;
+    if (parseInt(date.getHours()) < 13 && parseInt(date.getHours()) > 0) {
+      time = date.getHours();
+      am = "am";
+    } else {
+      time = (parseInt(date.getHours()) - 12).toString();
+      am = "pm";
+    }
+    let outputTime = time + ":" + minutes + " " + am;
     let memberText;
     if (this.memberOfEvent()) {
       memberText = "Feel free to leave the SportUp event whenever you want";
@@ -256,8 +292,8 @@ var EventShow = React.createClass({
       <div className="event-show-main-body">
         <div className="event-show-description group">
           <h2>{this.state.event.title}</h2>
-          <h3>when filler </h3>
-          <h3> location filler </h3>
+          <h4 onClick={this._showCalendar} className="pointer"> {outputDate}  <br /> {outputTime}</h4>
+          <h3> {this.state.event.location} </h3>
           <p>{this.state.event.description}</p>
           <div className="bottom-description">
             <div className="bottom-description-rightest">
@@ -280,7 +316,7 @@ var EventShow = React.createClass({
       }
       if (this.state.showCalendar) {
         return (
-          <GroupCalendar currentDate={new Date().toJSON()} group={that.state.event.group} events={that.state.group.events} />
+          <GroupCalendar currentDate={this.state.event.date} group={that.state.event.group} events={that.state.group.events} />
         );
       } else {
         return (

@@ -138,58 +138,6 @@ const GroupShowEventIndexItem = React.createClass({
     );
   }
 
-  // render () {
-  //   const event = this.props.event;
-  //   let buttons;
-  //   let alreadyJoined = false;
-  //   this.state.rsvps.forEach((member) => {
-  //     if (member === SessionStore.currentUser().id) {
-  //       alreadyJoined = true;
-  //     }
-  //   });
-  //   let joinedText;
-  //   if (alreadyJoined) {
-  //     joinedText = "Leave Event";
-  //   } else {
-  //     joinedText = "RSVP";
-  //   }
-  //   if (SessionStore.currentUser().id === event.creator_id) {
-  //     buttons = (<div className="event-buttons event-creator-buttons">
-  //       <div className="login-signup-buttons destroy">
-  //         <button onClick={this.edit} className="login-button">Edit
-  //         </button>
-  //         <button onClick={this.destroy} className="login-button">Destroy
-  //         </button>
-  //       </div>
-  //     </div>);
-  //   } else {
-  //     buttons = (<div className="event-buttons">
-  //       <div className="login-signup-buttons">
-  //         <button onClick={this.join} className="login-button">{joinedText}
-  //         </button>
-  //       </div>
-  //     </div>);
-  //   }
-  //   if (this.state.destroyed){
-  //     return (
-  //       <li className="group-show-event-index-item-link" >
-  //         <h3>Event Deleted </h3>
-  //       </li>);
-  //   } else {
-  //     return (
-  //       <li className="group-show-event-index-item-link" >
-  //         <h3> {event.title}</h3>
-  //         <h5> {event.location}</h5>
-  //         <h6>Hosted by: {event.creator.name}</h6>
-  //         <Link to={``} >
-  //           <img src={event.image_url}/>
-  //         </Link>&nbsp;
-  //         <p>{event.description}</p>
-  //         {buttons}
-  //       </li>
-  //     );
-  //   }
-  // }
 });
 
 module.exports =GroupShowEventIndexItem;

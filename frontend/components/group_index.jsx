@@ -1,7 +1,8 @@
 const React = require('react');
-const GroupStore = require('../stores/group_store.js');
-const GroupActions = require('../actions/group_actions.js');
-const GroupIndexItem = require('./group_index_item.jsx');
+const GroupStore = require('../stores/group_store');
+const GroupActions = require('../actions/group_actions');
+const GroupIndexItem = require('./group_index_item');
+const AllGroupsCalendar = require('./all_groups_calendar');
 // const GroupForm = require('./group_form.jsx');
 
 module.exports = React.createClass({
@@ -52,10 +53,10 @@ module.exports = React.createClass({
   },
 
   _toggleCalendar(e) {
-    // e.preventDefault();
-    // if (this.state.showGroups){
-    //   this.setState({ showGroups: false, showCalendar: true });
-    // }
+    e.preventDefault();
+    if (this.state.showGroups){
+      this.setState({ showGroups: false, showCalendar: true });
+    }
   },
 
   showSearchRightButtons() {
@@ -72,6 +73,24 @@ module.exports = React.createClass({
           <button className="search-button pointer" onClick={this._toggleGroups}>Groups</button>
           <button className="search-button-grayed pointer" onClick={this._toggleCalendar}>Calendar</button>
         </div>
+      );
+    }
+  },
+
+  showCalendarOrGroups() {
+    if (this.state.showCalendar) {
+      return (
+        <AllGroupsCalendar currentDate={new Date().toJSON()} groups={this.state.groups}/>
+        );
+    } else {
+      return (
+        <ul>
+          {
+            this.state.groups.map(function (group) {
+              return (<GroupIndexItem key={group.id} group={group} />);
+            })
+          }
+        </ul>
       );
     }
   },
@@ -93,15 +112,7 @@ module.exports = React.createClass({
             {this.showSearchRightButtons()}
           </div>
         </div>
-        <ul>
-          {
-            this.state.groups.map(function (group) {
-              return (<GroupIndexItem key={group.id} group={group} />);
-            })
-          }
-        </ul>
-
-
+        {this.showCalendarOrGroups()}
       </div>
     );
   }
