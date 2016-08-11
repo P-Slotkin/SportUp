@@ -31,7 +31,6 @@ const GroupApiUtil = {
   },
 
   updateGroup (data, cb) {
-    console.log( data);
     $.ajax({
       url: `api/groups/${data.id}`,
       type: "PATCH",
