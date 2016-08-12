@@ -86,23 +86,23 @@
   border-radius: 3px;
 }
 
+.member-index-container ul{
+  padding-bottom: 16px;
+  padding-top: 4px;
+}
+
 .member-index-container img {
   margin-top: 16px;
   width: 100px;
   height: auto;
 }
 
+
 .member-index-container li {
   list-style: none;
   display: inline-block;
   width: 198px;
   text-align: center;
-}
-
-.member-index-container p {
-  margin-top: 0px;
-  text-decoration: none;
-  color: black;
 }
 
 .side-info-filler {

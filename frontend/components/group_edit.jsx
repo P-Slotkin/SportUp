@@ -111,7 +111,7 @@ var GroupEdit = React.createClass({
     return (
       <div className="group-form-page-container">
         <div className="group-form-greeting">
-          <h2> SportUp </h2>
+          <div className="group-form-logo"><img src={window.imageAssets.whiteLogo} /></div>
           <h1> Edit your own SportUp </h1>
           <h5> {well} help you find the right people to make it happen. Most SportUps start getting members within the first few days. </h5>
         </div>
@@ -123,12 +123,11 @@ var GroupEdit = React.createClass({
             <form onSubmit={this.handleSubmit} className="login-form-box">
               <br/>
 
-              <label className="login-labels update-image">Change Group Picture
+              <p className="edit-group-label">Change Group Picture</p>
                 <br/>
                 <input type="file"
                   onChange={this.updateFile}
                   className="login-input"/>
-              </label>
               <p> STEP 1 OF 4 </p>
               <label className="group-form-labels">{whats} your new SportUp {groups} hometown?
                 <br/>

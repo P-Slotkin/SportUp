@@ -68,7 +68,7 @@ const GroupForm = React.createClass({
     return (
       <div className="group-form-page-container">
         <div className="group-form-greeting">
-          <h2> SportUp </h2>
+          <div className="group-form-logo"><img src={window.imageAssets.whiteLogo} /></div>
           <h1> Start your own SportUp </h1>
           <h5> {well} help you find the right people to make it happen. Most SportUps start getting members within the first few days. </h5>
         </div>

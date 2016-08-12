@@ -50,12 +50,12 @@ class User < ActiveRecord::Base
   #   foreign_key: :creator_id
   # )
   #
-  # has_many(
-  #   :memberships,
-  #   class_name: "Membership",
-  #   primary_key: :id,
-  #   foreign_key: :user_id
-  # )
+  has_many(
+    :memberships,
+    class_name: "Membership",
+    primary_key: :id,
+    foreign_key: :user_id
+  )
   #
   has_many(
     :groups,

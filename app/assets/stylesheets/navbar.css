@@ -44,3 +44,15 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.navbar-logo {
+  width: 100px;
+  height: 48px;
+  overflow: hidden;
+}
+
+.navbar-logo img {
+  height: 68px;
+  width: 80px;
+  margin-top: -10px;
+}

@@ -63,7 +63,7 @@ const App = React.createClass({
     return (
       <nav className="navbar">
         <div className="navbar-left-list">
-          <div> <Link to="/" className="header-link"><h1>SportUp</h1></Link> </div>
+          <div className="navbar-logo pointer" onClick={this._home}><img src={window.imageAssets.redLogo} /></div>
           <div> <h1 onClick={this._home}>Find</h1> <p>a SportUp group</p> </div>
           <div onClick={this._newGroup}> <h1>Start</h1> <p>a SportUp group</p></div>
         </div>

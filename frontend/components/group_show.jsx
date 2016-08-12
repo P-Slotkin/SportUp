@@ -184,7 +184,7 @@ const GroupShow = React.createClass({
       return (<div className="member-index-container">
         <ul>
           {
-            Array.from(this.state.members).map(function (member) {
+            Array.from(this.state.group.members).map(function (member) {
               return (<GroupMemberItem key={member.id} member={member} />);
             })
           }

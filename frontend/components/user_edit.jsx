@@ -13,8 +13,15 @@ var UserEdit = React.createClass({
 
   getInitialState() {
     let user = UserStore.find(this.props.params.userId) || {};
-
-    return {id: user.id, name: user.name, email: user.email, location: user.location, interests: user.interests, imageFile: null, image_url: user.image_url};
+    let interests;
+    let location;
+    if (user !== {}  && user.location === "No indicated hometown yet!") {
+      location = undefined;
+    }
+    if (user !== {} && user.interests  === "No indicated interests yet!") {
+      interests = undefined;
+    }
+    return {id: user.id, name: user.name, email: user.email, location: location, interests: interests, imageFile: null, image_url: user.image_url};
   },
 
   componentDidMount() {
@@ -40,17 +47,33 @@ var UserEdit = React.createClass({
 
   _userChange() {
     const user = UserStore.find(this.props.params.userId);
-    this.setState({ id: user.id, name: user.name, email: user.email, location: user.location, interests: user.interests, image_url: user.image_url });
+    let interests;
+    let location;
+    if (user.location === "No indicated hometown yet!") {
+      location = undefined;
+    }
+    if (user.interests === "No indicated interests yet!") {
+      interests = undefined;
+    }
+    this.setState({ id: user.id, name: user.name, email: user.email, location: location, interests: interests, image_url: user.image_url });
   },
 
   handleSubmit(e) {
     e.preventDefault();
     var formData = new FormData();
+    let location = this.state.location;
+    let interests = this.state.interests;
+    if (this.state.location === undefined) {
+      location = "No indicated hometown yet!";
+    }
+    if (this.state.interests === undefined) {
+      interests = "No indicated interests yet!";
+    }
     formData.append("user[id]", this.state.id);
     formData.append("user[name]", this.state.name);
     formData.append("user[email]", this.state.email);
-    formData.append("user[location]", this.state.location);
-    formData.append("user[interests]", this.state.interests);
+    formData.append("user[location]", location);
+    formData.append("user[interests]", interests);
     if (this.state.imageFile !== null) {
       formData.append("user[image]", this.state.imageFile);
     }

@@ -131,3 +131,20 @@
   height: 200px !important;
   margin-left: !important;
 }
+
+.group-form-logo {
+  width: 776px;
+  height: 70px;
+  overflow: hidden;
+}
+
+.group-form-logo img {
+  height: 180px;
+  width: 180px;
+  margin-top: -30px;
+}
+
+.edit-group-label {
+  margin: 0px;
+  padding: 0px !important;
+}

@@ -24,7 +24,7 @@ const CommentIndex = React.createClass({
 
   _eventChanged() {
     let that = this;
-    const event = EventStore.find(that.props.eventId);
+    const event = EventStore.find(that.props.event.id);
     this.setState({comments: event.comments});
   },
 

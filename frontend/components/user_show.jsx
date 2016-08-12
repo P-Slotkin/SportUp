@@ -34,6 +34,7 @@ const UserShow = React.createClass({
 
   _usersChanged() {
     const user = UserStore.find(this.props.params.userId);
+    console.log(user);
     GroupActions.fetchGroups();
     this.setState({ user: user });
   },
@@ -54,16 +55,19 @@ const UserShow = React.createClass({
   },
 
   groupItems() {
-    return(
-    <div className="user-show-group-index">
-      <ul>
-        {
-          this.state.groups.map(function (group) {
-            return (<UserShowGroupIndexItem className="user-show-group-item" key={group.id} group={group} />);
-          })
-        }
-      </ul>
-    </div>);
+    console.log(this.state.user);
+      if (this.state.user !== "") {
+      return(
+      <div className="user-show-group-index">
+        <ul>
+          {
+            this.state.groups.map(function (group) {
+              return (<UserShowGroupIndexItem className="user-show-group-item" key={group.id} group={group} />);
+            })
+          }
+        </ul>
+      </div>);
+    }
   },
 
   render(){

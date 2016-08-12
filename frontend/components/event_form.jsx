@@ -35,7 +35,7 @@ const EventForm = React.createClass({
 
   descriptionChange(e) {
     const newDescription = e.target.value;
-    this.setState({ description: newDescription.slice(0, 56) });
+    this.setState({ description: newDescription });
   },
 
   locationChange(e) {
@@ -74,7 +74,7 @@ const EventForm = React.createClass({
   },
 
   descriptionLength(){
-    return `${this.state.description.length}/`;
+    return `${this.state.description.length}`;
   },
 
   render: function() {
@@ -85,7 +85,7 @@ const EventForm = React.createClass({
     return (
       <div className="group-form-page-container">
         <div className="group-form-greeting">
-          <h2> SportUp </h2>
+          <div className="group-form-logo"><img src={window.imageAssets.whiteLogo} /></div>
           <h1> Start your own Event </h1>
           <h5> Everyone in your group can join. Most events start getting members within the first few days, so make sure to save adequate time for the even to fill up! </h5>
         </div>
@@ -130,7 +130,7 @@ const EventForm = React.createClass({
                   className="textarea-input"
                   placeholder="Please describe your event (who should join/what the event will be/etc)"/>
               </label>
-              <h6>{this.descriptionLength()} We recommend at least 50 characters in your description</h6>
+              <h6>{this.descriptionLength()}: We recommend at least 50 characters in your description</h6>
               <input className="login-button" type="submit" value="Create Event"/>
           </form>
         </div>

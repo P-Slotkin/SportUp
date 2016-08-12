@@ -2,7 +2,7 @@ class Api::GroupsController < ApplicationController
   before_action :require_signed_in!, only: [:create, :update, :destroy]
 
   def index
-    @groups = Group.all.includes(:memberships, :members, :events)
+    @groups = Group.all
     render :index
   end
 
