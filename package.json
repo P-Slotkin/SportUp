@@ -12,7 +12,7 @@
   },
   "scripts": {
     "heroku-postbuild": "webpack --config webpack.config.prod.js",
-    "webpack": "webpack"
+    "webpack": "webpack --watch"
   },
   "keywords": [],
   "author": "",

@@ -159,11 +159,11 @@ var EventShow = React.createClass({
 
   _join(e){
     e.preventDefault();
-    if (!this.memberOfGroup()) {
+    if (!SessionStore.isUserLoggedIn()) {
+      hashHistory.push("/login");
       return;
     }
-    if (SessionStore.currentUser() === undefined) {
-      hashHistory.push("/login");
+    if (!this.memberOfGroup()) {
       return;
     }
     let left;

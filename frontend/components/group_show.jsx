@@ -144,7 +144,7 @@ const GroupShow = React.createClass({
   },
 
   _join() {
-    if (SessionStore.currentUser() === undefined) {
+    if (!SessionStore.isUserLoggedIn()) {
       hashHistory.push("/login");
       return;
     }
