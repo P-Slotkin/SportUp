@@ -54,7 +54,6 @@ const EventForm = React.createClass({
   },
 
   handleSubmit(e) {
-    console.log(this.state);
     e.preventDefault();
     const eventData = this.state;
     let hours = (parseInt(this.state.time.slice(0, 2)) + 4) % 24;

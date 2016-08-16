@@ -34,7 +34,6 @@ const UserShow = React.createClass({
 
   _usersChanged() {
     const user = UserStore.find(this.props.params.userId);
-    console.log(user);
     GroupActions.fetchGroups();
     this.setState({ user: user });
   },
@@ -55,7 +54,6 @@ const UserShow = React.createClass({
   },
 
   groupItems() {
-    console.log(this.state.user);
       if (this.state.user !== "") {
       return(
       <div className="user-show-group-index">

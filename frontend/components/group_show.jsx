@@ -202,7 +202,6 @@ const GroupShow = React.createClass({
   },
 
   _showCalendar() {
-    console.log("HERER");
     if (this.state.showCalendar) {
       this.setState({ showCalendar: false });
     } else {

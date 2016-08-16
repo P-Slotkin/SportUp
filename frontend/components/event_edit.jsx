@@ -19,11 +19,9 @@ var EventEdit = React.createClass({
   componentDidMount() {
     this.eventListener = EventStore.addListener(this._eventChange);
     EventActions.getEvent(this.props.params.eventId);
-    // this.eventListenerToken = EventStore.addListener(this.redirectIfEventMade);
   },
 
   componentWillUnmount() {
-    // this.eventListenerToken.remove();
     this.eventListener.remove();
   },
 
@@ -92,7 +90,6 @@ var EventEdit = React.createClass({
     let whats = "What's";
     let events = "Event's";
     let sportups = "SportUp's";
-    console.log(this.state.image_url);
     let that = this;
     return (
       <div className="group-form-page-container">
