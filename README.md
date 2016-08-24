@@ -5,6 +5,7 @@ http://sport-up.xyz.com/
 ##Overview
 
 This site is inspired by the popular app 'Meetup', but it focuses on groups specifically for sport gatherings. Users can create/find/join groups, create/find/join events in said groups, and participate in comment threads in each event. Events can be viewed in list form or in an easy to read calendar.
+ ![alt text](https://github.com/P-Slotkin/SportUp/blob/master/app/assets/images/homepage.jpg "Homepage")
 
 ##Main Features
 
