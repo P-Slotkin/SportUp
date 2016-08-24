@@ -24,6 +24,11 @@ const App = React.createClass({
     hashHistory.push("/login");
   },
 
+  _demo(e) {
+    e.preventDefault();
+    SessionActions.logIn({ email: 'russell@email.com', password:'starwars' });
+  },
+
   _signup(e) {
     e.preventDefault();
     hashHistory.push("/signup");
@@ -55,6 +60,7 @@ const App = React.createClass({
 
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {
       loggedInRightNavbar = (<div className="navbar-right-list">
+        <div className="login-signup-buttons"><button onClick={this._demo} className="login-button">Demo</button></div>
         <div className="login-signup-buttons"><Link to="/login">Log in</Link></div>
         <div className="login-signup-buttons"><button onClick={this._signup} className="login-button">Sign up</button></div>
       </div>

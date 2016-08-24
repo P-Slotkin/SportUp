@@ -1,6 +1,6 @@
 #SportUp
 
-http://sport-up.herokuapp.com/
+http://sport-up.xyz.com/
 
 ##Overview
 
@@ -27,4 +27,4 @@ The backend was constructed via Ruby on Rails and uses a PostgreSQL database. Th
 
 The frontend was constructed with React. Many React components were linked to URL path locations and thus were easily accessible with the use of hash history. Since the components have a clear hierarchical layout, the parent child relationship available between two React components was very useful.
 
-The flux cycle was implemented for many features, such as groups, events, memberships, event rsvps, sessions, users, and comments. This cycle made it easy to build components that rely on several different data tables and aided debugging, as the error could easily be traced through the cycle. 
+The flux cycle was implemented for many features, such as groups, events, memberships, event rsvps, sessions, users, and comments. This cycle made it easy to build components that rely on several different data tables and aided debugging, as the error could easily be traced through the cycle.
