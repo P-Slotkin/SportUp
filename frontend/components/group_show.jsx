@@ -21,7 +21,7 @@ const GroupShow = React.createClass({
   getInitialState() {
     const members = [];
     const memberships = [];
-    const group = GroupStore.find(this.props.params.groupId) || {} ;
+    const group = {} ;
     return { group: group, members: members, memberships: memberships, showMembers: false, showCalendar: false };
   },
 
