@@ -9,7 +9,7 @@ This site is inspired by the popular app 'Meetup', but it focuses on groups spec
 ##Main Features
 
  - User signup, login, and session authentication
- ![alt text](https://github.com/P-Slotkin/SportUp/tree/master/app/assets/images/authcode.jpg "User Authentication")
+ ![alt text](https://github.com/P-Slotkin/SportUp/blob/master/app/assets/images/authcode.jpg "User Authentication")
  - CRUD features (users, groups, events, comments)
  - quicksearch feature
    - real-time results as the user types in the search bar
