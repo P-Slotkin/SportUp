@@ -20,7 +20,7 @@ This site is inspired by the popular app 'Meetup', but it focuses on groups spec
 
 ##Implmentation
 
-###Archtiecture
+###Architecture
 
 ####Backend
 
