@@ -14,7 +14,8 @@ This site is inspired by the popular app 'Meetup', but it focuses on groups spec
  - quicksearch feature
    - real-time results as the user types in the search bar
    - search by location, description, or group name
- - calendar
+ - calendar with easy navigation
+![alt text](https://github.com/P-Slotkin/SportUp/blob/master/app/assets/images/calendarscreenshot.jpg "Calendar")
 
 ##Implmentation
 
