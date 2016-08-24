@@ -9,12 +9,12 @@ const CommentForm = require('./comment_form');
 const CommentIndex = React.createClass({
 
   getInitialState () {
-    return { comments: this.props.comments };
+    return { comments: undefined };
   },
 
   componentDidMount() {
     CommentActions.fetchComments();
-    EventActions.fetchEvents();
+    EventActions.getEvent(this.props.eventId);
     this.eventListener = EventStore.addListener(this._eventChanged);
   },
 
@@ -24,7 +24,7 @@ const CommentIndex = React.createClass({
 
   _eventChanged() {
     let that = this;
-    const event = EventStore.find(that.props.event.id);
+    const event = EventStore.find(that.props.eventId);
     this.setState({comments: event.comments});
   },
 

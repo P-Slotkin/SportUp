@@ -79,7 +79,7 @@ const AllGroupsCalendar = React.createClass({
   },
 
   renderEventsForDate(day) {
-    let dayTwoDigits = day;
+    let dayTwoDigits = day.toString();
     if (dayTwoDigits.length < 2) {
       dayTwoDigits = "0" + dayTwoDigits;
     }
@@ -130,7 +130,7 @@ const AllGroupsCalendar = React.createClass({
           if (counter < 1){
             counter++;
             return (
-              <div className="event-calendar-item">
+              <div className="event-calendar-item" key={counter}>
                 <h5 onClick={this.goToEvent.bind(this, event.id)}>{eventTitle}</h5>
                 <p onClick={this.goToEvent.bind(this, event.id)}>{outputDate}</p>
                 <p onClick={this.goToEvent.bind(this, event.id)}>{outputTime}</p>
@@ -165,7 +165,7 @@ const AllGroupsCalendar = React.createClass({
       <div className="calendar-component-container group">
         {days.map((day) => {
           counter++;
-          return (<div key={counter} className="calendar-day-container">
+          return (<div key={counter * 100} className="calendar-day-container">
             <h4> {day} </h4>
             {this.renderEventsForDate(day)}
           </div>);

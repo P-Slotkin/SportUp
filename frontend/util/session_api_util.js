@@ -17,10 +17,7 @@ const SessionApi = {
     $.ajax({
       url: `/api/session`,
       method: `delete`,
-      success,
-      error: function() {
-        console.log("Logout error in SessionAPI#logout");
-      }
+      success
     });
   },
 
@@ -43,9 +40,6 @@ const SessionApi = {
       url: `api/session`,
       method: `GET`,
       success,
-      error: function (resp) {
-        console.log("Error in SessionAPI#fetchCurrentUser");
-      },
       complete: function() {
         complete();
       }

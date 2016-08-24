@@ -102,7 +102,7 @@ const GroupCalendar = React.createClass({
   },
 
   renderEventsForDate(day) {
-    let dayTwoDigits = day;
+    let dayTwoDigits = day.toString();
     if (dayTwoDigits.length < 2) {
       dayTwoDigits = "0" + dayTwoDigits;
     }
@@ -142,7 +142,7 @@ const GroupCalendar = React.createClass({
           if (counter < 1){
             counter++;
             return (
-              <div className="event-calendar-item">
+              <div className="event-calendar-item" key={counter}>
                 <h5 onClick={this.goToEvent.bind(this, event.id)}>{eventTitle}</h5>
                 <p onClick={this.goToEvent.bind(this, event.id)}>{outputDate}</p>
                 <p onClick={this.goToEvent.bind(this, event.id)}>{outputTime}</p>

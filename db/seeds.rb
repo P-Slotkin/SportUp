@@ -78,6 +78,39 @@ Membership.create({user_id: user4.id, group_id: group6.id})
 e1 = Event.create({date: '2016-09-12 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
   description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
   location: "Central Park Reservoir!" })
+e19 = Event.create({date: '2016-09-19 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e20 = Event.create({date: '2016-09-26 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e21 = Event.create({date: '2016-10-03 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e22 = Event.create({date: '2016-10-10 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e23 = Event.create({date: '2016-10-17 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e24 = Event.create({date: '2016-10-24 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e25 = Event.create({date: '2016-10-31 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e26 = Event.create({date: '2016-11-07 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e27 = Event.create({date: '2016-11-14 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e28 = Event.create({date: '2016-11-21 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
+e29 = Event.create({date: '2016-11-28 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
+  description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
+  location: "Central Park Reservoir!" })
 e13 = Event.create({date: '2016-09-05 21:30:00', creator_id: user6.id, group_id: group1.id, title: "Weekly Water Polo!",
   description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
   location: "Central Park Reservoir!" })
@@ -88,6 +121,42 @@ e15 = Event.create({date: '2016-08-22 21:30:00', creator_id: user6.id, group_id:
   description: "All levels practice. Coached by Granger. This practice is about water polo. Emphasis is on playing and learning the game by playing. Some of us have been playing since childhood. Others have picked it up as adults. We're friendly and inclusive, but we play hard. Beginners are welcome, but you must be a good swimmer. You MUST bring a lock for a gym locker. You should bring an athletic bathing suit, goggles, and a towel. Bring a swim cap if you have long hair.",
   location: "Central Park Reservoir!" })
 e2 = Event.create({date: '2016-09-13 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e30 = Event.create({date: '2016-09-13 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e31 = Event.create({date: '2016-09-20 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e32 = Event.create({date: '2016-09-27 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e33 = Event.create({date: '2016-10-04 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e34 = Event.create({date: '2016-10-11 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e35 = Event.create({date: '2016-10-18 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e36 = Event.create({date: '2016-10-25 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e37 = Event.create({date: '2016-11-01 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e38 = Event.create({date: '2016-11-08 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e39 = Event.create({date: '2016-11-15 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e40 = Event.create({date: '2016-11-22 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
+  description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
+  location: "Courts" })
+e41 = Event.create({date: '2016-11-29 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
   description: "All levels welcome! Gather your squad together for some 3v3 action! You're welcome to up without a team and we will find a team for you to play with. Last week we had 16 teams! Depending on the turnout, we will have a bracket or round robin. The MANDATORY RULES are as follows: first to eleven (1s and 2s). The scoring team gets the ball back. Call your own fouls (RESPECT THE CALL). ALL DISPUTES GO TO THE ORGANIZER(me). Should be fun!",
   location: "Courts" })
 e16 = Event.create({date: '2016-09-06 21:30:00', creator_id: group2.creator_id, group_id: group2.id, title: "3v3 Tournament",
@@ -102,13 +171,82 @@ e18 = Event.create({date: '2016-08-23 21:30:00', creator_id: group2.creator_id, 
 e3 = Event.create({date: '2016-09-17 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
   description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
   location: "TBD" })
+e42 = Event.create({date: '2016-09-24 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e43 = Event.create({date: '2016-10-01 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e44 = Event.create({date: '2016-10-08 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e45 = Event.create({date: '2016-10-15 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e46 = Event.create({date: '2016-10-22 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e47 = Event.create({date: '2016-10-29 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e48 = Event.create({date: '2016-11-05 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e49 = Event.create({date: '2016-11-12 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e50 = Event.create({date: '2016-11-19 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
+e51 = Event.create({date: '2016-11-26 21:30:00', creator_id: group3.creator_id, group_id: group3.id, title: "7v7",
+  description: "The monthly 7v7 tournament is back! This is slightly more competitive than our other events, so bring your A-game! Show up with your team and we will either organize a bracket, or round robin, depending on the turnout. This month is touch football (TWO HANDS). The tagger is the authority here (if (s)he says you were tagged, then you were tagged). We have an awesome prize for the best 7s team this month! So come out and enjoy the summer!",
+  location: "TBD" })
 e4 = Event.create({date: '2016-09-15 21:30:00', creator_id: group4.creator_id, group_id: group4.id, title: "Pickup Flag Football!",
   description: "We got some sweet new flags to break in! All skill levels welcome! We might divide into multiple games if the turnout is high (which it should be because it's summer). This is not an extremely comptetitive environment. This is a laid back event for casual and fun football! Bring your positive attitude (and water)! See you all there!",
   location: "Great Lawn" })
 e5 = Event.create({date: '2016-09-16 21:30:00', creator_id: group5.creator_id, group_id: group5.id, title: "Pickup Flag Football!",
   description: "We got some sweet new flags to break in! All skill levels welcome! We might divide into multiple games if the turnout is high (which it should be because it's summer). This is not an extremely comptetitive environment. This is a laid back event for casual and fun football! Bring your positive attitude (and water)! See you all there!",
   location: "Great Lawn" })
-e6 = Event.create({date: '2016-09-17 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+e6 = Event.create({date: '2016-09-14 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e52 = Event.create({date: '2016-09-07 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e53 = Event.create({date: '2016-8-31 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e54 = Event.create({date: '2016-09-21 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e55 = Event.create({date: '2016-09-28 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e56 = Event.create({date: '2016-10-05 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e57 = Event.create({date: '2016-10-12 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e58 = Event.create({date: '2016-10-19 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e59 = Event.create({date: '2016-10-26 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e60 = Event.create({date: '2016-11-02 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e61 = Event.create({date: '2016-11-09 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e62 = Event.create({date: '2016-11-16 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e63 = Event.create({date: '2016-11-23 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
+  description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
+  location: "Great Lawn" })
+e64 = Event.create({date: '2016-11-30 21:30:00', creator_id: group6.creator_id, group_id: group5.id, title: "Commando Capture the Flag",
   description: "It's everyone's favorite event! Command capture the flag is similar to regular capture the flag, except for one key difference. Instead of being played on a field, the game will be held in the woods and the flags will not be hidden by each respective team. We will meet at the usual spot and then walk 10 minutes to our arena! Just some words for the wise: be careful (don't run into a tree), stealth is an option in this game mode, and have fun! See you all our there!",
   location: "Great Lawn" })
 e7 = Event.create({date: '2016-09-18 21:30:00', creator_id: group1.creator_id, group_id: group1.id, title: "Water Polo!",
@@ -145,10 +283,102 @@ Rsvp.create({user_id: user1.id, event_id: e15.id })
 Rsvp.create({user_id: user2.id, event_id: e15.id })
 Rsvp.create({user_id: user3.id, event_id: e15.id })
 Rsvp.create({user_id: user5.id, event_id: e15.id })
+Rsvp.create({user_id: user1.id, event_id: e19.id })
+Rsvp.create({user_id: user2.id, event_id: e19.id })
+Rsvp.create({user_id: user3.id, event_id: e19.id })
+Rsvp.create({user_id: user5.id, event_id: e19.id })
+Rsvp.create({user_id: user1.id, event_id: e20.id })
+Rsvp.create({user_id: user2.id, event_id: e20.id })
+Rsvp.create({user_id: user3.id, event_id: e20.id })
+Rsvp.create({user_id: user5.id, event_id: e20.id })
+Rsvp.create({user_id: user1.id, event_id: e21.id })
+Rsvp.create({user_id: user2.id, event_id: e21.id })
+Rsvp.create({user_id: user3.id, event_id: e21.id })
+Rsvp.create({user_id: user5.id, event_id: e21.id })
+Rsvp.create({user_id: user1.id, event_id: e22.id })
+Rsvp.create({user_id: user2.id, event_id: e22.id })
+Rsvp.create({user_id: user3.id, event_id: e22.id })
+Rsvp.create({user_id: user5.id, event_id: e22.id })
+Rsvp.create({user_id: user1.id, event_id: e23.id })
+Rsvp.create({user_id: user2.id, event_id: e23.id })
+Rsvp.create({user_id: user3.id, event_id: e23.id })
+Rsvp.create({user_id: user5.id, event_id: e23.id })
+Rsvp.create({user_id: user1.id, event_id: e24.id })
+Rsvp.create({user_id: user2.id, event_id: e24.id })
+Rsvp.create({user_id: user3.id, event_id: e24.id })
+Rsvp.create({user_id: user5.id, event_id: e24.id })
+Rsvp.create({user_id: user1.id, event_id: e25.id })
+Rsvp.create({user_id: user2.id, event_id: e25.id })
+Rsvp.create({user_id: user3.id, event_id: e25.id })
+Rsvp.create({user_id: user5.id, event_id: e25.id })
+Rsvp.create({user_id: user1.id, event_id: e26.id })
+Rsvp.create({user_id: user2.id, event_id: e26.id })
+Rsvp.create({user_id: user3.id, event_id: e26.id })
+Rsvp.create({user_id: user5.id, event_id: e26.id })
+Rsvp.create({user_id: user1.id, event_id: e27.id })
+Rsvp.create({user_id: user2.id, event_id: e27.id })
+Rsvp.create({user_id: user3.id, event_id: e27.id })
+Rsvp.create({user_id: user5.id, event_id: e27.id })
+Rsvp.create({user_id: user1.id, event_id: e28.id })
+Rsvp.create({user_id: user2.id, event_id: e28.id })
+Rsvp.create({user_id: user3.id, event_id: e28.id })
+Rsvp.create({user_id: user5.id, event_id: e28.id })
+Rsvp.create({user_id: user1.id, event_id: e29.id })
+Rsvp.create({user_id: user2.id, event_id: e29.id })
+Rsvp.create({user_id: user3.id, event_id: e29.id })
+Rsvp.create({user_id: user5.id, event_id: e29.id })
 Rsvp.create({user_id: user1.id, event_id: e2.id })
 Rsvp.create({user_id: user2.id, event_id: e2.id })
 Rsvp.create({user_id: user3.id, event_id: e2.id })
 Rsvp.create({user_id: user4.id, event_id: e2.id })
+Rsvp.create({user_id: user1.id, event_id: e30.id })
+Rsvp.create({user_id: user2.id, event_id: e30.id })
+Rsvp.create({user_id: user3.id, event_id: e30.id })
+Rsvp.create({user_id: user4.id, event_id: e30.id })
+Rsvp.create({user_id: user1.id, event_id: e31.id })
+Rsvp.create({user_id: user2.id, event_id: e31.id })
+Rsvp.create({user_id: user3.id, event_id: e31.id })
+Rsvp.create({user_id: user4.id, event_id: e31.id })
+Rsvp.create({user_id: user1.id, event_id: e32.id })
+Rsvp.create({user_id: user2.id, event_id: e32.id })
+Rsvp.create({user_id: user3.id, event_id: e32.id })
+Rsvp.create({user_id: user4.id, event_id: e32.id })
+Rsvp.create({user_id: user1.id, event_id: e33.id })
+Rsvp.create({user_id: user2.id, event_id: e33.id })
+Rsvp.create({user_id: user3.id, event_id: e33.id })
+Rsvp.create({user_id: user4.id, event_id: e33.id })
+Rsvp.create({user_id: user1.id, event_id: e34.id })
+Rsvp.create({user_id: user2.id, event_id: e34.id })
+Rsvp.create({user_id: user3.id, event_id: e34.id })
+Rsvp.create({user_id: user4.id, event_id: e34.id })
+Rsvp.create({user_id: user1.id, event_id: e35.id })
+Rsvp.create({user_id: user2.id, event_id: e35.id })
+Rsvp.create({user_id: user3.id, event_id: e35.id })
+Rsvp.create({user_id: user4.id, event_id: e35.id })
+Rsvp.create({user_id: user1.id, event_id: e36.id })
+Rsvp.create({user_id: user2.id, event_id: e36.id })
+Rsvp.create({user_id: user3.id, event_id: e36.id })
+Rsvp.create({user_id: user4.id, event_id: e36.id })
+Rsvp.create({user_id: user1.id, event_id: e37.id })
+Rsvp.create({user_id: user2.id, event_id: e37.id })
+Rsvp.create({user_id: user3.id, event_id: e37.id })
+Rsvp.create({user_id: user4.id, event_id: e37.id })
+Rsvp.create({user_id: user1.id, event_id: e38.id })
+Rsvp.create({user_id: user2.id, event_id: e38.id })
+Rsvp.create({user_id: user3.id, event_id: e38.id })
+Rsvp.create({user_id: user4.id, event_id: e38.id })
+Rsvp.create({user_id: user1.id, event_id: e39.id })
+Rsvp.create({user_id: user2.id, event_id: e39.id })
+Rsvp.create({user_id: user3.id, event_id: e39.id })
+Rsvp.create({user_id: user4.id, event_id: e39.id })
+Rsvp.create({user_id: user1.id, event_id: e40.id })
+Rsvp.create({user_id: user2.id, event_id: e40.id })
+Rsvp.create({user_id: user3.id, event_id: e40.id })
+Rsvp.create({user_id: user4.id, event_id: e40.id })
+Rsvp.create({user_id: user1.id, event_id: e41.id })
+Rsvp.create({user_id: user2.id, event_id: e41.id })
+Rsvp.create({user_id: user3.id, event_id: e41.id })
+Rsvp.create({user_id: user4.id, event_id: e41.id })
 r32 = Rsvp.create({user_id: user3.id, event_id: e16.id })
 r33 = Rsvp.create({user_id: user4.id, event_id: e16.id })
 r34 = Rsvp.create({user_id: user5.id, event_id: e16.id })
@@ -164,6 +394,46 @@ r3 = Rsvp.create({user_id: group3.creator_id, event_id: e3.id })
 r43 = Rsvp.create({user_id: user5.id, event_id: e3.id })
 r44 = Rsvp.create({user_id: user6.id, event_id: e3.id })
 r45 = Rsvp.create({user_id: user7.id, event_id: e3.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e42.id })
+Rsvp.create({user_id: user5.id, event_id: e42.id })
+Rsvp.create({user_id: user6.id, event_id: e42.id })
+Rsvp.create({user_id: user7.id, event_id: e42.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e43.id })
+Rsvp.create({user_id: user5.id, event_id: e43.id })
+Rsvp.create({user_id: user6.id, event_id: e43.id })
+Rsvp.create({user_id: user7.id, event_id: e43.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e44.id })
+Rsvp.create({user_id: user5.id, event_id: e44.id })
+Rsvp.create({user_id: user6.id, event_id: e44.id })
+Rsvp.create({user_id: user7.id, event_id: e44.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e45.id })
+Rsvp.create({user_id: user5.id, event_id: e45.id })
+Rsvp.create({user_id: user6.id, event_id: e45.id })
+Rsvp.create({user_id: user7.id, event_id: e45.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e46.id })
+Rsvp.create({user_id: user5.id, event_id: e46.id })
+Rsvp.create({user_id: user6.id, event_id: e46.id })
+Rsvp.create({user_id: user7.id, event_id: e46.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e47.id })
+Rsvp.create({user_id: user5.id, event_id: e47.id })
+Rsvp.create({user_id: user6.id, event_id: e47.id })
+Rsvp.create({user_id: user7.id, event_id: e47.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e48.id })
+Rsvp.create({user_id: user5.id, event_id: e48.id })
+Rsvp.create({user_id: user6.id, event_id: e48.id })
+Rsvp.create({user_id: user7.id, event_id: e48.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e49.id })
+Rsvp.create({user_id: user5.id, event_id: e49.id })
+Rsvp.create({user_id: user6.id, event_id: e49.id })
+Rsvp.create({user_id: user7.id, event_id: e49.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e50.id })
+Rsvp.create({user_id: user5.id, event_id: e50.id })
+Rsvp.create({user_id: user6.id, event_id: e50.id })
+Rsvp.create({user_id: user7.id, event_id: e50.id })
+Rsvp.create({user_id: group3.creator_id, event_id: e51.id })
+Rsvp.create({user_id: user5.id, event_id: e51.id })
+Rsvp.create({user_id: user6.id, event_id: e51.id })
+Rsvp.create({user_id: user7.id, event_id: e51.id })
 r4 = Rsvp.create({user_id: group4.creator_id, event_id: e4.id })
 Rsvp.create({user_id: user8.id, event_id: e4.id })
 Rsvp.create({user_id: user3.id, event_id: e4.id })
@@ -173,6 +443,61 @@ Rsvp.create({user_id: user5.id, event_id: e5.id })
 Rsvp.create({user_id: user6.id, event_id: e5.id })
 Rsvp.create({user_id: user7.id, event_id: e5.id })
 r6 = Rsvp.create({user_id: group6.creator_id, event_id: e6.id })
+Rsvp.create({user_id: user1.id, event_id: e6.id })
+Rsvp.create({user_id: user8.id, event_id: e6.id })
+Rsvp.create({user_id: user4.id, event_id: e6.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e52.id })
+Rsvp.create({user_id: user1.id, event_id: e52.id })
+Rsvp.create({user_id: user8.id, event_id: e52.id })
+Rsvp.create({user_id: user4.id, event_id: e52.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e53.id })
+Rsvp.create({user_id: user1.id, event_id: e53.id })
+Rsvp.create({user_id: user8.id, event_id: e53.id })
+Rsvp.create({user_id: user4.id, event_id: e53.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e54.id })
+Rsvp.create({user_id: user1.id, event_id: e54.id })
+Rsvp.create({user_id: user8.id, event_id: e54.id })
+Rsvp.create({user_id: user4.id, event_id: e54.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e55.id })
+Rsvp.create({user_id: user1.id, event_id: e55.id })
+Rsvp.create({user_id: user8.id, event_id: e55.id })
+Rsvp.create({user_id: user4.id, event_id: e55.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e56.id })
+Rsvp.create({user_id: user1.id, event_id: e56.id })
+Rsvp.create({user_id: user8.id, event_id: e56.id })
+Rsvp.create({user_id: user4.id, event_id: e56.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e57.id })
+Rsvp.create({user_id: user1.id, event_id: e57.id })
+Rsvp.create({user_id: user8.id, event_id: e57.id })
+Rsvp.create({user_id: user4.id, event_id: e57.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e58.id })
+Rsvp.create({user_id: user1.id, event_id: e58.id })
+Rsvp.create({user_id: user8.id, event_id: e58.id })
+Rsvp.create({user_id: user4.id, event_id: e58.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e59.id })
+Rsvp.create({user_id: user1.id, event_id: e59.id })
+Rsvp.create({user_id: user8.id, event_id: e59.id })
+Rsvp.create({user_id: user4.id, event_id: e59.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e60.id })
+Rsvp.create({user_id: user1.id, event_id: e60.id })
+Rsvp.create({user_id: user8.id, event_id: e60.id })
+Rsvp.create({user_id: user4.id, event_id: e60.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e61.id })
+Rsvp.create({user_id: user1.id, event_id: e61.id })
+Rsvp.create({user_id: user8.id, event_id: e61.id })
+Rsvp.create({user_id: user4.id, event_id: e61.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e62.id })
+Rsvp.create({user_id: user1.id, event_id: e62.id })
+Rsvp.create({user_id: user8.id, event_id: e62.id })
+Rsvp.create({user_id: user4.id, event_id: e62.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e63.id })
+Rsvp.create({user_id: user1.id, event_id: e63.id })
+Rsvp.create({user_id: user8.id, event_id: e63.id })
+Rsvp.create({user_id: user4.id, event_id: e63.id })
+Rsvp.create({user_id: group6.creator_id, event_id: e64.id })
+Rsvp.create({user_id: user1.id, event_id: e64.id })
+Rsvp.create({user_id: user8.id, event_id: e64.id })
+Rsvp.create({user_id: user4.id, event_id: e64.id })
 r7 = Rsvp.create({user_id: group1.creator_id, event_id: e7.id })
 r8 = Rsvp.create({user_id: group2.creator_id, event_id: e8.id })
 r9 = Rsvp.create({user_id: group3.creator_id, event_id: e9.id })
@@ -192,10 +517,10 @@ Rsvp.create({user_id: user1.id, event_id: e12.id })
 Rsvp.create({user_id: user8.id, event_id: e12.id })
 Rsvp.create({user_id: user4.id, event_id: e12.id })
 
-c1 = Comment.create({author_id: user1.id, body:"sick comment", event_id: e1.id})
-c2 = Comment.create({author_id: user2.id, body:"sick comment", event_id: e1.id})
-c3 = Comment.create({author_id: user3.id, body:"sick comment", event_id: e1.id})
-c4 = Comment.create({author_id: user4.id, body:"sick comment", event_id: e1.id})
-c5 = Comment.create({author_id: user5.id, body:"sick comment", event_id: e1.id})
-c6 = Comment.create({author_id: user6.id, body:"sick comment", event_id: e1.id})
-c7 = Comment.create({author_id: user7.id, body:"sick comment", event_id: e1.id})
+c1 = Comment.create({author_id: user1.id, body:"See everyone there!", event_id: e1.id})
+c2 = Comment.create({author_id: user2.id, body:"Yup! Should be fun!", event_id: e1.id})
+c3 = Comment.create({author_id: user3.id, body:"Is this a free event?", event_id: e1.id})
+c4 = Comment.create({author_id: user4.id, body:"Ya. I'll give a shoutout to our sponsors at the pool", event_id: e1.id})
+c5 = Comment.create({author_id: user5.id, body:"Sweet", event_id: e1.id})
+c6 = Comment.create({author_id: user6.id, body:"Should I bring anything?", event_id: e1.id})
+c7 = Comment.create({author_id: user7.id, body:"Nope just regular swimwear.", event_id: e1.id})
