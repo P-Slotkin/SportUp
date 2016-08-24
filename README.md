@@ -9,7 +9,8 @@ This site is inspired by the popular app 'Meetup', but it focuses on groups spec
 ##Main Features
 
  - User signup, login, and session authentication
- - CRUD features (groups, events, comments)
+ ![alt text](https://github.com/P-Slotkin/SportUp/tree/master/app/assets/images/authcode.jpg "User Authentication")
+ - CRUD features (users, groups, events, comments)
  - quicksearch feature
    - real-time results as the user types in the search bar
    - search by location, description, or group name
