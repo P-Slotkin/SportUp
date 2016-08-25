@@ -3,15 +3,16 @@ const ReactDOM = require('react-dom');
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
 const SessionActions = require('../actions/session_actions.js');
+const SessionStore = require('../stores/session_store.js');
 
 const ProfileItems = React.createClass({
 
   componentDidMount(){
-    this.token = window.addEventListener("click", this.props.hide);
+    // this.token = window.addEventListener("click", this.props.hide);
   },
 
   componentWillUnmount(){
-    this.token.remove();
+    // this.token.remove();
   },
 
   _logout(e) {
@@ -22,7 +23,8 @@ const ProfileItems = React.createClass({
 
   _profile(e) {
     e.preventDefault();
-    hashHistory.push(`/users/${this.props.user.id}`);
+    this.props.hide();
+    hashHistory.push(`/users/${SessionStore.currentUser().id}`);
   },
 
   stopProp(e){
@@ -31,11 +33,13 @@ const ProfileItems = React.createClass({
 
   _home(e){
     e.preventDefault();
+    this.props.hide();
     hashHistory.push("/");
   },
 
   _edit(e) {
     e.preventDefault();
+    this.props.hide();
     hashHistory.push(`/users/${this.props.user.id}/edit`);
   },
 

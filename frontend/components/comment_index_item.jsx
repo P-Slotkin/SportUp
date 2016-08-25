@@ -1,6 +1,7 @@
 const React = require('react');
 const CommentActions = require('../actions/comment_actions');
 const EventStore = require('../stores/event_store');
+const EventActions = require('../actions/event_actions')
 const SessionStore = require('../stores/session_store');
 const hashHistory = require('react-router').hashHistory;
 
@@ -40,8 +41,8 @@ const CommentIndexItem = React.createClass({
   _destroy(e){
     e.preventDefault();
     CommentActions.deleteComment(this.props.comment.id);
+    EventActions.getEvent(this.props.event.id);
     this.setState({destroyed: true});
-    hashHistory.push(`/events/${this.props.eventId}`);
   },
 
   render: function() {

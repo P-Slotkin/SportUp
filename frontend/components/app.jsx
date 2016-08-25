@@ -53,15 +53,13 @@ const App = React.createClass({
     let loggedInRightNavbar;
     if (SessionStore.isUserLoggedIn()) {
       loggedInRightNavbar = (<div className="navbar-right-list">
-        <div className="navbar-right-list-loggedin"> messages! </div>
-        <div className="navbar-right-list-loggedin"> notifcations! </div>
         <ProfileDropdown user={SessionStore.currentUser()}/>
       </div>);
 
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname)) {
       loggedInRightNavbar = (<div className="navbar-right-list">
         <div className="login-signup-buttons"><button onClick={this._demo} className="login-button">Demo</button></div>
-        <div className="login-signup-buttons"><Link to="/login">Log in</Link></div>
+        <div className="login-signup-buttons"><button onClick={this._login} className="login-button">Log in</button></div>
         <div className="login-signup-buttons"><button onClick={this._signup} className="login-button">Sign up</button></div>
       </div>
       );

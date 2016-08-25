@@ -19,7 +19,7 @@ const CommentForm = React.createClass({
     e.preventDefault();
     const commentData = this.state;
     CommentActions.createComment( commentData );
-    EventActions.fetchEvents();
+    EventActions.getEvent(this.props.eventId);
     this.setState({ body: "" });
   },
 

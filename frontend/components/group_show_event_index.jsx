@@ -11,7 +11,6 @@ module.exports = React.createClass({
   },
 
   componentDidMount() {
-    EventActions.fetchEvents();
     this.groupListener = GroupStore.addListener(this._groupChanged);
   },
 

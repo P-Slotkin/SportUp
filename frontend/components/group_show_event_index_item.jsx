@@ -29,48 +29,48 @@ const GroupShowEventIndexItem = React.createClass({
   _groupChanged() {
     this.setState({event: this.props.event});
   },
-
-  edit(e){
-    e.preventDefault();
-    hashHistory.push(`/events/${this.state.event.id}/edit`);
-  },
-
-  destroy(e){
-    e.preventDefault();
-    EventActions.deleteEvent(this.props.event.id);
-    this.setState({destroyed: true});
-    // GroupActions.getGroup(this.state.event.group_id);
-  },
-
-  join(e){
-    e.preventDefault();
-    if (SessionStore.currentUser() === undefined) {
-      hashHistory.push("/login");
-      return;
-    }
-    let left;
-    this.props.event.members.forEach((member) => {
-      if (member.id === SessionStore.currentUser().id) {
-        left = true;
-        this.props.event.rsvps.forEach((rsvp) => {
-          if (rsvp.user_id === SessionStore.currentUser().id) {
-            RsvpActions.deleteRsvp(rsvp.id);
-          }
-        });
-      }
-      let newRsvps = this.state.rsvps.filter( (rsvp) => {
-        return (rsvp !== SessionStore.currentUser().id);
-      });
-      this.setState({rsvps: newRsvps});
-    });
-    if (left !== true) {
-      RsvpActions.createRsvp( { user_id: SessionStore.currentUser().id, event_id: this.props.event.id });
-      let newRsvps = this.state.rsvps;
-      newRsvps.push(SessionStore.currentUser().id);
-      this.setState({rsvps: newRsvps});
-    }
-    GroupActions.getGroup(this.state.event.group_id);
-  },
+  // 
+  // edit(e){
+  //   e.preventDefault();
+  //   hashHistory.push(`/events/${this.state.event.id}/edit`);
+  // },
+  //
+  // destroy(e){
+  //   e.preventDefault();
+  //   EventActions.deleteEvent(this.props.event.id);
+  //   this.setState({destroyed: true});
+  //   // GroupActions.getGroup(this.state.event.group_id);
+  // },
+  //
+  // join(e){
+  //   e.preventDefault();
+  //   if (SessionStore.currentUser() === undefined) {
+  //     hashHistory.push("/login");
+  //     return;
+  //   }
+  //   let left;
+  //   this.props.event.members.forEach((member) => {
+  //     if (member.id === SessionStore.currentUser().id) {
+  //       left = true;
+  //       this.props.event.rsvps.forEach((rsvp) => {
+  //         if (rsvp.user_id === SessionStore.currentUser().id) {
+  //           RsvpActions.deleteRsvp(rsvp.id);
+  //         }
+  //       });
+  //     }
+  //     let newRsvps = this.state.rsvps.filter( (rsvp) => {
+  //       return (rsvp !== SessionStore.currentUser().id);
+  //     });
+  //     this.setState({rsvps: newRsvps});
+  //   });
+  //   if (left !== true) {
+  //     RsvpActions.createRsvp( { user_id: SessionStore.currentUser().id, event_id: this.props.event.id });
+  //     let newRsvps = this.state.rsvps;
+  //     newRsvps.push(SessionStore.currentUser().id);
+  //     this.setState({rsvps: newRsvps});
+  //   }
+  //   GroupActions.getGroup(this.state.event.group_id);
+  // },
 
   goToUser(id, e) {
     hashHistory.push(`/users/${id}`);

@@ -24,7 +24,6 @@ const GroupApiUtil = {
   },
 
   getGroup(id, success) {
-    console.log(id);
     $.ajax({
       url: `api/groups/${id}`,
       success

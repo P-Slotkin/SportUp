@@ -56,3 +56,8 @@
   width: 80px;
   margin-top: -10px;
 }
+
+.profile-dropdown-container {
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}

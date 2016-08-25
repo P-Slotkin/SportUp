@@ -18,12 +18,16 @@ const UserShow = React.createClass({
 
   componentDidMount() {
     this.userListener = UserStore.addListener(this._usersChanged);
-    this.groupListener = GroupStore.addListener(this._groupsChanged);
+    // this.groupListener = GroupStore.addListener(this._groupsChanged);
     UserActions.getUser(this.props.params.userId);
   },
 
+  componentWillReceiveProps(e) {
+    UserActions.getUser(e.routeParams.userId);
+  },
+
   componentWillUnmount() {
-    this.groupListener.remove();
+    // this.groupListener.remove();
     this.userListener.remove();
   },
 
@@ -35,23 +39,23 @@ const UserShow = React.createClass({
   _usersChanged() {
     const user = UserStore.find(this.props.params.userId);
     GroupActions.fetchGroups();
-    this.setState({ user: user });
+    this.setState({ user: user, groups: user.groups });
   },
 
-  _groupsChanged() {
-    let that = this;
-    let groups = GroupStore.all();
-    groups.forEach((group) => {
-      group.members = group.members.map((member) => {return member.id;});
-    });
-    let newGroups = [];
-    groups.forEach((group) => {
-      if (group.members.includes(that.state.user.id)) {
-        newGroups.push(group);
-      }
-    });
-    this.setState({ groups: newGroups});
-  },
+  // _groupsChanged() {
+  //   let that = this;
+  //   let groups = GroupStore.all();
+  //   groups.forEach((group) => {
+  //     group.members = group.members.map((member) => {return member.id;});
+  //   });
+  //   let newGroups = [];
+  //   groups.forEach((group) => {
+  //     if (group.members.includes(that.state.user.id)) {
+  //       newGroups.push(group);
+  //     }
+  //   });
+  //   this.setState({ groups: newGroups});
+  // },
 
   groupItems() {
       if (this.state.user !== "") {
