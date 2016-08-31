@@ -104,7 +104,7 @@ const AllGroupsCalendar = React.createClass({
       output = eventsHash[this.state.year.toString() + '-' + monthTwoDigits + '-' + dayTwoDigits].map((event)=>{
         if (counter <= 0) {
           let date = new Date(event.date);
-          let outputDate = DateConstants[(date.getMonth() + 1)] + ", " + date.getDate();
+          let outputDate = DateConstants[(date.getMonth() + 1)] + " " + date.getDate();
           let minutes;
           if (date.getMinutes().toString().length < 2) {
             minutes = "0" + date.getMinutes();
